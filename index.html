@@ -115,19 +115,11 @@
       <button class="preset" onclick="preset({prog_cons:-22,tech_ludd:28,mod_nihil:4,dav_dub:-18})">Tech-right</button>
       <button class="preset" onclick="preset({prog_cons:14,tech_ludd:10,mod_nihil:20,dav_dub:28})">Davos liberal</button>
     </div>
-  </div>
-
-  <div class="panel">
-    <div class="ph">Your closest match</div>
-    <div class="top" id="top"></div>
-  </div>
-
-  <div class="panel">
-    <div class="ph">Your crew — add yourself & friends (saved in this browser)</div>
-    <div class="miniform">
-      <input type="text" id="crewName" placeholder="name (e.g. Me, Dave…)" style="min-width:160px">
-      <button class="go" onclick="addFromState()">＋ Save my current spot</button>
-      <button onclick="togglePct()">＋ From quiz %</button>
+    <div class="miniform" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--line)">
+      <label class="muted" style="font-weight:700">💾 Save this spot as a person:</label>
+      <input type="text" id="crewName" placeholder="name (e.g. Me, Dave…)" style="min-width:150px">
+      <button class="go" onclick="addFromState()">＋ Save</button>
+      <button onclick="togglePct()">…or from quiz %</button>
     </div>
     <div class="miniform" id="pctForm" style="display:none">
       <span class="muted">Quiz %:</span>
@@ -137,15 +129,11 @@
       <label class="muted">Davos <input type="number" id="pd" min="0" max="100" value="50"></label>
       <button class="go" onclick="addFromPct()">Add</button>
     </div>
-    <div id="crewList" style="margin-top:12px"></div>
-    <div class="row" style="margin-top:10px">
-      <button onclick="exportCrew()" id="expbtn">⬇ Export crew (backup)</button>
-      <button onclick="toggleImport()">⬆ Import</button>
-    </div>
-    <div id="importBox" style="display:none;margin-top:8px">
-      <textarea id="importText" rows="3" placeholder="paste exported crew JSON here"></textarea>
-      <div class="row" style="margin-top:6px"><button class="go" onclick="importCrew()">Load it</button></div>
-    </div>
+  </div>
+
+  <div class="panel">
+    <div class="ph">Your closest match</div>
+    <div class="top" id="top"></div>
   </div>
 
   <div class="panel">
@@ -173,6 +161,19 @@
       <button onclick="cmpRandom()">🎲 Random pair</button>
     </div>
     <div id="cmpOut"></div>
+  </div>
+
+  <div class="panel">
+    <div class="ph">Your crew — saved in this browser</div>
+    <div id="crewList"></div>
+    <div class="row" style="margin-top:10px">
+      <button onclick="exportCrew()" id="expbtn">⬇ Export crew (backup)</button>
+      <button onclick="toggleImport()">⬆ Import</button>
+    </div>
+    <div id="importBox" style="display:none;margin-top:8px">
+      <textarea id="importText" rows="3" placeholder="paste exported crew JSON here"></textarea>
+      <div class="row" style="margin-top:6px"><button class="go" onclick="importCrew()">Load it</button></div>
+    </div>
   </div>
 
   <div class="foot">

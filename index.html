@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>2020s Political Compass — Playground</title>
 <style>
-  :root{--blue:#3f8edd;--red:#e0503f;--ink:#1d2733;--muted:#6a6b6c;--line:#e6e8ec;--card:#fff;--bg:#f4f6f9}
+  :root{--blue:#3f8edd;--red:#e0503f;--ink:#1d2733;--muted:#6a6b6c;--line:#e6e8ec;--card:#fff;--bg:#f4f6f9;--crew:#e8a32c}
   *{box-sizing:border-box}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}
   .wrap{max-width:980px;margin:0 auto;padding:24px 18px 90px}
@@ -28,11 +28,19 @@
   button{font:inherit;font-size:13px;font-weight:600;border:1px solid var(--line);background:#fff;color:var(--ink);padding:7px 13px;border-radius:9px;cursor:pointer}
   button:hover{border-color:#c8ccd2;background:#fafbfc}
   button.preset{background:#eef3fa;border-color:#d8e4f3;color:#2a5d97}
-  select{font:inherit;font-size:13px;padding:7px 10px;border-radius:9px;border:1px solid var(--line);background:#fff;max-width:100%}
+  button.go{background:var(--ink);color:#fff;border-color:var(--ink)}
   .legend{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:0 0 10px}
   .chip{font-size:12px;font-weight:700;padding:5px 11px;border-radius:20px;border:1px solid var(--line);background:#fff;cursor:pointer;display:flex;align-items:center;gap:6px}
   .chip .dot{width:9px;height:9px;border-radius:50%}
   .chip.off{opacity:.4}
+  /* searchable combobox */
+  .combo{position:relative;display:inline-block}
+  .combo input{font:inherit;font-size:13px;padding:7px 10px;border-radius:9px;border:1px solid var(--line);background:#fff;min-width:190px}
+  .combo-list{position:absolute;left:0;top:calc(100% + 3px);z-index:30;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 10px 28px rgba(0,0,0,.16);max-height:240px;overflow:auto;min-width:230px;display:none}
+  .combo-list.open{display:block}
+  .combo-item{padding:7px 11px;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:8px;white-space:nowrap}
+  .combo-item:hover{background:#f1f5fa}
+  .combo-item .dot{width:8px;height:8px;border-radius:50%;flex:none}
   .top{display:flex;align-items:center;gap:16px;justify-content:center;flex-wrap:wrap}
   .top .avatar,.top img{width:84px;height:84px;border-radius:50%;object-fit:cover;border:3px solid var(--blue);background:#eee;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;color:#fff}
   .top .info{text-align:left;min-width:200px}
@@ -51,9 +59,8 @@
   svg text{font-family:inherit}
   .mapwrap{position:relative}
   #map circle.fig{cursor:pointer}
-  .axlbl{font-size:7px;fill:#9aa0a8;font-weight:700;text-transform:uppercase;letter-spacing:.4px}
-  .pop{position:absolute;z-index:10;pointer-events:none;background:#fff;border:1px solid var(--line);border-radius:10px;
-    box-shadow:0 6px 22px rgba(0,0,0,.16);padding:9px 11px;font-size:12px;max-width:230px;display:none}
+  .axlbl{font-size:7px;fill:#8a9099;font-weight:800;text-transform:uppercase;letter-spacing:.4px}
+  .pop{position:absolute;z-index:10;pointer-events:none;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 6px 22px rgba(0,0,0,.16);padding:9px 11px;font-size:12px;max-width:230px;display:none}
   .pop .pn{font-weight:800;font-size:13px}
   .pop .pd{color:var(--muted);font-size:11px;font-style:italic;margin-bottom:5px}
   .pop .pf{font-weight:700;font-size:11px}
@@ -63,28 +70,41 @@
   .cmpcol{text-align:center}
   .cmpcol .nm{font-weight:800;font-size:15px}
   .cmpcol .desc{font-size:11.5px;color:var(--muted)}
-  .diffrow{display:flex;align-items:center;gap:8px;font-size:12.5px;margin:5px 0}
-  .diffrow .lab{width:110px;text-align:right;color:var(--muted);flex:none}
-  .diffrow .track{flex:1;height:8px;background:#eef0f3;border-radius:5px;position:relative}
-  .diffrow .track>i{position:absolute;height:100%;border-radius:5px;background:var(--ink);opacity:.55}
-  .diffrow .val{width:30px;font-weight:700;font-variant-numeric:tabular-nums}
+  .crow{display:flex;align-items:center;gap:10px;margin:6px 0}
+  .cpole{font-size:11px;font-weight:700;color:var(--muted);width:78px;flex:none}
+  .cpole.l{text-align:right}.cpole.r{text-align:left}
+  .ctrack{flex:1;position:relative;height:34px}
+  .cbase{position:absolute;top:50%;left:0;right:0;height:3px;border-radius:3px;background:#eef0f3;transform:translateY(-50%)}
+  .cmk{position:absolute;transform:translateX(-50%);font-size:10px;font-weight:800;color:#fff;padding:1px 6px;border-radius:7px;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .cmk.a{top:0}.cmk.b{bottom:0}
+  .clegend{display:flex;gap:16px;justify-content:center;font-size:12px;font-weight:700;margin-bottom:6px}
+  .clegend .sw{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:middle}
+  .crewrow{display:flex;align-items:center;gap:9px;font-size:13px;padding:6px 0;border-bottom:1px solid var(--line)}
+  .crewrow .cd{width:10px;height:10px;border-radius:50%;flex:none;background:var(--crew)}
+  .crewrow .ld{cursor:pointer;color:var(--blue);font-weight:600;font-size:12px}
+  .crewrow .x{cursor:pointer;color:var(--red);font-weight:800;margin-left:auto;font-size:15px}
+  .miniform{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center;margin-top:10px}
+  .miniform input[type=number]{width:66px;font:inherit;font-size:13px;padding:6px;border-radius:8px;border:1px solid var(--line);text-align:center}
+  .miniform input[type=text]{font:inherit;font-size:13px;padding:7px 10px;border-radius:9px;border:1px solid var(--line)}
+  .muted{color:var(--muted);font-size:12px}
   .foot{text-align:center;color:var(--muted);font-size:12px;margin-top:24px;line-height:1.6}
   .foot code{background:#eceef1;padding:1px 5px;border-radius:4px}
+  textarea{width:100%;font:inherit;font-size:12px;padding:8px;border-radius:9px;border:1px solid var(--line)}
   @media(max-width:560px){.cmp{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>The 2020s Political Compass — Playground</h1>
-  <p class="sub">Drag the sliders, snap to a real person, and see your <b>cluster</b> and your spot on the map.
+  <p class="sub">Drag the sliders, add yourself & your friends, and see your <b>cluster</b> and your spot on the map.
   Model from <a href="https://britmonkey.com/2020s-political-compass/" target="_blank" rel="noopener">britmonkey.com</a>,
-  plus 150+ added world figures and 2 experimental axes.</p>
+  plus 180+ world figures and 2 experimental axes.</p>
 
   <div class="panel">
     <div id="sliders"></div>
     <div class="row" style="margin:14px 0 4px">
-      <label style="font-size:13px;color:var(--muted);font-weight:600">Snap to a person:</label>
-      <select id="jump"><option value="">— choose —</option></select>
+      <label class="muted" style="font-weight:600">Snap to a person:</label>
+      <span id="jumpHost"></span>
       <button onclick="setAll(0)">Centre</button>
       <button onclick="randomize()">🎲 Random</button>
       <button id="copybtn" onclick="copyLink()">🔗 Copy my link</button>
@@ -103,14 +123,41 @@
   </div>
 
   <div class="panel">
+    <div class="ph">Your crew — add yourself & friends (saved in this browser)</div>
+    <div class="miniform">
+      <input type="text" id="crewName" placeholder="name (e.g. Me, Dave…)" style="min-width:160px">
+      <button class="go" onclick="addFromState()">＋ Save my current spot</button>
+      <button onclick="togglePct()">＋ From quiz %</button>
+    </div>
+    <div class="miniform" id="pctForm" style="display:none">
+      <span class="muted">Quiz %:</span>
+      <label class="muted">Woke <input type="number" id="pw" min="0" max="100" value="50"></label>
+      <label class="muted">Techbro <input type="number" id="pt" min="0" max="100" value="50"></label>
+      <label class="muted">Hopepilled <input type="number" id="ph2" min="0" max="100" value="50"></label>
+      <label class="muted">Davos <input type="number" id="pd" min="0" max="100" value="50"></label>
+      <button class="go" onclick="addFromPct()">Add</button>
+    </div>
+    <div id="crewList" style="margin-top:12px"></div>
+    <div class="row" style="margin-top:10px">
+      <button onclick="exportCrew()" id="expbtn">⬇ Export crew (backup)</button>
+      <button onclick="toggleImport()">⬆ Import</button>
+    </div>
+    <div id="importBox" style="display:none;margin-top:8px">
+      <textarea id="importText" rows="3" placeholder="paste exported crew JSON here"></textarea>
+      <div class="row" style="margin-top:6px"><button class="go" onclick="importCrew()">Load it</button></div>
+    </div>
+  </div>
+
+  <div class="panel">
     <div class="ph">The political landscape — where you sit</div>
     <div class="legend" id="legend"></div>
     <div class="mapwrap">
-      <svg id="map" width="100%" viewBox="0 0 140 112" role="img"></svg>
+      <svg id="map" width="100%" viewBox="0 0 140 110" role="img"></svg>
       <div class="pop" id="pop"></div>
     </div>
     <div style="text-align:center;font-size:11px;color:var(--muted);margin-top:6px">
-      Hover a dot for who's around it · click to become that person · ⭐ is you. Axes = the 2 strongest combined dimensions.
+      Hover a dot for who's around it · click to become that person · ⭐ is you · ◆ is your crew.<br>
+      Horizontal ◂ Chud/Strongman → Woke/Globalist ▸ · Vertical ▲ Techbro / ▼ Luddite·Doomer.
     </div>
   </div>
 
@@ -122,8 +169,8 @@
   <div class="panel">
     <div class="ph">Morph path — who's between two people</div>
     <div class="row" style="margin-bottom:12px">
-      <select id="mpA"></select><span style="font-weight:800;color:var(--muted)">→</span><select id="mpB"></select>
-      <button class="preset" id="walkbtn" onclick="walk()">▶ Walk it</button>
+      <span id="mpAHost"></span><span style="font-weight:800;color:var(--muted)">→</span><span id="mpBHost"></span>
+      <button class="go" onclick="walk()">▶ Walk it</button>
     </div>
     <div id="mpOut" style="text-align:center;color:var(--muted);font-size:13px">Pick two people and walk the line between them.</div>
   </div>
@@ -131,16 +178,18 @@
   <div class="panel">
     <div class="ph">Compare two people</div>
     <div class="row" style="margin-bottom:12px">
-      <select id="cmpA"></select><span style="font-weight:800;color:var(--muted)">vs</span><select id="cmpB"></select>
+      <span id="cmpAHost"></span><span style="font-weight:800;color:var(--muted)">vs</span><span id="cmpBHost"></span>
+      <button onclick="cmpRandom()">🎲 Random</button>
+      <button class="preset" onclick="cmpInteresting()">💡 Surprise me</button>
     </div>
     <div id="cmpOut"></div>
   </div>
 
   <div class="foot">
-    Each axis runs −32…+32. The 4 <b>Quiz axes</b> come from the real test; the 2 <b>Extended axes</b> are experimental add-ons
+    Each axis runs −32…+32. The 4 <b>Quiz axes</b> are the real test; the 2 <b>Extended axes</b> are experimental
     (Insider/Outsider partly overlaps Davos+Hopepilled — Secular/Religious is the genuinely new one).<br>
     30 BritMonkey figures use exact coordinates; everyone else is a <b>subjective estimate</b> — fork & PR <code>figures.js</code>.
-    Factions auto-detected by k-means. Not affiliated with BritMonkey.
+    Your crew is stored only in your browser. Not affiliated with BritMonkey.
   </div>
 </div>
 
@@ -153,35 +202,42 @@ const META={
   sec_rel:{l:'Religious',r:'Secular',g:'ext'}, est_out:{l:'Insider',r:'Outsider',g:'ext'},
 };
 const SHORT={prog_cons:'w',tech_ludd:'t',mod_nihil:'h',dav_dub:'d',sec_rel:'s',est_out:'o'};
-const AX4=MODEL.AX4, AX6=MODEL.AX6, MAX=32, FAC=MODEL.factions, F=window.FIGURES;
+const AX4=MODEL.AX4, AX6=MODEL.AX6, MAX=32, FAC=MODEL.factions, FIGURES=window.FIGURES;
+const CREW_META={name:'Your crew',color:'#e8a32c'};
+const LS='pcp_crew_v1';
 const state={}; AX6.forEach(a=>state[a]=0);
-let useExt=true, activeFac=new Set(FAC.map((_,i)=>i));
+let useExt=true, activeFac=new Set(FAC.map((_,i)=>i)), showCrew=true;
+let CREW=loadCrew();
+const ALL=()=>FIGURES.concat(CREW);
 const axes=()=>useExt?AX6:AX4;
 const curPCA=()=>useExt?MODEL.pca6:MODEL.pca4;
 
+/* ---------- crew storage ---------- */
+function loadCrew(){try{const a=JSON.parse(localStorage.getItem(LS)||'[]');
+  return a.filter(c=>c&&c.name&&c.scores).map(c=>{const sc={};AX6.forEach(x=>sc[x]=+c.scores[x]||0);
+    return {name:c.name,description:c.description||'Your crew',scores:sc,crew:true,fac:'crew',image:null};});
+}catch(e){return[];}}
+function saveCrew(){localStorage.setItem(LS,JSON.stringify(CREW.map(c=>({name:c.name,description:c.description,scores:c.scores}))));}
+
 /* ---------- sliders ---------- */
 const sl=document.getElementById('sliders');
-function sliderRow(a){
-  const m=META[a];
-  const w=document.createElement('div');w.className='axis';w.id='ax_'+a;
+function sliderRow(a){const m=META[a];const w=document.createElement('div');w.className='axis';w.id='ax_'+a;
   w.innerHTML=`<div class="heads"><span class="l">${m.l} <span class="pct" id="pl_${a}"></span></span>
     <span class="r"><span class="pct" id="pr_${a}"></span> ${m.r}</span></div>
     <input type="range" min="-32" max="32" step="1" value="0" id="s_${a}">`;
-  w.querySelector('input').addEventListener('input',e=>{state[a]=+e.target.value;jumpReset();render();});
-  return w;
-}
+  w.querySelector('input').addEventListener('input',e=>{state[a]=+e.target.value;jumpReset();render();});return w;}
 const qh=document.createElement('div');qh.className='grouplbl';qh.textContent='Quiz axes (from the real test)';
-sl.appendChild(qh); AX4.forEach(a=>sl.appendChild(sliderRow(a)));
+sl.appendChild(qh);AX4.forEach(a=>sl.appendChild(sliderRow(a)));
 const eh=document.createElement('div');eh.className='grouplbl';
-eh.innerHTML=`Extended axes (experimental)
-  <label class="toggle"><input type="checkbox" id="extchk" checked> use in matching</label>`;
-sl.appendChild(eh); ['sec_rel','est_out'].forEach(a=>sl.appendChild(sliderRow(a)));
+eh.innerHTML=`Extended axes (experimental)<label class="toggle"><input type="checkbox" id="extchk" checked> use in matching</label>`;
+sl.appendChild(eh);['sec_rel','est_out'].forEach(a=>sl.appendChild(sliderRow(a)));
 document.getElementById('extchk').addEventListener('change',e=>{useExt=e.target.checked;buildMap();render();});
 
 /* ---------- helpers ---------- */
 function initials(n){return n.split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase();}
 function imgFail(el){const d=document.createElement('div');d.className=el.dataset.sz;d.style.background=el.dataset.col;d.textContent=el.dataset.ini;el.replaceWith(d);}
-function facColor(f){return FAC[f.fac].color;}
+function facColor(f){return f.crew?CREW_META.color:FAC[f.fac].color;}
+function facName(f){return f.crew?CREW_META.name:FAC[f.fac].name;}
 function avatarHTML(f,cls,sz){const col=facColor(f);
   if(f.image)return `<img class="${cls}" src="${f.image}" alt="" loading="lazy" data-sz="${sz}" data-col="${col}" data-ini="${initials(f.name)}" onerror="imgFail(this)">`;
   return `<div class="${sz}" style="background:${col}">${initials(f.name)}</div>`;}
@@ -189,73 +245,108 @@ function dist(f){let s=0;for(const a of axes()){const d=state[a]-f.scores[a];s+=
 function distFF(p,q){let s=0;for(const a of axes()){const d=p.scores[a]-q.scores[a];s+=d*d;}return Math.sqrt(s);}
 function sim(d){const mx=useExt?110:90;return Math.max(0,Math.round(100*(1-d/mx)));}
 function proj(sc){const p=curPCA();let x=0,y=0;axes().forEach((a,i)=>{const c=sc[a]-p.mean[i];x+=c*p.pc1[i];y+=c*p.pc2[i];});return[x,y];}
-function nearestTo(f,k){return F.filter(g=>g!==f).map(g=>({g,d:distFF(f,g)})).sort((a,b)=>a.d-b.d).slice(0,k);}
+function isShown(f){return f.crew?showCrew:activeFac.has(f.fac);}
+function nearestTo(f,k){return ALL().filter(g=>g!==f).map(g=>({g,d:distFF(f,g)})).sort((a,b)=>a.d-b.d).slice(0,k);}
+
+/* ---------- searchable combobox ---------- */
+function createCombo(host,initial,onPick){
+  const wrap=document.createElement('div');wrap.className='combo';
+  const input=document.createElement('input');input.type='text';input.placeholder='search…';input.value=initial||'';
+  const list=document.createElement('div');list.className='combo-list';
+  wrap.appendChild(input);wrap.appendChild(list);host.appendChild(wrap);
+  let value=initial||'';
+  function draw(q){const ql=q.toLowerCase();
+    const items=ALL().filter(f=>f.name.toLowerCase().includes(ql)).slice(0,40);
+    list.innerHTML=items.map(f=>`<div class="combo-item"><span class="dot" style="background:${facColor(f)}"></span>${f.name}</div>`).join('')||'<div class="combo-item">no match</div>';}
+  input.addEventListener('focus',()=>{draw('');list.classList.add('open');});
+  input.addEventListener('input',()=>{draw(input.value);list.classList.add('open');});
+  input.addEventListener('blur',()=>setTimeout(()=>list.classList.remove('open'),150));
+  list.addEventListener('mousedown',e=>{const it=e.target.closest('.combo-item');if(!it||it.textContent==='no match')return;
+    e.preventDefault();value=it.textContent.trim();input.value=value;list.classList.remove('open');onPick(value);});
+  return {get:()=>value,set:n=>{value=n;input.value=n;}};
+}
+const jumpCombo=createCombo(document.getElementById('jumpHost'),'',n=>{const f=ALL().find(x=>x.name===n);if(f){AX6.forEach(a=>state[a]=f.scores[a]);render();}});
+const cmpA=createCombo(document.getElementById('cmpAHost'),'Bernie Sanders',renderCompare);
+const cmpB=createCombo(document.getElementById('cmpBHost'),'Donald Trump',renderCompare);
+const mpA=createCombo(document.getElementById('mpAHost'),'Bernie Sanders',()=>{});
+const mpB=createCombo(document.getElementById('mpBHost'),'Donald Trump',()=>{});
 
 /* ---------- legend ---------- */
-const lg=document.getElementById('legend');
-FAC.forEach((f,i)=>{const c=document.createElement('span');c.className='chip';
-  c.innerHTML=`<span class="dot" style="background:${f.color}"></span>${f.name}`;c.title=f.blurb;
-  c.onclick=()=>{if(activeFac.has(i)){activeFac.delete(i);c.classList.add('off');}else{activeFac.add(i);c.classList.remove('off');}render();};
-  lg.appendChild(c);});
+function renderLegend(){const lg=document.getElementById('legend');lg.innerHTML='';
+  FAC.forEach((f,i)=>{const c=document.createElement('span');c.className='chip'+(activeFac.has(i)?'':' off');
+    c.innerHTML=`<span class="dot" style="background:${f.color}"></span>${f.name}`;c.title=f.blurb;
+    c.onclick=()=>{activeFac.has(i)?activeFac.delete(i):activeFac.add(i);renderLegend();render();};lg.appendChild(c);});
+  if(CREW.length){const c=document.createElement('span');c.className='chip'+(showCrew?'':' off');
+    c.innerHTML=`<span class="dot" style="background:${CREW_META.color}"></span>Your crew`;
+    c.onclick=()=>{showCrew=!showCrew;renderLegend();render();};lg.appendChild(c);}}
 
 /* ---------- map ---------- */
-const svg=document.getElementById('map'), pop=document.getElementById('pop'), SVGNS='http://www.w3.org/2000/svg';
-let mapTf;
+const svg=document.getElementById('map'),pop=document.getElementById('pop'),SVGNS='http://www.w3.org/2000/svg';
+let mapTf,MAPF;
 function buildMap(){
-  while(svg.firstChild)svg.removeChild(svg.firstChild);
-  const pts=F.map(f=>proj(f.scores));
+  while(svg.firstChild)svg.removeChild(svg.firstChild);MAPF=ALL();
+  const pts=MAPF.map(f=>proj(f.scores));
   let xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);
   let x0=Math.min(...xs),x1=Math.max(...xs),y0=Math.min(...ys),y1=Math.max(...ys);
-  const px=(x1-x0)*.08,py=(y1-y0)*.10;x0-=px;x1+=px;y0-=py;y1+=py;
-  const L=8,R=132,T=12,B=92;                    // plot rect; labels live OUTSIDE it
-  mapTf=sc=>{const[x,y]=proj(sc);
-    let sx=L+(x-x0)/(x1-x0)*(R-L),sy=B-(y-y0)/(y1-y0)*(B-T);
+  const px=(x1-x0)*.06||1,py=(y1-y0)*.08||1;x0-=px;x1+=px;y0-=py;y1+=py;
+  const L=22,R=118,T=14,B=92;                  // plot rect; pole labels live in the margins
+  mapTf=sc=>{const[x,y]=proj(sc);let sx=L+(x-x0)/(x1-x0)*(R-L),sy=B-(y-y0)/(y1-y0)*(B-T);
     return[Math.max(L,Math.min(R,sx)),Math.max(T,Math.min(B,sy))];};
-  const[cx,cy]=mapTf({prog_cons:0,tech_ludd:0,mod_nihil:0,dav_dub:0,sec_rel:0,est_out:0});
+  let[cx,cy]=mapTf({prog_cons:0,tech_ludd:0,mod_nihil:0,dav_dub:0,sec_rel:0,est_out:0});
+  cx=Math.max(L+8,Math.min(R-8,cx));cy=Math.max(T+6,Math.min(B-6,cy));
   const line=(a,b,c,d)=>{const e=document.createElementNS(SVGNS,'line');e.setAttribute('x1',a);e.setAttribute('y1',b);e.setAttribute('x2',c);e.setAttribute('y2',d);e.setAttribute('stroke','#eef0f3');e.setAttribute('stroke-width','.5');svg.appendChild(e);};
   line(L,cy,R,cy);line(cx,T,cx,B);
   const lbl=(x,y,t,anc)=>{const e=document.createElementNS(SVGNS,'text');e.setAttribute('x',x);e.setAttribute('y',y);e.setAttribute('class','axlbl');e.setAttribute('text-anchor',anc);e.textContent=t;svg.appendChild(e);};
-  lbl(cx,T-4.5,'▲ Techbro','middle');                 // top margin
-  lbl(L,B+8,'◂ Chud · Strongman','start');            // bottom margin row
-  lbl(cx,B+8,'▼ Luddite · Doomer','middle');
-  lbl(R,B+8,'Woke · Globalist ▸','end');
-  F.forEach((f,i)=>{const[sx,sy]=mapTf(f.scores);
-    const c=document.createElementNS(SVGNS,'circle');
-    c.setAttribute('cx',sx);c.setAttribute('cy',sy);c.setAttribute('r',1.7);
-    c.setAttribute('fill',facColor(f));c.setAttribute('class','fig');c.dataset.i=i;
-    c.addEventListener('mouseenter',ev=>showPop(f,ev));
-    c.addEventListener('mousemove',ev=>movePop(ev));
-    c.addEventListener('mouseleave',hidePop);
-    c.addEventListener('click',()=>{AX6.forEach(a=>state[a]=f.scores[a]);document.getElementById('jump').value=f.name;render();});
+  lbl(cx,T-5,'▲ Techbro','middle');            // top margin
+  lbl(cx,B+9,'▼ Luddite','middle');            // bottom margin
+  lbl(2,cy-4,'◂ Chud','start');                // left margin
+  lbl(138,cy-4,'Woke ▸','end');                // right margin
+  MAPF.forEach((f,i)=>{const[sx,sy]=mapTf(f.scores);
+    const c=document.createElementNS(SVGNS,'circle');c.setAttribute('cx',sx);c.setAttribute('cy',sy);
+    c.setAttribute('class','fig');c.dataset.i=i;c.setAttribute('fill',facColor(f));
+    if(f.crew){c.setAttribute('r',2.6);c.setAttribute('stroke','#1d2733');c.setAttribute('stroke-width','.9');}else{c.setAttribute('r',1.7);}
+    c.addEventListener('mouseenter',ev=>showPop(f,ev));c.addEventListener('mousemove',movePop);c.addEventListener('mouseleave',hidePop);
+    c.addEventListener('click',()=>{AX6.forEach(a=>state[a]=f.scores[a]);jumpCombo.set(f.name);render();});
     svg.appendChild(c);});
   const you=document.createElementNS(SVGNS,'text');you.setAttribute('id','youmark');you.setAttribute('text-anchor','middle');you.setAttribute('font-size','7');you.textContent='⭐';svg.appendChild(you);
   paintMap();
 }
 function paintMap(){
-  svg.querySelectorAll('circle.fig').forEach(c=>{const f=F[+c.dataset.i];const on=activeFac.has(f.fac);
-    c.setAttribute('opacity',on?'.85':'.07');c.setAttribute('r',on?'1.7':'1.3');});
+  svg.querySelectorAll('circle.fig').forEach(c=>{const f=MAPF[+c.dataset.i];const on=isShown(f);
+    c.setAttribute('opacity',on?(f.crew?'1':'.85'):'.07');});
   const[yx,yy]=mapTf(state);const ym=document.getElementById('youmark');if(ym){ym.setAttribute('x',yx);ym.setAttribute('y',yy+2.5);}
 }
-function showPop(f,ev){
-  const near=nearestTo(f,3).map(o=>o.g.name).join(', ');
+function showPop(f,ev){const near=nearestTo(f,3).map(o=>o.g.name).join(', ');
   pop.innerHTML=`<div class="pn">${f.name}</div><div class="pd">${f.description||''}</div>
-    <div class="pf" style="color:${facColor(f)}">${FAC[f.fac].name}</div>
-    <div class="pnear">Nearest: <b>${near}</b></div>`;
-  pop.style.display='block';movePop(ev);
-}
+    <div class="pf" style="color:${facColor(f)}">${facName(f)}</div><div class="pnear">Nearest: <b>${near}</b></div>`;
+  pop.style.display='block';movePop(ev);}
 function movePop(ev){const r=svg.getBoundingClientRect();let x=ev.clientX-r.left+12,y=ev.clientY-r.top+12;
   if(x+240>r.width)x=ev.clientX-r.left-240;pop.style.left=x+'px';pop.style.top=y+'px';}
 function hidePop(){pop.style.display='none';}
 
-/* ---------- selectors ---------- */
-const byName=[...F].sort((a,b)=>a.name.localeCompare(b.name));
-function fillSelect(el,ph){el.innerHTML=ph?`<option value="">${ph}</option>`:'';byName.forEach(f=>{const o=document.createElement('option');o.value=f.name;o.textContent=f.name;el.appendChild(o);});}
-const jump=document.getElementById('jump');fillSelect(jump,'— choose —');
-jump.onchange=e=>{const f=F.find(x=>x.name===e.target.value);if(f){AX6.forEach(a=>state[a]=f.scores[a]);render();}};
-function jumpReset(){jump.value='';}
-const cmpA=document.getElementById('cmpA'),cmpB=document.getElementById('cmpB');
-fillSelect(cmpA);fillSelect(cmpB);cmpA.value='Bernie Sanders';cmpB.value='Alexandria Ocasio-Cortez';
-cmpA.onchange=cmpB.onchange=renderCompare;
+/* ---------- crew UI ---------- */
+function refreshAll(){saveCrew();buildMap();renderLegend();renderCrew();render();}
+function addFromState(){const n=(document.getElementById('crewName').value||'').trim();if(!n)return alert('Give them a name first.');
+  const sc={};AX6.forEach(a=>sc[a]=state[a]);CREW.push({name:n,description:'Your crew',scores:sc,crew:true,fac:'crew',image:null});
+  document.getElementById('crewName').value='';refreshAll();}
+function pct2(p){return Math.round((+p||0)/100*64-32);}
+function togglePct(){const f=document.getElementById('pctForm');f.style.display=f.style.display==='none'?'flex':'none';}
+function addFromPct(){const n=(document.getElementById('crewName').value||'').trim();if(!n)return alert('Give them a name first.');
+  const sc={prog_cons:pct2(pw.value),tech_ludd:pct2(pt.value),mod_nihil:pct2(ph2.value),dav_dub:pct2(pd.value),sec_rel:0,est_out:0};
+  CREW.push({name:n,description:'Your crew',scores:sc,crew:true,fac:'crew',image:null});
+  document.getElementById('crewName').value='';refreshAll();}
+function loadCrewMember(i){const f=CREW[i];AX6.forEach(a=>state[a]=f.scores[a]);jumpCombo.set(f.name);render();}
+function delCrew(i){CREW.splice(i,1);refreshAll();}
+function renderCrew(){const el=document.getElementById('crewList');
+  if(!CREW.length){el.innerHTML='<div class="muted">No one yet. Add yourself with “Save my current spot”.</div>';return;}
+  el.innerHTML=CREW.map((c,i)=>`<div class="crewrow"><span class="cd"></span><b>${c.name}</b>
+    <span class="ld" onclick="loadCrewMember(${i})">load ↺</span><span class="x" onclick="delCrew(${i})">×</span></div>`).join('');}
+function exportCrew(){const j=JSON.stringify(CREW.map(c=>({name:c.name,scores:c.scores})));
+  navigator.clipboard?.writeText(j);const b=document.getElementById('expbtn');const o=b.textContent;b.textContent='✓ Copied JSON';setTimeout(()=>b.textContent=o,1500);}
+function toggleImport(){const b=document.getElementById('importBox');b.style.display=b.style.display==='none'?'block':'none';}
+function importCrew(){try{const a=JSON.parse(document.getElementById('importText').value);
+  a.forEach(c=>{if(c&&c.name&&c.scores){const sc={};AX6.forEach(x=>sc[x]=+c.scores[x]||0);CREW.push({name:c.name,description:'Your crew',scores:sc,crew:true,fac:'crew',image:null});}});
+  document.getElementById('importText').value='';toggleImport();refreshAll();}catch(e){alert('Could not parse that JSON.');}}
 
 /* ---------- render ---------- */
 function render(){
@@ -263,73 +354,88 @@ function render(){
     const lp=Math.round((v+MAX)/(2*MAX)*100);inp.style.setProperty('--fill',lp+'%');
     document.getElementById('pl_'+a).textContent=lp+'%';document.getElementById('pr_'+a).textContent=(100-lp)+'%';});
   ['sec_rel','est_out'].forEach(a=>document.getElementById('ax_'+a).classList.toggle('dim',!useExt));
-
-  const ranked=F.filter(f=>activeFac.has(f.fac)).map(f=>({f,d:dist(f)})).sort((x,y)=>x.d-y.d);
+  const ranked=ALL().filter(isShown).map(f=>({f,d:dist(f)})).sort((x,y)=>x.d-y.d);
   paintMap();
-  if(!ranked.length){document.getElementById('top').innerHTML='<i>No factions selected</i>';document.getElementById('cluster').innerHTML='';updateURL();return;}
+  if(!ranked.length){document.getElementById('top').innerHTML='<i>Nothing selected</i>';document.getElementById('cluster').innerHTML='';updateURL();return;}
   const t=ranked[0],col=facColor(t.f);
   document.getElementById('top').innerHTML=`${avatarHTML(t.f,'','avatar')}
     <div class="info"><div class="name" style="color:${col}">${t.f.name}</div>
     <div class="desc">${t.f.description||''}</div>
     <div class="sim" style="color:${col}">${sim(t.d)}% match
-    <span class="grpTag" style="background:${col}22;color:${col}">${FAC[t.f.fac].name}</span></div></div>`;
+    <span class="grpTag" style="background:${col}22;color:${col}">${facName(t.f)}</span></div></div>`;
   document.getElementById('cluster').innerHTML=ranked.slice(0,12).map((r,i)=>{const c=facColor(r.f);
-    return `<div class="fig"><span class="rank">${i+1}</span>
-      ${avatarHTML(r.f,'pic','av')}<div style="min-width:0"><div class="nm">${r.f.name}</div>
-      <div class="meta">${sim(r.d)}% · ${FAC[r.f.fac].name}</div>
+    return `<div class="fig"><span class="rank">${i+1}</span>${avatarHTML(r.f,'pic','av')}
+      <div style="min-width:0"><div class="nm">${r.f.name}</div><div class="meta">${sim(r.d)}% · ${facName(r.f)}</div>
       <div class="bar"><i style="width:${sim(r.d)}%;background:${c}"></i></div></div></div>`;}).join('');
   updateURL();
 }
-function renderCompare(){
-  const A=F.find(x=>x.name===cmpA.value),B=F.find(x=>x.name===cmpB.value);
+const CA='#2f6fb0',CB='#d96b1f';
+function shortName(f){return f.name.split(/\s+/)[0];}
+function fmt(v){return(v>0?'+':'')+v;}
+function renderCompare(){const A=ALL().find(x=>x.name===cmpA.get()),B=ALL().find(x=>x.name===cmpB.get());
   if(!A||!B){document.getElementById('cmpOut').innerHTML='';return;}
   const tot=distFF(A,B);
-  const rows=axes().map(a=>{const m=META[a],da=A.scores[a],db=B.scores[a],diff=Math.abs(da-db);
-    const w=Math.round(diff/64*100),off=Math.round((Math.min(da,db)+32)/64*100);
-    return `<div class="diffrow"><span class="lab">${m.l}/${m.r}</span>
-      <span class="track"><i style="left:${off}%;width:${Math.max(2,w)}%"></i></span>
-      <span class="val">${diff}</span></div>`;}).join('');
+  const rows=axes().map(a=>{const m=META[a],va=A.scores[a],vb=B.scores[a];
+    const cl=v=>Math.max(6,Math.min(94,(32-v)/64*100));        // l-pole(+) on the left
+    return `<div class="crow"><div class="cpole l">${m.l}</div>
+      <div class="ctrack"><div class="cbase"></div>
+        <span class="cmk a" style="left:${cl(va)}%;background:${CA}">${shortName(A)} ${fmt(va)}</span>
+        <span class="cmk b" style="left:${cl(vb)}%;background:${CB}">${shortName(B)} ${fmt(vb)}</span>
+      </div><div class="cpole r">${m.r}</div></div>`;}).join('');
   const close=tot<12?'practically twins':tot<22?'fairly close':tot<34?'meaningfully apart':'opposite worlds';
-  document.getElementById('cmpOut').innerHTML=`<div class="cmp" style="margin-bottom:10px">
-    <div class="cmpcol"><div class="nm" style="color:${facColor(A)}">${A.name}</div><div class="desc">${A.description||''}</div></div>
-    <div class="cmpcol"><div class="nm" style="color:${facColor(B)}">${B.name}</div><div class="desc">${B.description||''}</div></div></div>
+  document.getElementById('cmpOut').innerHTML=`<div class="cmp" style="margin-bottom:8px">
+    <div class="cmpcol"><div class="nm" style="color:${CA}">${A.name}</div><div class="desc">${A.description||''}</div></div>
+    <div class="cmpcol"><div class="nm" style="color:${CB}">${B.name}</div><div class="desc">${B.description||''}</div></div></div>
+    <div class="clegend"><span><span class="sw" style="background:${CA}"></span>${A.name}</span><span><span class="sw" style="background:${CB}"></span>${B.name}</span></div>
     ${rows}<div style="text-align:center;margin-top:10px;font-weight:700">Total distance: ${tot.toFixed(1)} — <span style="color:var(--muted)">${close}</span></div>`;
 }
-
-/* ---------- morph path ---------- */
-const mpA=document.getElementById('mpA'),mpB=document.getElementById('mpB');
-fillSelect(mpA);fillSelect(mpB);mpA.value='Bernie Sanders';mpB.value='Donald Trump';
-let walkToken=0;
-function nearestPt(pt){let best=null,bd=1e9;for(const f of F){let d=0;for(const a of axes()){const x=pt[a]-f.scores[a];d+=x*x;}if(d<bd){bd=d;best=f;}}return best;}
-function pathSeq(A,B){const steps=160;let prev=null;const seq=[];
-  for(let i=0;i<=steps;i++){const t=i/steps;const pt={};AX6.forEach(a=>pt[a]=A.scores[a]*(1-t)+B.scores[a]*t);
-    const nf=nearestPt(pt);if(nf!==prev){seq.push(nf);prev=nf;}}return seq;}
-function walk(){
-  const A=F.find(x=>x.name===mpA.value),B=F.find(x=>x.name===mpB.value);
-  if(!A||!B||A===B){document.getElementById('mpOut').textContent='Pick two different people.';return;}
-  const seq=pathSeq(A,B);
-  document.getElementById('mpOut').innerHTML='<b>Route:</b> '+seq.map((f,i)=>
-    `<span style="color:${facColor(f)};font-weight:700">${f.name}</span>`).join('  →  ')+
-    `<div style="margin-top:6px;font-size:12px">${seq.length} stops between ${A.name} and ${B.name}</div>`;
-  // animate the ⭐ + sliders along the line
-  const my=++walkToken,steps=160;jumpReset();
-  (function frame(i){ if(my!==walkToken)return;
-    const t=i/steps;AX6.forEach(a=>state[a]=Math.round(A.scores[a]*(1-t)+B.scores[a]*t));render();
-    if(i<steps)setTimeout(()=>frame(i+1),18);
-  })(0);
+function cmpRandom(){const a=ALL(),i=Math.floor(Math.random()*a.length);let j=Math.floor(Math.random()*a.length);if(j===i)j=(j+1)%a.length;
+  cmpA.set(a[i].name);cmpB.set(a[j].name);renderCompare();}
+let interestingPool=[];
+function buildInteresting(){
+  const curated=[["Bernie Sanders","Donald Trump"],["Alexandria Ocasio-Cortez","Elon Musk"],["Barack Obama","Vladimir Putin"],
+    ["Greta Thunberg","Andrew Tate"],["Hasan Piker","Ben Shapiro"],["Xi Jinping","Mr Beast"],["Nancy Pelosi","Liz Cheney"],
+    ["Eliezer Yudkowsky","Guillaume Verdon (Beff Jezos)"],["Tucker Carlson","Rachel Maddow"],["Peter Thiel","Bernie Sanders"],
+    ["Pope Leo XIV","Aella"],["Taylor Swift","Kanye West"],["Joe Rogan","Pope Leo XIV"],["Mark Cuban","Bari Weiss"]];
+  const names=new Set(FIGURES.map(f=>f.name));
+  interestingPool=curated.filter(p=>names.has(p[0])&&names.has(p[1]));
+  // computed "unlikely twins": geometrically close but opposite woke/chud sign
+  for(let i=0;i<FIGURES.length;i++)for(let j=i+1;j<FIGURES.length;j++){
+    const a=FIGURES[i],b=FIGURES[j];
+    if(Math.sign(a.scores.prog_cons)!==Math.sign(b.scores.prog_cons)&&Math.abs(a.scores.prog_cons)>5&&Math.abs(b.scores.prog_cons)>5){
+      let d=0;for(const x of AX4){const dd=a.scores[x]-b.scores[x];d+=dd*dd;}
+      if(Math.sqrt(d)<16.5)interestingPool.push([a.name,b.name]);}}
 }
+function cmpInteresting(){if(!interestingPool.length)buildInteresting();
+  const p=interestingPool[Math.floor(Math.random()*interestingPool.length)];
+  cmpA.set(p[0]);cmpB.set(p[1]);renderCompare();}
 
-/* ---------- url state ---------- */
-function updateURL(){const q=AX6.map(a=>SHORT[a]+'='+state[a]).join('&')+'&e='+(useExt?1:0);history.replaceState(null,'','?'+q);}
+/* ---------- morph ---------- */
+let walkToken=0;
+function nearestPt(pt){let best=null,bd=1e9;for(const f of ALL()){let d=0;for(const a of axes()){const x=pt[a]-f.scores[a];d+=x*x;}if(d<bd){bd=d;best=f;}}return best;}
+function walk(){const A=ALL().find(x=>x.name===mpA.get()),B=ALL().find(x=>x.name===mpB.get());
+  if(!A||!B||A===B){document.getElementById('mpOut').textContent='Pick two different people.';return;}
+  const steps=160;let prev=null;const seq=[];
+  for(let i=0;i<=steps;i++){const t=i/steps;const pt={};AX6.forEach(a=>pt[a]=A.scores[a]*(1-t)+B.scores[a]*t);
+    const nf=nearestPt(pt);if(nf!==prev){seq.push(nf);prev=nf;}}
+  document.getElementById('mpOut').innerHTML='<b>Route:</b> '+seq.map(f=>`<span style="color:${facColor(f)};font-weight:700">${f.name}</span>`).join('  →  ')+
+    `<div style="margin-top:6px;font-size:12px">${seq.length} stops from ${A.name} to ${B.name}</div>`;
+  const my=++walkToken;jumpReset();
+  (function frame(i){if(my!==walkToken)return;const t=i/steps;AX6.forEach(a=>state[a]=Math.round(A.scores[a]*(1-t)+B.scores[a]*t));render();
+    if(i<steps)setTimeout(()=>frame(i+1),18);})(0);}
+
+/* ---------- url + buttons ---------- */
+function updateURL(){history.replaceState(null,'','?'+AX6.map(a=>SHORT[a]+'='+state[a]).join('&')+'&e='+(useExt?1:0));}
 function copyLink(){navigator.clipboard?.writeText(location.href);const b=document.getElementById('copybtn');const o=b.textContent;b.textContent='✓ Copied!';setTimeout(()=>b.textContent=o,1400);}
 function loadURL(){const p=new URLSearchParams(location.search);
   AX6.forEach(a=>{const v=p.get(SHORT[a]);if(v!==null&&!isNaN(+v))state[a]=Math.max(-32,Math.min(32,+v));});
   if(p.get('e')==='0'){useExt=false;document.getElementById('extchk').checked=false;}}
+function jumpReset(){jumpCombo.set('');}
 function setAll(v){AX6.forEach(a=>state[a]=v);jumpReset();render();}
 function preset(o){AX6.forEach(a=>state[a]=o[a]||0);jumpReset();render();}
 function randomize(){AX6.forEach(a=>state[a]=Math.round((Math.random()*2-1)*MAX));jumpReset();render();}
 
-loadURL();buildMap();render();renderCompare();
+loadURL();buildInteresting();renderLegend();renderCrew();buildMap();render();renderCompare();
 </script>
 </body>
 </html>

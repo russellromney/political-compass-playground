@@ -120,6 +120,15 @@
   </div>
 
   <div class="panel">
+    <div class="ph">Morph path — who's between two people</div>
+    <div class="row" style="margin-bottom:12px">
+      <select id="mpA"></select><span style="font-weight:800;color:var(--muted)">→</span><select id="mpB"></select>
+      <button class="preset" id="walkbtn" onclick="walk()">▶ Walk it</button>
+    </div>
+    <div id="mpOut" style="text-align:center;color:var(--muted);font-size:13px">Pick two people and walk the line between them.</div>
+  </div>
+
+  <div class="panel">
     <div class="ph">Compare two people</div>
     <div class="row" style="margin-bottom:12px">
       <select id="cmpA"></select><span style="font-weight:800;color:var(--muted)">vs</span><select id="cmpB"></select>
@@ -285,6 +294,29 @@ function renderCompare(){
     <div class="cmpcol"><div class="nm" style="color:${facColor(A)}">${A.name}</div><div class="desc">${A.description||''}</div></div>
     <div class="cmpcol"><div class="nm" style="color:${facColor(B)}">${B.name}</div><div class="desc">${B.description||''}</div></div></div>
     ${rows}<div style="text-align:center;margin-top:10px;font-weight:700">Total distance: ${tot.toFixed(1)} — <span style="color:var(--muted)">${close}</span></div>`;
+}
+
+/* ---------- morph path ---------- */
+const mpA=document.getElementById('mpA'),mpB=document.getElementById('mpB');
+fillSelect(mpA);fillSelect(mpB);mpA.value='Bernie Sanders';mpB.value='Donald Trump';
+let walkToken=0;
+function nearestPt(pt){let best=null,bd=1e9;for(const f of F){let d=0;for(const a of axes()){const x=pt[a]-f.scores[a];d+=x*x;}if(d<bd){bd=d;best=f;}}return best;}
+function pathSeq(A,B){const steps=160;let prev=null;const seq=[];
+  for(let i=0;i<=steps;i++){const t=i/steps;const pt={};AX6.forEach(a=>pt[a]=A.scores[a]*(1-t)+B.scores[a]*t);
+    const nf=nearestPt(pt);if(nf!==prev){seq.push(nf);prev=nf;}}return seq;}
+function walk(){
+  const A=F.find(x=>x.name===mpA.value),B=F.find(x=>x.name===mpB.value);
+  if(!A||!B||A===B){document.getElementById('mpOut').textContent='Pick two different people.';return;}
+  const seq=pathSeq(A,B);
+  document.getElementById('mpOut').innerHTML='<b>Route:</b> '+seq.map((f,i)=>
+    `<span style="color:${facColor(f)};font-weight:700">${f.name}</span>`).join('  →  ')+
+    `<div style="margin-top:6px;font-size:12px">${seq.length} stops between ${A.name} and ${B.name}</div>`;
+  // animate the ⭐ + sliders along the line
+  const my=++walkToken,steps=160;jumpReset();
+  (function frame(i){ if(my!==walkToken)return;
+    const t=i/steps;AX6.forEach(a=>state[a]=Math.round(A.scores[a]*(1-t)+B.scores[a]*t));render();
+    if(i<steps)setTimeout(()=>frame(i+1),18);
+  })(0);
 }
 
 /* ---------- url state ---------- */

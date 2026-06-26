@@ -205,7 +205,7 @@ const curPCA=()=>useExt?MODEL.pca6:MODEL.pca4;
 /* ---------- crew storage ---------- */
 function loadCrew(){try{const a=JSON.parse(localStorage.getItem(LS)||'[]');
   return a.filter(c=>c&&c.name&&c.scores).map(c=>{const sc={};AX6.forEach(x=>sc[x]=+c.scores[x]||0);
-    return {name:c.name,description:c.description||'Your crew',scores:sc,crew:true,fac:'crew',image:null};});
+    return {name:c.name,description:c.description||'Your crew',scores:sc,crew:true,fac:assignFaction(sc),image:null};});
 }catch(e){return[];}}
 function saveCrew(){localStorage.setItem(LS,JSON.stringify(CREW.map(c=>({name:c.name,description:c.description,scores:c.scores}))));}
 
@@ -226,8 +226,14 @@ document.getElementById('extchk').addEventListener('change',e=>{useExt=e.target.
 /* ---------- helpers ---------- */
 function initials(n){return n.split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase();}
 function imgFail(el){const d=document.createElement('div');d.className=el.dataset.sz;d.style.background=el.dataset.col;d.textContent=el.dataset.ini;el.replaceWith(d);}
-function facColor(f){return f.crew?CREW_META.color:FAC[f.fac].color;}
-function facName(f){return f.crew?CREW_META.name:FAC[f.fac].name;}
+function assignFaction(sc){ // nearest-figures majority vote over the 4 quiz axes
+  const near=FIGURES.map(f=>{let d=0;for(const a of AX4){const x=sc[a]-f.scores[a];d+=x*x;}return{fac:f.fac,d};})
+    .sort((a,b)=>a.d-b.d).slice(0,7);
+  const cnt={};near.forEach(o=>cnt[o.fac]=(cnt[o.fac]||0)+1);
+  return +Object.keys(cnt).reduce((a,b)=>cnt[b]>cnt[a]?b:a);
+}
+function facColor(f){return FAC[f.fac].color;}
+function facName(f){return FAC[f.fac].name+(f.crew?' · your crew':'');}
 function avatarHTML(f,cls,sz){const col=facColor(f);
   if(f.image)return `<img class="${cls}" src="${f.image}" alt="" loading="lazy" data-sz="${sz}" data-col="${col}" data-ini="${initials(f.name)}" onerror="imgFail(this)">`;
   return `<div class="${sz}" style="background:${col}">${initials(f.name)}</div>`;}
@@ -315,25 +321,25 @@ function hidePop(){pop.style.display='none';}
 /* ---------- crew UI ---------- */
 function refreshAll(){saveCrew();buildMap();renderLegend();renderCrew();render();}
 function addFromState(){const n=(document.getElementById('crewName').value||'').trim();if(!n)return alert('Give them a name first.');
-  const sc={};AX6.forEach(a=>sc[a]=state[a]);CREW.push({name:n,description:'Your crew',scores:sc,crew:true,fac:'crew',image:null});
+  const sc={};AX6.forEach(a=>sc[a]=state[a]);CREW.push({name:n,description:'Your crew',scores:sc,crew:true,fac:assignFaction(sc),image:null});
   document.getElementById('crewName').value='';refreshAll();}
 function pct2(p){return Math.round((+p||0)/100*64-32);}
 function togglePct(){const f=document.getElementById('pctForm');f.style.display=f.style.display==='none'?'flex':'none';}
 function addFromPct(){const n=(document.getElementById('crewName').value||'').trim();if(!n)return alert('Give them a name first.');
   const sc={prog_cons:pct2(pw.value),tech_ludd:pct2(pt.value),mod_nihil:pct2(ph2.value),dav_dub:pct2(pd.value),sec_rel:0,est_out:0};
-  CREW.push({name:n,description:'Your crew',scores:sc,crew:true,fac:'crew',image:null});
+  CREW.push({name:n,description:'Your crew',scores:sc,crew:true,fac:assignFaction(sc),image:null});
   document.getElementById('crewName').value='';refreshAll();}
 function loadCrewMember(i){const f=CREW[i];AX6.forEach(a=>state[a]=f.scores[a]);jumpCombo.set(f.name);render();}
 function delCrew(i){CREW.splice(i,1);refreshAll();}
 function renderCrew(){const el=document.getElementById('crewList');
   if(!CREW.length){el.innerHTML='<div class="muted">No one yet. Add yourself with “Save my current spot”.</div>';return;}
-  el.innerHTML=CREW.map((c,i)=>`<div class="crewrow"><span class="cd"></span><b>${c.name}</b>
+  el.innerHTML=CREW.map((c,i)=>`<div class="crewrow"><span class="cd" style="background:${facColor(c)}"></span><b>${c.name}</b> <span class="muted">${FAC[c.fac].name}</span>
     <span class="ld" onclick="loadCrewMember(${i})">load ↺</span><span class="x" onclick="delCrew(${i})">×</span></div>`).join('');}
 function exportCrew(){const j=JSON.stringify(CREW.map(c=>({name:c.name,scores:c.scores})));
   navigator.clipboard?.writeText(j);const b=document.getElementById('expbtn');const o=b.textContent;b.textContent='✓ Copied JSON';setTimeout(()=>b.textContent=o,1500);}
 function toggleImport(){const b=document.getElementById('importBox');b.style.display=b.style.display==='none'?'block':'none';}
 function importCrew(){try{const a=JSON.parse(document.getElementById('importText').value);
-  a.forEach(c=>{if(c&&c.name&&c.scores){const sc={};AX6.forEach(x=>sc[x]=+c.scores[x]||0);CREW.push({name:c.name,description:'Your crew',scores:sc,crew:true,fac:'crew',image:null});}});
+  a.forEach(c=>{if(c&&c.name&&c.scores){const sc={};AX6.forEach(x=>sc[x]=+c.scores[x]||0);CREW.push({name:c.name,description:'Your crew',scores:sc,crew:true,fac:assignFaction(sc),image:null});}});
   document.getElementById('importText').value='';toggleImport();refreshAll();}catch(e){alert('Could not parse that JSON.');}}
 
 /* ---------- render ---------- */

@@ -1,4 +1,4 @@
-// 30 BritMonkey (exact) + US/World figures (estimates). fac = faction id.
+// 30 BritMonkey (exact) + US/World figures (estimates). 6 axes; fac=faction id.
 window.FIGURES = [
 {
 "name": "Kier Starmer",
@@ -6,7 +6,9 @@ window.FIGURES = [
 "prog_cons": 7.04,
 "tech_ludd": 5.12,
 "mod_nihil": 21.12,
-"dav_dub": 12.8
+"dav_dub": 12.8,
+"sec_rel": -10,
+"est_out": 26
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Prime_Minister_Keir_Starmer_Portrait_%28cropped%29.jpg/960px-Prime_Minister_Keir_Starmer_Portrait_%28cropped%29.jpg",
 "description": "Prime Minister of the United Kingdom (2024-present)",
@@ -19,7 +21,9 @@ window.FIGURES = [
 "prog_cons": -5.76,
 "tech_ludd": 14.72,
 "mod_nihil": 14.72,
-"dav_dub": 30.72
+"dav_dub": 30.72,
+"sec_rel": -18,
+"est_out": 30
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Xi_Jinping_meets_Keir_Starmer_Jan_2026_%28cropped_2%29.jpg/960px-Xi_Jinping_meets_Keir_Starmer_Jan_2026_%28cropped_2%29.jpg",
 "description": "Premier of the People's Republic of China (2012-present)",
@@ -32,7 +36,9 @@ window.FIGURES = [
 "prog_cons": -21.12,
 "tech_ludd": 32.0,
 "mod_nihil": 3.2,
-"dav_dub": -3.84
+"dav_dub": -3.84,
+"sec_rel": -6,
+"est_out": -6
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Elon_Musk_-_54820081119_%28cropped%29.jpg/960px-Elon_Musk_-_54820081119_%28cropped%29.jpg",
 "description": "CEO of X (Formerly Twitter)",
@@ -45,7 +51,9 @@ window.FIGURES = [
 "prog_cons": 19.84,
 "tech_ludd": 5.12,
 "mod_nihil": 19.84,
-"dav_dub": 26.24
+"dav_dub": 26.24,
+"sec_rel": 4,
+"est_out": 30
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/2025-11-14_InaugurationREM_Deux-Montagnes_Mark_Carney.jpg/960px-2025-11-14_InaugurationREM_Deux-Montagnes_Mark_Carney.jpg",
 "description": "Prime Minister of Canada (2025-present)",
@@ -58,7 +66,9 @@ window.FIGURES = [
 "prog_cons": -24.96,
 "tech_ludd": 8.32,
 "mod_nihil": 0.0,
-"dav_dub": -30.72
+"dav_dub": -30.72,
+"sec_rel": 8,
+"est_out": -14
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Official_Presidential_Portrait_of_President_Donald_J._Trump_%282025%29_%28cropped%29%282%29.jpg/960px-Official_Presidential_Portrait_of_President_Donald_J._Trump_%282025%29_%28cropped%29%282%29.jpg",
 "description": "President of the United States (2017-2021, 2025-present)",
@@ -71,7 +81,9 @@ window.FIGURES = [
 "prog_cons": 26.88,
 "tech_ludd": -5.76,
 "mod_nihil": 0.0,
-"dav_dub": 14.72
+"dav_dub": 14.72,
+"sec_rel": 2,
+"est_out": -10
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zohran_Mamdani_05.25.25_%28b%29_%28cropped%29.jpg/960px-Zohran_Mamdani_05.25.25_%28b%29_%28cropped%29.jpg",
 "description": "Mayor of New York City (2026-present)",
@@ -84,7 +96,9 @@ window.FIGURES = [
 "prog_cons": 14.08,
 "tech_ludd": -7.68,
 "mod_nihil": 19.84,
-"dav_dub": 16.0
+"dav_dub": 16.0,
+"sec_rel": 32,
+"est_out": 22
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Pope_Leo_XIV_3_%283x4_cropped%29.png/960px-Pope_Leo_XIV_3_%283x4_cropped%29.png",
 "description": "Head of the Catholic Church (2025-present)",
@@ -97,7 +111,9 @@ window.FIGURES = [
 "prog_cons": 26.24,
 "tech_ludd": -23.04,
 "mod_nihil": -3.2,
-"dav_dub": 3.2
+"dav_dub": 3.2,
+"sec_rel": -12,
+"est_out": -8
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Green_Party_Group_Shot_6_%28cropped2%29.jpg/960px-Green_Party_Group_Shot_6_%28cropped2%29.jpg",
 "description": "Leader of the Green Party of England and Wales (2025-present)",
@@ -110,7 +126,9 @@ window.FIGURES = [
 "prog_cons": 24.96,
 "tech_ludd": -5.12,
 "mod_nihil": -26.88,
-"dav_dub": -12.16
+"dav_dub": -12.16,
+"sec_rel": -16,
+"est_out": -18
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/HasanStLouis-20260501-234558761_%28cropped%29.jpg/960px-HasanStLouis-20260501-234558761_%28cropped%29.jpg",
 "description": "American Streamer & political pundit",
@@ -123,7 +141,9 @@ window.FIGURES = [
 "prog_cons": -17.92,
 "tech_ludd": 5.76,
 "mod_nihil": 5.76,
-"dav_dub": -32.0
+"dav_dub": -32.0,
+"sec_rel": 10,
+"est_out": 16
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9F%D1%83%D1%82%D0%B8%D0%BD_%2808-03-2024%29_%28cropped%29_%28higher_res%29_2.jpg/960px-%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9F%D1%83%D1%82%D0%B8%D0%BD_%2808-03-2024%29_%28cropped%29_%28higher_res%29_2.jpg",
 "description": "President of Russia, 2012-present",
@@ -136,7 +156,9 @@ window.FIGURES = [
 "prog_cons": -19.84,
 "tech_ludd": 30.08,
 "mod_nihil": -1.28,
-"dav_dub": -19.84
+"dav_dub": -19.84,
+"sec_rel": 8,
+"est_out": -8
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Peter_Thiel_by_Gage_Skidmore.jpg/960px-Peter_Thiel_by_Gage_Skidmore.jpg",
 "description": "Entrepreneur",
@@ -149,7 +171,9 @@ window.FIGURES = [
 "prog_cons": 19.84,
 "tech_ludd": -16.0,
 "mod_nihil": -12.16,
-"dav_dub": 21.76
+"dav_dub": 21.76,
+"sec_rel": -12,
+"est_out": -12
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Ed_Zitron_speaking_at_the_Web_Summit.jpg/960px-Ed_Zitron_speaking_at_the_Web_Summit.jpg",
 "description": "Podcaster and pundit",
@@ -162,7 +186,9 @@ window.FIGURES = [
 "prog_cons": -14.08,
 "tech_ludd": 17.92,
 "mod_nihil": -14.72,
-"dav_dub": -5.76
+"dav_dub": -5.76,
+"sec_rel": -6,
+"est_out": -16
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/7/74/2026_Joe_Rogan_at_the_White_House_%28cropped%29.jpg",
 "description": "Podcaster",
@@ -175,7 +201,9 @@ window.FIGURES = [
 "prog_cons": 14.72,
 "tech_ludd": 17.28,
 "mod_nihil": 14.08,
-"dav_dub": 24.96
+"dav_dub": 24.96,
+"sec_rel": -8,
+"est_out": 18
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Ezra_Klein_2026-01-28.jpg/960px-Ezra_Klein_2026-01-28.jpg",
 "description": "Podcaster & Pundit",
@@ -188,7 +216,9 @@ window.FIGURES = [
 "prog_cons": -7.04,
 "tech_ludd": 24.32,
 "mod_nihil": 5.76,
-"dav_dub": -8.96
+"dav_dub": -8.96,
+"sec_rel": 4,
+"est_out": 22
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Gianni_Infantino_-_55062516828.jpg",
 "description": "Head of FIFA (2016- present)",
@@ -201,7 +231,9 @@ window.FIGURES = [
 "prog_cons": -10.24,
 "tech_ludd": 12.16,
 "mod_nihil": 12.8,
-"dav_dub": 12.8
+"dav_dub": 12.8,
+"sec_rel": 12,
+"est_out": 22
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Portrait_of_Prime_Minister_Rishi_Sunak_%28cropped%29.jpg",
 "description": "Prime Minister of the United Kingdom (2022-2024)",
@@ -214,7 +246,9 @@ window.FIGURES = [
 "prog_cons": -8.96,
 "tech_ludd": 8.96,
 "mod_nihil": 8.32,
-"dav_dub": -28.16
+"dav_dub": -28.16,
+"sec_rel": 14,
+"est_out": 22
 },
 "image": "https://news24online.com/wp-content/uploads/2022/11/ATTO3-37.jpg",
 "description": "Ruler of Saudi Arabia (2017-present)",
@@ -227,7 +261,9 @@ window.FIGURES = [
 "prog_cons": -23.68,
 "tech_ludd": 24.32,
 "mod_nihil": -1.28,
-"dav_dub": -23.04
+"dav_dub": -23.04,
+"sec_rel": 6,
+"est_out": -6
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Presidente_Nayib_Bukele_%28cropped%29.jpg/960px-Presidente_Nayib_Bukele_%28cropped%29.jpg",
 "description": "President of El Salvador (2019-present)",
@@ -240,7 +276,9 @@ window.FIGURES = [
 "prog_cons": 12.16,
 "tech_ludd": -8.96,
 "mod_nihil": 8.32,
-"dav_dub": -10.24
+"dav_dub": -10.24,
+"sec_rel": 2,
+"est_out": 8
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Foto_oficial_de_Luiz_In%C3%A1cio_Lula_da_Silva_%28ombros%29_denoise_%28cropped%29.jpg/960px-Foto_oficial_de_Luiz_In%C3%A1cio_Lula_da_Silva_%28ombros%29_denoise_%28cropped%29.jpg",
 "description": "President of Brazil (2023-present)",
@@ -253,7 +291,9 @@ window.FIGURES = [
 "prog_cons": -21.12,
 "tech_ludd": 17.28,
 "mod_nihil": -23.04,
-"dav_dub": -23.68
+"dav_dub": -23.68,
+"sec_rel": 16,
+"est_out": -22
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Andrew_Tate_-_James_Tamim_Upload_%28Cropped_Wide_Portrait%29.png",
 "description": "Podcaster",
@@ -266,7 +306,9 @@ window.FIGURES = [
 "prog_cons": -7.04,
 "tech_ludd": 28.8,
 "mod_nihil": 8.32,
-"dav_dub": 17.92
+"dav_dub": 17.92,
+"sec_rel": -8,
+"est_out": 14
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Sam_Altman_TechCrunch_SF_2019_Day_2_Oct_3_%28cropped_3%29.jpg/960px-Sam_Altman_TechCrunch_SF_2019_Day_2_Oct_3_%28cropped_3%29.jpg",
 "description": "AI Entrepreneur",
@@ -279,7 +321,9 @@ window.FIGURES = [
 "prog_cons": 21.76,
 "tech_ludd": -12.8,
 "mod_nihil": 5.76,
-"dav_dub": 3.2
+"dav_dub": 3.2,
+"sec_rel": -12,
+"est_out": 10
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Claudia_Sheinbaum_in_2025_%283x4_cropped%29.jpg/960px-Claudia_Sheinbaum_in_2025_%283x4_cropped%29.jpg",
 "description": "President of Mexico (2024-present)",
@@ -292,7 +336,9 @@ window.FIGURES = [
 "prog_cons": 5.76,
 "tech_ludd": 19.2,
 "mod_nihil": 17.92,
-"dav_dub": 28.16
+"dav_dub": 28.16,
+"sec_rel": 0,
+"est_out": 2
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/MrBeast_2023_%28cropped%29.jpg/960px-MrBeast_2023_%28cropped%29.jpg",
 "description": "American Youtuber and philanthropist",
@@ -305,7 +351,9 @@ window.FIGURES = [
 "prog_cons": -26.24,
 "tech_ludd": 10.24,
 "mod_nihil": 5.76,
-"dav_dub": -10.88
+"dav_dub": -10.88,
+"sec_rel": 18,
+"est_out": -2
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Charlie_Kirk_%2853952923573%29_%28headshot_cropped%29.jpg/960px-Charlie_Kirk_%2853952923573%29_%28headshot_cropped%29.jpg",
 "description": "Political activist",
@@ -318,7 +366,9 @@ window.FIGURES = [
 "prog_cons": 10.88,
 "tech_ludd": 1.28,
 "mod_nihil": 24.96,
-"dav_dub": 21.12
+"dav_dub": 21.12,
+"sec_rel": 10,
+"est_out": 30
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Joe_Biden_presidential_portrait.jpg/960px-Joe_Biden_presidential_portrait.jpg",
 "description": "President of the United States (2021-2025)",
@@ -331,7 +381,9 @@ window.FIGURES = [
 "prog_cons": 30.08,
 "tech_ludd": -14.72,
 "mod_nihil": -14.08,
-"dav_dub": 17.28
+"dav_dub": 17.28,
+"sec_rel": -12,
+"est_out": -16
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Greta_Thunberg_in_November_in_Stockholm_%28cropped%29%282%29.jpg/960px-Greta_Thunberg_in_November_in_Stockholm_%28cropped%29%282%29.jpg",
 "description": "Swedish environmental activist",
@@ -344,7 +396,9 @@ window.FIGURES = [
 "prog_cons": 3.2,
 "tech_ludd": 3.2,
 "mod_nihil": 23.04,
-"dav_dub": 24.32
+"dav_dub": 24.32,
+"sec_rel": -6,
+"est_out": 30
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Emmanuel_Macron_2025_%28cropped%29.jpg/960px-Emmanuel_Macron_2025_%28cropped%29.jpg",
 "description": "President of France (2017-present)",
@@ -357,7 +411,9 @@ window.FIGURES = [
 "prog_cons": -17.92,
 "tech_ludd": -1.92,
 "mod_nihil": 8.32,
-"dav_dub": 1.28
+"dav_dub": 1.28,
+"sec_rel": 14,
+"est_out": 2
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/9/96/Giorgia_Meloni_Official_2024_%28cropped%29.jpg",
 "description": "Prime Minister of Italy (2022-present)",
@@ -370,7 +426,9 @@ window.FIGURES = [
 "prog_cons": 24.32,
 "tech_ludd": -1.92,
 "mod_nihil": 19.2,
-"dav_dub": 26.88
+"dav_dub": 26.88,
+"sec_rel": -12,
+"est_out": 18
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Sanna_Marin_at_the_European_Commission_-_2025_-_P065828-802783_%28cropped%29.jpg",
 "description": "Prime minister of Finland (2019-2023)",
@@ -383,7 +441,9 @@ window.FIGURES = [
 "prog_cons": -1.92,
 "tech_ludd": 26.88,
 "mod_nihil": 12.16,
-"dav_dub": 21.12
+"dav_dub": 21.12,
+"sec_rel": -16,
+"est_out": -14
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Aella.jpg/250px-Aella.jpg",
 "description": "American blogger and sex worker",
@@ -398,7 +458,9 @@ window.FIGURES = [
 "prog_cons": 18,
 "tech_ludd": -6,
 "mod_nihil": 4,
-"dav_dub": 8
+"dav_dub": 8,
+"sec_rel": -8,
+"est_out": -6
 },
 "image": null,
 "fac": 4
@@ -411,7 +473,9 @@ window.FIGURES = [
 "prog_cons": 28,
 "tech_ludd": 0,
 "mod_nihil": 6,
-"dav_dub": 10
+"dav_dub": 10,
+"sec_rel": 0,
+"est_out": -8
 },
 "image": null,
 "fac": 4
@@ -424,7 +488,9 @@ window.FIGURES = [
 "prog_cons": 14,
 "tech_ludd": 10,
 "mod_nihil": 20,
-"dav_dub": 28
+"dav_dub": 28,
+"sec_rel": 6,
+"est_out": 30
 },
 "image": null,
 "fac": 1
@@ -437,7 +503,9 @@ window.FIGURES = [
 "prog_cons": 16,
 "tech_ludd": 6,
 "mod_nihil": 14,
-"dav_dub": 24
+"dav_dub": 24,
+"sec_rel": 2,
+"est_out": 26
 },
 "image": null,
 "fac": 1
@@ -450,7 +518,9 @@ window.FIGURES = [
 "prog_cons": 14,
 "tech_ludd": 14,
 "mod_nihil": 20,
-"dav_dub": 26
+"dav_dub": 26,
+"sec_rel": 6,
+"est_out": 22
 },
 "image": null,
 "fac": 1
@@ -463,7 +533,9 @@ window.FIGURES = [
 "prog_cons": 10,
 "tech_ludd": 6,
 "mod_nihil": 12,
-"dav_dub": 30
+"dav_dub": 30,
+"sec_rel": 6,
+"est_out": 32
 },
 "image": null,
 "fac": 1
@@ -476,7 +548,9 @@ window.FIGURES = [
 "prog_cons": 8,
 "tech_ludd": 4,
 "mod_nihil": 12,
-"dav_dub": 26
+"dav_dub": 26,
+"sec_rel": 10,
+"est_out": 30
 },
 "image": null,
 "fac": 1
@@ -489,7 +563,9 @@ window.FIGURES = [
 "prog_cons": 14,
 "tech_ludd": 12,
 "mod_nihil": 16,
-"dav_dub": 22
+"dav_dub": 22,
+"sec_rel": 4,
+"est_out": 22
 },
 "image": null,
 "fac": 1
@@ -502,7 +578,9 @@ window.FIGURES = [
 "prog_cons": -22,
 "tech_ludd": 12,
 "mod_nihil": -2,
-"dav_dub": -22
+"dav_dub": -22,
+"sec_rel": 14,
+"est_out": 4
 },
 "image": null,
 "fac": 0
@@ -515,7 +593,9 @@ window.FIGURES = [
 "prog_cons": -22,
 "tech_ludd": 2,
 "mod_nihil": 4,
-"dav_dub": -12
+"dav_dub": -12,
+"sec_rel": 10,
+"est_out": 8
 },
 "image": null,
 "fac": 5
@@ -528,7 +608,9 @@ window.FIGURES = [
 "prog_cons": -28,
 "tech_ludd": -8,
 "mod_nihil": -10,
-"dav_dub": -22
+"dav_dub": -22,
+"sec_rel": 18,
+"est_out": -16
 },
 "image": null,
 "fac": 0
@@ -541,7 +623,9 @@ window.FIGURES = [
 "prog_cons": -10,
 "tech_ludd": 0,
 "mod_nihil": 6,
-"dav_dub": 14
+"dav_dub": 14,
+"sec_rel": 6,
+"est_out": 30
 },
 "image": null,
 "fac": 5
@@ -554,7 +638,9 @@ window.FIGURES = [
 "prog_cons": -24,
 "tech_ludd": -10,
 "mod_nihil": 0,
-"dav_dub": -16
+"dav_dub": -16,
+"sec_rel": 18,
+"est_out": 6
 },
 "image": null,
 "fac": 0
@@ -567,7 +653,9 @@ window.FIGURES = [
 "prog_cons": -6,
 "tech_ludd": -22,
 "mod_nihil": -8,
-"dav_dub": -18
+"dav_dub": -18,
+"sec_rel": 8,
+"est_out": -18
 },
 "image": null,
 "fac": 0
@@ -580,7 +668,9 @@ window.FIGURES = [
 "prog_cons": -18,
 "tech_ludd": 20,
 "mod_nihil": 8,
-"dav_dub": -8
+"dav_dub": -8,
+"sec_rel": 12,
+"est_out": -6
 },
 "image": null,
 "fac": 5
@@ -593,7 +683,9 @@ window.FIGURES = [
 "prog_cons": -2,
 "tech_ludd": 6,
 "mod_nihil": 14,
-"dav_dub": 24
+"dav_dub": 24,
+"sec_rel": 18,
+"est_out": 28
 },
 "image": null,
 "fac": 1
@@ -606,7 +698,9 @@ window.FIGURES = [
 "prog_cons": -8,
 "tech_ludd": 4,
 "mod_nihil": 10,
-"dav_dub": 28
+"dav_dub": 28,
+"sec_rel": 6,
+"est_out": 24
 },
 "image": null,
 "fac": 1
@@ -619,7 +713,9 @@ window.FIGURES = [
 "prog_cons": -4,
 "tech_ludd": 28,
 "mod_nihil": 12,
-"dav_dub": 6
+"dav_dub": 6,
+"sec_rel": -8,
+"est_out": 16
 },
 "image": null,
 "fac": 3
@@ -632,7 +728,9 @@ window.FIGURES = [
 "prog_cons": -6,
 "tech_ludd": 30,
 "mod_nihil": 10,
-"dav_dub": 8
+"dav_dub": 8,
+"sec_rel": -10,
+"est_out": 14
 },
 "image": null,
 "fac": 3
@@ -645,7 +743,9 @@ window.FIGURES = [
 "prog_cons": 8,
 "tech_ludd": 24,
 "mod_nihil": 22,
-"dav_dub": 30
+"dav_dub": 30,
+"sec_rel": -8,
+"est_out": 30
 },
 "image": null,
 "fac": 1
@@ -658,7 +758,9 @@ window.FIGURES = [
 "prog_cons": 6,
 "tech_ludd": 22,
 "mod_nihil": 16,
-"dav_dub": 24
+"dav_dub": 24,
+"sec_rel": 2,
+"est_out": 24
 },
 "image": null,
 "fac": 1
@@ -671,7 +773,9 @@ window.FIGURES = [
 "prog_cons": -20,
 "tech_ludd": 32,
 "mod_nihil": 6,
-"dav_dub": -10
+"dav_dub": -10,
+"sec_rel": -12,
+"est_out": -4
 },
 "image": null,
 "fac": 3
@@ -684,7 +788,9 @@ window.FIGURES = [
 "prog_cons": 8,
 "tech_ludd": 30,
 "mod_nihil": 10,
-"dav_dub": 4
+"dav_dub": 4,
+"sec_rel": -14,
+"est_out": -10
 },
 "image": null,
 "fac": 3
@@ -697,7 +803,9 @@ window.FIGURES = [
 "prog_cons": 0,
 "tech_ludd": 30,
 "mod_nihil": 18,
-"dav_dub": 18
+"dav_dub": 18,
+"sec_rel": -4,
+"est_out": 18
 },
 "image": null,
 "fac": 3
@@ -710,7 +818,9 @@ window.FIGURES = [
 "prog_cons": 0,
 "tech_ludd": 0,
 "mod_nihil": 16,
-"dav_dub": 20
+"dav_dub": 20,
+"sec_rel": -10,
+"est_out": 30
 },
 "image": null,
 "fac": 1
@@ -723,7 +833,9 @@ window.FIGURES = [
 "prog_cons": 6,
 "tech_ludd": 18,
 "mod_nihil": 16,
-"dav_dub": 14
+"dav_dub": 14,
+"sec_rel": -6,
+"est_out": 8
 },
 "image": null,
 "fac": 1
@@ -736,7 +848,9 @@ window.FIGURES = [
 "prog_cons": -14,
 "tech_ludd": 32,
 "mod_nihil": 8,
-"dav_dub": -16
+"dav_dub": -16,
+"sec_rel": -14,
+"est_out": -16
 },
 "image": null,
 "fac": 3
@@ -749,7 +863,9 @@ window.FIGURES = [
 "prog_cons": -24,
 "tech_ludd": 20,
 "mod_nihil": -6,
-"dav_dub": -28
+"dav_dub": -28,
+"sec_rel": 2,
+"est_out": -24
 },
 "image": null,
 "fac": 0
@@ -762,7 +878,9 @@ window.FIGURES = [
 "prog_cons": -24,
 "tech_ludd": 6,
 "mod_nihil": 4,
-"dav_dub": -4
+"dav_dub": -4,
+"sec_rel": 20,
+"est_out": -2
 },
 "image": null,
 "fac": 5
@@ -775,7 +893,9 @@ window.FIGURES = [
 "prog_cons": -26,
 "tech_ludd": -6,
 "mod_nihil": -10,
-"dav_dub": -22
+"dav_dub": -22,
+"sec_rel": 12,
+"est_out": -14
 },
 "image": null,
 "fac": 0
@@ -788,7 +908,9 @@ window.FIGURES = [
 "prog_cons": -30,
 "tech_ludd": -2,
 "mod_nihil": -4,
-"dav_dub": -16
+"dav_dub": -16,
+"sec_rel": 22,
+"est_out": -8
 },
 "image": null,
 "fac": 0
@@ -801,7 +923,9 @@ window.FIGURES = [
 "prog_cons": -26,
 "tech_ludd": -6,
 "mod_nihil": -8,
-"dav_dub": -18
+"dav_dub": -18,
+"sec_rel": 14,
+"est_out": -12
 },
 "image": null,
 "fac": 0
@@ -814,7 +938,9 @@ window.FIGURES = [
 "prog_cons": -32,
 "tech_ludd": -2,
 "mod_nihil": -16,
-"dav_dub": -28
+"dav_dub": -28,
+"sec_rel": 18,
+"est_out": -26
 },
 "image": null,
 "fac": 0
@@ -827,7 +953,9 @@ window.FIGURES = [
 "prog_cons": -20,
 "tech_ludd": 2,
 "mod_nihil": -2,
-"dav_dub": -6
+"dav_dub": -6,
+"sec_rel": 10,
+"est_out": -6
 },
 "image": null,
 "fac": 5
@@ -840,7 +968,9 @@ window.FIGURES = [
 "prog_cons": 2,
 "tech_ludd": 24,
 "mod_nihil": 14,
-"dav_dub": 4
+"dav_dub": 4,
+"sec_rel": -2,
+"est_out": 6
 },
 "image": null,
 "fac": 3
@@ -853,7 +983,9 @@ window.FIGURES = [
 "prog_cons": -18,
 "tech_ludd": 4,
 "mod_nihil": -8,
-"dav_dub": -10
+"dav_dub": -10,
+"sec_rel": -6,
+"est_out": -12
 },
 "image": null,
 "fac": 5
@@ -866,7 +998,9 @@ window.FIGURES = [
 "prog_cons": 6,
 "tech_ludd": 12,
 "mod_nihil": 4,
-"dav_dub": 6
+"dav_dub": 6,
+"sec_rel": -16,
+"est_out": -10
 },
 "image": null,
 "fac": 3
@@ -879,7 +1013,9 @@ window.FIGURES = [
 "prog_cons": 24,
 "tech_ludd": 2,
 "mod_nihil": -6,
-"dav_dub": -4
+"dav_dub": -4,
+"sec_rel": -16,
+"est_out": -14
 },
 "image": null,
 "fac": 4
@@ -892,7 +1028,9 @@ window.FIGURES = [
 "prog_cons": 30,
 "tech_ludd": 4,
 "mod_nihil": 2,
-"dav_dub": 6
+"dav_dub": 6,
+"sec_rel": -14,
+"est_out": -10
 },
 "image": null,
 "fac": 4
@@ -905,7 +1043,9 @@ window.FIGURES = [
 "prog_cons": 18,
 "tech_ludd": -2,
 "mod_nihil": -2,
-"dav_dub": 2
+"dav_dub": 2,
+"sec_rel": -12,
+"est_out": -8
 },
 "image": null,
 "fac": 4
@@ -918,7 +1058,9 @@ window.FIGURES = [
 "prog_cons": 20,
 "tech_ludd": 0,
 "mod_nihil": 2,
-"dav_dub": 4
+"dav_dub": 4,
+"sec_rel": -12,
+"est_out": -10
 },
 "image": null,
 "fac": 4
@@ -931,7 +1073,9 @@ window.FIGURES = [
 "prog_cons": 2,
 "tech_ludd": 16,
 "mod_nihil": 12,
-"dav_dub": 18
+"dav_dub": 18,
+"sec_rel": -10,
+"est_out": 12
 },
 "image": null,
 "fac": 1
@@ -944,7 +1088,9 @@ window.FIGURES = [
 "prog_cons": 6,
 "tech_ludd": 20,
 "mod_nihil": 16,
-"dav_dub": 22
+"dav_dub": 22,
+"sec_rel": -10,
+"est_out": 16
 },
 "image": null,
 "fac": 1
@@ -957,7 +1103,9 @@ window.FIGURES = [
 "prog_cons": -8,
 "tech_ludd": 12,
 "mod_nihil": 12,
-"dav_dub": 14
+"dav_dub": 14,
+"sec_rel": 4,
+"est_out": 10
 },
 "image": null,
 "fac": 3
@@ -970,7 +1118,9 @@ window.FIGURES = [
 "prog_cons": 28,
 "tech_ludd": -6,
 "mod_nihil": -8,
-"dav_dub": 8
+"dav_dub": 8,
+"sec_rel": -8,
+"est_out": -2
 },
 "image": null,
 "fac": 2
@@ -983,7 +1133,9 @@ window.FIGURES = [
 "prog_cons": 0,
 "tech_ludd": 14,
 "mod_nihil": 18,
-"dav_dub": 6
+"dav_dub": 6,
+"sec_rel": -4,
+"est_out": 8
 },
 "image": null,
 "fac": 3
@@ -996,7 +1148,9 @@ window.FIGURES = [
 "prog_cons": 20,
 "tech_ludd": 4,
 "mod_nihil": 8,
-"dav_dub": 24
+"dav_dub": 24,
+"sec_rel": -10,
+"est_out": 22
 },
 "image": null,
 "fac": 1
@@ -1009,7 +1163,9 @@ window.FIGURES = [
 "prog_cons": -22,
 "tech_ludd": 2,
 "mod_nihil": 2,
-"dav_dub": -12
+"dav_dub": -12,
+"sec_rel": 10,
+"est_out": 4
 },
 "image": null,
 "fac": 5
@@ -1022,7 +1178,9 @@ window.FIGURES = [
 "prog_cons": 22,
 "tech_ludd": -4,
 "mod_nihil": 8,
-"dav_dub": 16
+"dav_dub": 16,
+"sec_rel": 6,
+"est_out": 16
 },
 "image": null,
 "fac": 4
@@ -1035,7 +1193,9 @@ window.FIGURES = [
 "prog_cons": 10,
 "tech_ludd": 2,
 "mod_nihil": 12,
-"dav_dub": 24
+"dav_dub": 24,
+"sec_rel": 4,
+"est_out": 30
 },
 "image": null,
 "fac": 1
@@ -1048,7 +1208,9 @@ window.FIGURES = [
 "prog_cons": -22,
 "tech_ludd": 4,
 "mod_nihil": 4,
-"dav_dub": -8
+"dav_dub": -8,
+"sec_rel": 16,
+"est_out": 6
 },
 "image": null,
 "fac": 5
@@ -1061,7 +1223,9 @@ window.FIGURES = [
 "prog_cons": -16,
 "tech_ludd": 6,
 "mod_nihil": 8,
-"dav_dub": 4
+"dav_dub": 4,
+"sec_rel": 12,
+"est_out": 16
 },
 "image": null,
 "fac": 5
@@ -1074,7 +1238,9 @@ window.FIGURES = [
 "prog_cons": -14,
 "tech_ludd": 2,
 "mod_nihil": 8,
-"dav_dub": 6
+"dav_dub": 6,
+"sec_rel": 8,
+"est_out": 24
 },
 "image": null,
 "fac": 5
@@ -1087,7 +1253,9 @@ window.FIGURES = [
 "prog_cons": -14,
 "tech_ludd": 2,
 "mod_nihil": 2,
-"dav_dub": -2
+"dav_dub": -2,
+"sec_rel": 6,
+"est_out": 0
 },
 "image": null,
 "fac": 5
@@ -1100,7 +1268,9 @@ window.FIGURES = [
 "prog_cons": -10,
 "tech_ludd": -2,
 "mod_nihil": -2,
-"dav_dub": -12
+"dav_dub": -12,
+"sec_rel": 10,
+"est_out": -16
 },
 "image": null,
 "fac": 5
@@ -1113,7 +1283,9 @@ window.FIGURES = [
 "prog_cons": 10,
 "tech_ludd": 22,
 "mod_nihil": 16,
-"dav_dub": 12
+"dav_dub": 12,
+"sec_rel": -4,
+"est_out": -6
 },
 "image": null,
 "fac": 1
@@ -1126,7 +1298,9 @@ window.FIGURES = [
 "prog_cons": -24,
 "tech_ludd": 0,
 "mod_nihil": 8,
-"dav_dub": 2
+"dav_dub": 2,
+"sec_rel": 24,
+"est_out": 12
 },
 "image": null,
 "fac": 5
@@ -1139,7 +1313,9 @@ window.FIGURES = [
 "prog_cons": -12,
 "tech_ludd": 6,
 "mod_nihil": 12,
-"dav_dub": 16
+"dav_dub": 16,
+"sec_rel": 8,
+"est_out": 18
 },
 "image": null,
 "fac": 1
@@ -1152,7 +1328,9 @@ window.FIGURES = [
 "prog_cons": 18,
 "tech_ludd": 8,
 "mod_nihil": 16,
-"dav_dub": 20
+"dav_dub": 20,
+"sec_rel": 8,
+"est_out": 18
 },
 "image": null,
 "fac": 1
@@ -1165,7 +1343,9 @@ window.FIGURES = [
 "prog_cons": 6,
 "tech_ludd": -2,
 "mod_nihil": 2,
-"dav_dub": 4
+"dav_dub": 4,
+"sec_rel": 0,
+"est_out": 8
 },
 "image": null,
 "fac": 4
@@ -1178,7 +1358,9 @@ window.FIGURES = [
 "prog_cons": 28,
 "tech_ludd": -4,
 "mod_nihil": 2,
-"dav_dub": 8
+"dav_dub": 8,
+"sec_rel": 12,
+"est_out": -10
 },
 "image": null,
 "fac": 4
@@ -1191,7 +1373,9 @@ window.FIGURES = [
 "prog_cons": 28,
 "tech_ludd": -6,
 "mod_nihil": -2,
-"dav_dub": 2
+"dav_dub": 2,
+"sec_rel": 10,
+"est_out": -12
 },
 "image": null,
 "fac": 4
@@ -1204,7 +1388,9 @@ window.FIGURES = [
 "prog_cons": -18,
 "tech_ludd": 6,
 "mod_nihil": 8,
-"dav_dub": -2
+"dav_dub": -2,
+"sec_rel": 6,
+"est_out": 10
 },
 "image": null,
 "fac": 5
@@ -1217,7 +1403,9 @@ window.FIGURES = [
 "prog_cons": -14,
 "tech_ludd": 4,
 "mod_nihil": -2,
-"dav_dub": -12
+"dav_dub": -12,
+"sec_rel": 2,
+"est_out": -12
 },
 "image": null,
 "fac": 5
@@ -1230,7 +1418,9 @@ window.FIGURES = [
 "prog_cons": 18,
 "tech_ludd": 2,
 "mod_nihil": 14,
-"dav_dub": 14
+"dav_dub": 14,
+"sec_rel": 6,
+"est_out": 14
 },
 "image": null,
 "fac": 1
@@ -1243,7 +1433,9 @@ window.FIGURES = [
 "prog_cons": 14,
 "tech_ludd": 6,
 "mod_nihil": 16,
-"dav_dub": 18
+"dav_dub": 18,
+"sec_rel": 4,
+"est_out": 16
 },
 "image": null,
 "fac": 1
@@ -1256,7 +1448,9 @@ window.FIGURES = [
 "prog_cons": -20,
 "tech_ludd": 2,
 "mod_nihil": 6,
-"dav_dub": -8
+"dav_dub": -8,
+"sec_rel": 10,
+"est_out": 12
 },
 "image": null,
 "fac": 5
@@ -1269,7 +1463,9 @@ window.FIGURES = [
 "prog_cons": -4,
 "tech_ludd": -4,
 "mod_nihil": -6,
-"dav_dub": -10
+"dav_dub": -10,
+"sec_rel": -8,
+"est_out": -18
 },
 "image": null,
 "fac": 5
@@ -1282,7 +1478,9 @@ window.FIGURES = [
 "prog_cons": 0,
 "tech_ludd": 16,
 "mod_nihil": 8,
-"dav_dub": 16
+"dav_dub": 16,
+"sec_rel": -30,
+"est_out": 4
 },
 "image": null,
 "fac": 1
@@ -1295,7 +1493,9 @@ window.FIGURES = [
 "prog_cons": -8,
 "tech_ludd": -6,
 "mod_nihil": -6,
-"dav_dub": -8
+"dav_dub": -8,
+"sec_rel": -16,
+"est_out": -16
 },
 "image": null,
 "fac": 5
@@ -1308,7 +1508,9 @@ window.FIGURES = [
 "prog_cons": -2,
 "tech_ludd": 12,
 "mod_nihil": 2,
-"dav_dub": 2
+"dav_dub": 2,
+"sec_rel": -12,
+"est_out": -2
 },
 "image": null,
 "fac": 3
@@ -1321,7 +1523,9 @@ window.FIGURES = [
 "prog_cons": -18,
 "tech_ludd": 8,
 "mod_nihil": -4,
-"dav_dub": -10
+"dav_dub": -10,
+"sec_rel": -8,
+"est_out": -14
 },
 "image": null,
 "fac": 5
@@ -1334,7 +1538,9 @@ window.FIGURES = [
 "prog_cons": -18,
 "tech_ludd": 8,
 "mod_nihil": 4,
-"dav_dub": -6
+"dav_dub": -6,
+"sec_rel": -8,
+"est_out": -8
 },
 "image": null,
 "fac": 5
@@ -1347,7 +1553,9 @@ window.FIGURES = [
 "prog_cons": -18,
 "tech_ludd": 2,
 "mod_nihil": 4,
-"dav_dub": -2
+"dav_dub": -2,
+"sec_rel": 8,
+"est_out": -2
 },
 "image": null,
 "fac": 5
@@ -1360,7 +1568,9 @@ window.FIGURES = [
 "prog_cons": -2,
 "tech_ludd": 6,
 "mod_nihil": 2,
-"dav_dub": 10
+"dav_dub": 10,
+"sec_rel": -26,
+"est_out": 10
 },
 "image": null,
 "fac": 1
@@ -1373,7 +1583,9 @@ window.FIGURES = [
 "prog_cons": 16,
 "tech_ludd": -6,
 "mod_nihil": -2,
-"dav_dub": -2
+"dav_dub": -2,
+"sec_rel": -6,
+"est_out": -10
 },
 "image": null,
 "fac": 4
@@ -1386,7 +1598,9 @@ window.FIGURES = [
 "prog_cons": -8,
 "tech_ludd": 0,
 "mod_nihil": -2,
-"dav_dub": -8
+"dav_dub": -8,
+"sec_rel": 4,
+"est_out": -8
 },
 "image": null,
 "fac": 5
@@ -1399,7 +1613,9 @@ window.FIGURES = [
 "prog_cons": 12,
 "tech_ludd": -2,
 "mod_nihil": -4,
-"dav_dub": 2
+"dav_dub": 2,
+"sec_rel": -12,
+"est_out": -8
 },
 "image": null,
 "fac": 4
@@ -1412,7 +1628,9 @@ window.FIGURES = [
 "prog_cons": 22,
 "tech_ludd": -6,
 "mod_nihil": -8,
-"dav_dub": -6
+"dav_dub": -6,
+"sec_rel": -8,
+"est_out": -14
 },
 "image": null,
 "fac": 4
@@ -1425,7 +1643,9 @@ window.FIGURES = [
 "prog_cons": 18,
 "tech_ludd": 6,
 "mod_nihil": 4,
-"dav_dub": 12
+"dav_dub": 12,
+"sec_rel": -16,
+"est_out": -6
 },
 "image": null,
 "fac": 4
@@ -1438,7 +1658,9 @@ window.FIGURES = [
 "prog_cons": 22,
 "tech_ludd": -4,
 "mod_nihil": 6,
-"dav_dub": 14
+"dav_dub": 14,
+"sec_rel": -8,
+"est_out": 16
 },
 "image": null,
 "fac": 4
@@ -1451,7 +1673,9 @@ window.FIGURES = [
 "prog_cons": 14,
 "tech_ludd": 8,
 "mod_nihil": 10,
-"dav_dub": 24
+"dav_dub": 24,
+"sec_rel": -10,
+"est_out": 24
 },
 "image": null,
 "fac": 1
@@ -1464,7 +1688,9 @@ window.FIGURES = [
 "prog_cons": 20,
 "tech_ludd": -8,
 "mod_nihil": -4,
-"dav_dub": -2
+"dav_dub": -2,
+"sec_rel": -16,
+"est_out": -20
 },
 "image": null,
 "fac": 4
@@ -1477,7 +1703,9 @@ window.FIGURES = [
 "prog_cons": -14,
 "tech_ludd": 18,
 "mod_nihil": 2,
-"dav_dub": -6
+"dav_dub": -6,
+"sec_rel": -16,
+"est_out": -14
 },
 "image": null,
 "fac": 5
@@ -1490,7 +1718,9 @@ window.FIGURES = [
 "prog_cons": 2,
 "tech_ludd": 8,
 "mod_nihil": 8,
-"dav_dub": 22
+"dav_dub": 22,
+"sec_rel": -4,
+"est_out": 12
 },
 "image": null,
 "fac": 1
@@ -1503,7 +1733,9 @@ window.FIGURES = [
 "prog_cons": 20,
 "tech_ludd": -2,
 "mod_nihil": 2,
-"dav_dub": 4
+"dav_dub": 4,
+"sec_rel": -12,
+"est_out": -8
 },
 "image": null,
 "fac": 4
@@ -1516,7 +1748,9 @@ window.FIGURES = [
 "prog_cons": 16,
 "tech_ludd": 6,
 "mod_nihil": 8,
-"dav_dub": 18
+"dav_dub": 18,
+"sec_rel": -6,
+"est_out": 8
 },
 "image": null,
 "fac": 1
@@ -1529,7 +1763,9 @@ window.FIGURES = [
 "prog_cons": 18,
 "tech_ludd": 2,
 "mod_nihil": 2,
-"dav_dub": 14
+"dav_dub": 14,
+"sec_rel": -6,
+"est_out": -2
 },
 "image": null,
 "fac": 4
@@ -1542,7 +1778,9 @@ window.FIGURES = [
 "prog_cons": -26,
 "tech_ludd": 2,
 "mod_nihil": 2,
-"dav_dub": -10
+"dav_dub": -10,
+"sec_rel": 16,
+"est_out": -12
 },
 "image": null,
 "fac": 5
@@ -1555,7 +1793,9 @@ window.FIGURES = [
 "prog_cons": -28,
 "tech_ludd": 4,
 "mod_nihil": -8,
-"dav_dub": -22
+"dav_dub": -22,
+"sec_rel": 12,
+"est_out": -18
 },
 "image": null,
 "fac": 0
@@ -1568,7 +1808,9 @@ window.FIGURES = [
 "prog_cons": -22,
 "tech_ludd": 8,
 "mod_nihil": -6,
-"dav_dub": -16
+"dav_dub": -16,
+"sec_rel": 4,
+"est_out": -16
 },
 "image": null,
 "fac": 0
@@ -1581,7 +1823,9 @@ window.FIGURES = [
 "prog_cons": -24,
 "tech_ludd": 6,
 "mod_nihil": -8,
-"dav_dub": -18
+"dav_dub": -18,
+"sec_rel": -4,
+"est_out": -16
 },
 "image": null,
 "fac": 0
@@ -1594,7 +1838,9 @@ window.FIGURES = [
 "prog_cons": -28,
 "tech_ludd": 2,
 "mod_nihil": -6,
-"dav_dub": -16
+"dav_dub": -16,
+"sec_rel": 16,
+"est_out": -14
 },
 "image": null,
 "fac": 0
@@ -1607,7 +1853,9 @@ window.FIGURES = [
 "prog_cons": -24,
 "tech_ludd": 4,
 "mod_nihil": 4,
-"dav_dub": -8
+"dav_dub": -8,
+"sec_rel": 8,
+"est_out": -2
 },
 "image": null,
 "fac": 5
@@ -1620,7 +1868,9 @@ window.FIGURES = [
 "prog_cons": -22,
 "tech_ludd": 0,
 "mod_nihil": 0,
-"dav_dub": -8
+"dav_dub": -8,
+"sec_rel": 18,
+"est_out": -8
 },
 "image": null,
 "fac": 5
@@ -1633,7 +1883,9 @@ window.FIGURES = [
 "prog_cons": -4,
 "tech_ludd": 30,
 "mod_nihil": 16,
-"dav_dub": 2
+"dav_dub": 2,
+"sec_rel": -8,
+"est_out": -6
 },
 "image": null,
 "fac": 3
@@ -1646,7 +1898,9 @@ window.FIGURES = [
 "prog_cons": 4,
 "tech_ludd": 28,
 "mod_nihil": 18,
-"dav_dub": 10
+"dav_dub": 10,
+"sec_rel": -10,
+"est_out": 8
 },
 "image": null,
 "fac": 3
@@ -1659,7 +1913,9 @@ window.FIGURES = [
 "prog_cons": -14,
 "tech_ludd": 26,
 "mod_nihil": 8,
-"dav_dub": -8
+"dav_dub": -8,
+"sec_rel": -6,
+"est_out": 6
 },
 "image": null,
 "fac": 3
@@ -1672,7 +1928,9 @@ window.FIGURES = [
 "prog_cons": -6,
 "tech_ludd": 26,
 "mod_nihil": 10,
-"dav_dub": 2
+"dav_dub": 2,
+"sec_rel": -8,
+"est_out": -4
 },
 "image": null,
 "fac": 3
@@ -1685,7 +1943,9 @@ window.FIGURES = [
 "prog_cons": 2,
 "tech_ludd": 24,
 "mod_nihil": 14,
-"dav_dub": 8
+"dav_dub": 8,
+"sec_rel": -6,
+"est_out": 4
 },
 "image": null,
 "fac": 3
@@ -1698,7 +1958,9 @@ window.FIGURES = [
 "prog_cons": -2,
 "tech_ludd": 28,
 "mod_nihil": 14,
-"dav_dub": 4
+"dav_dub": 4,
+"sec_rel": -6,
+"est_out": 10
 },
 "image": null,
 "fac": 3
@@ -1711,7 +1973,9 @@ window.FIGURES = [
 "prog_cons": -2,
 "tech_ludd": 30,
 "mod_nihil": 12,
-"dav_dub": 0
+"dav_dub": 0,
+"sec_rel": -8,
+"est_out": 8
 },
 "image": null,
 "fac": 3
@@ -1724,7 +1988,9 @@ window.FIGURES = [
 "prog_cons": -16,
 "tech_ludd": 28,
 "mod_nihil": 6,
-"dav_dub": -14
+"dav_dub": -14,
+"sec_rel": -4,
+"est_out": -2
 },
 "image": null,
 "fac": 3
@@ -1737,7 +2003,9 @@ window.FIGURES = [
 "prog_cons": -6,
 "tech_ludd": 26,
 "mod_nihil": 6,
-"dav_dub": -2
+"dav_dub": -2,
+"sec_rel": -8,
+"est_out": 10
 },
 "image": null,
 "fac": 3
@@ -1750,7 +2018,9 @@ window.FIGURES = [
 "prog_cons": 6,
 "tech_ludd": 26,
 "mod_nihil": 16,
-"dav_dub": 12
+"dav_dub": 12,
+"sec_rel": -16,
+"est_out": 14
 },
 "image": null,
 "fac": 3
@@ -1763,7 +2033,9 @@ window.FIGURES = [
 "prog_cons": 6,
 "tech_ludd": -8,
 "mod_nihil": 8,
-"dav_dub": 14
+"dav_dub": 14,
+"sec_rel": -10,
+"est_out": 10
 },
 "image": null,
 "fac": 4
@@ -1776,7 +2048,9 @@ window.FIGURES = [
 "prog_cons": 6,
 "tech_ludd": 10,
 "mod_nihil": -24,
-"dav_dub": 4
+"dav_dub": 4,
+"sec_rel": -18,
+"est_out": -14
 },
 "image": null,
 "fac": 2
@@ -1789,7 +2063,9 @@ window.FIGURES = [
 "prog_cons": -8,
 "tech_ludd": 32,
 "mod_nihil": 12,
-"dav_dub": -4
+"dav_dub": -4,
+"sec_rel": -12,
+"est_out": -12
 },
 "image": null,
 "fac": 3
@@ -1802,7 +2078,9 @@ window.FIGURES = [
 "prog_cons": -20,
 "tech_ludd": 4,
 "mod_nihil": -12,
-"dav_dub": -14
+"dav_dub": -14,
+"sec_rel": 16,
+"est_out": -18
 },
 "image": null,
 "fac": 0
@@ -1815,7 +2093,9 @@ window.FIGURES = [
 "prog_cons": 16,
 "tech_ludd": 6,
 "mod_nihil": 12,
-"dav_dub": 14
+"dav_dub": 14,
+"sec_rel": 4,
+"est_out": 12
 },
 "image": null,
 "fac": 1
@@ -1828,7 +2108,9 @@ window.FIGURES = [
 "prog_cons": -16,
 "tech_ludd": 18,
 "mod_nihil": 6,
-"dav_dub": -14
+"dav_dub": -14,
+"sec_rel": 6,
+"est_out": -10
 },
 "image": null,
 "fac": 5
@@ -1841,7 +2123,9 @@ window.FIGURES = [
 "prog_cons": -20,
 "tech_ludd": 10,
 "mod_nihil": 10,
-"dav_dub": -14
+"dav_dub": -14,
+"sec_rel": 22,
+"est_out": 8
 },
 "image": null,
 "fac": 5
@@ -1854,7 +2138,9 @@ window.FIGURES = [
 "prog_cons": -24,
 "tech_ludd": 0,
 "mod_nihil": 4,
-"dav_dub": -20
+"dav_dub": -20,
+"sec_rel": 16,
+"est_out": 6
 },
 "image": null,
 "fac": 0
@@ -1867,7 +2153,9 @@ window.FIGURES = [
 "prog_cons": 6,
 "tech_ludd": 8,
 "mod_nihil": 8,
-"dav_dub": 16
+"dav_dub": 16,
+"sec_rel": 0,
+"est_out": 12
 },
 "image": null,
 "fac": 1
@@ -1880,7 +2168,9 @@ window.FIGURES = [
 "prog_cons": -16,
 "tech_ludd": 8,
 "mod_nihil": 6,
-"dav_dub": -10
+"dav_dub": -10,
+"sec_rel": 8,
+"est_out": 16
 },
 "image": null,
 "fac": 5
@@ -1893,7 +2183,9 @@ window.FIGURES = [
 "prog_cons": -22,
 "tech_ludd": 0,
 "mod_nihil": 2,
-"dav_dub": -26
+"dav_dub": -26,
+"sec_rel": 22,
+"est_out": 8
 },
 "image": null,
 "fac": 0
@@ -1906,7 +2198,9 @@ window.FIGURES = [
 "prog_cons": -22,
 "tech_ludd": -2,
 "mod_nihil": 2,
-"dav_dub": -14
+"dav_dub": -14,
+"sec_rel": 8,
+"est_out": -10
 },
 "image": null,
 "fac": 0
@@ -1919,7 +2213,9 @@ window.FIGURES = [
 "prog_cons": 18,
 "tech_ludd": 8,
 "mod_nihil": 12,
-"dav_dub": 24
+"dav_dub": 24,
+"sec_rel": 4,
+"est_out": 28
 },
 "image": null,
 "fac": 1
@@ -1932,7 +2228,9 @@ window.FIGURES = [
 "prog_cons": 20,
 "tech_ludd": 6,
 "mod_nihil": 14,
-"dav_dub": 22
+"dav_dub": 22,
+"sec_rel": -8,
+"est_out": 22
 },
 "image": null,
 "fac": 1
@@ -1945,7 +2243,9 @@ window.FIGURES = [
 "prog_cons": 8,
 "tech_ludd": 8,
 "mod_nihil": 14,
-"dav_dub": 30
+"dav_dub": 30,
+"sec_rel": 6,
+"est_out": 30
 },
 "image": null,
 "fac": 1
@@ -1958,7 +2258,9 @@ window.FIGURES = [
 "prog_cons": 16,
 "tech_ludd": 4,
 "mod_nihil": 12,
-"dav_dub": 20
+"dav_dub": 20,
+"sec_rel": -8,
+"est_out": 22
 },
 "image": null,
 "fac": 1
@@ -1971,7 +2273,9 @@ window.FIGURES = [
 "prog_cons": 6,
 "tech_ludd": -10,
 "mod_nihil": -6,
-"dav_dub": -28
+"dav_dub": -28,
+"sec_rel": 4,
+"est_out": 10
 },
 "image": null,
 "fac": 0
@@ -1984,7 +2288,9 @@ window.FIGURES = [
 "prog_cons": -10,
 "tech_ludd": -4,
 "mod_nihil": -6,
-"dav_dub": -32
+"dav_dub": -32,
+"sec_rel": -6,
+"est_out": 24
 },
 "image": null,
 "fac": 0
@@ -1997,7 +2303,9 @@ window.FIGURES = [
 "prog_cons": 2,
 "tech_ludd": 6,
 "mod_nihil": 14,
-"dav_dub": 30
+"dav_dub": 30,
+"sec_rel": -6,
+"est_out": 32
 },
 "image": null,
 "fac": 1
@@ -2010,7 +2318,9 @@ window.FIGURES = [
 "prog_cons": -2,
 "tech_ludd": 6,
 "mod_nihil": 14,
-"dav_dub": 26
+"dav_dub": 26,
+"sec_rel": -2,
+"est_out": 30
 },
 "image": null,
 "fac": 1
@@ -2023,7 +2333,9 @@ window.FIGURES = [
 "prog_cons": 6,
 "tech_ludd": 24,
 "mod_nihil": 16,
-"dav_dub": 22
+"dav_dub": 22,
+"sec_rel": 4,
+"est_out": 22
 },
 "image": null,
 "fac": 1
@@ -2036,7 +2348,9 @@ window.FIGURES = [
 "prog_cons": 6,
 "tech_ludd": 24,
 "mod_nihil": 18,
-"dav_dub": 24
+"dav_dub": 24,
+"sec_rel": 4,
+"est_out": 24
 },
 "image": null,
 "fac": 1
@@ -2049,7 +2363,9 @@ window.FIGURES = [
 "prog_cons": 8,
 "tech_ludd": 24,
 "mod_nihil": 6,
-"dav_dub": 10
+"dav_dub": 10,
+"sec_rel": -14,
+"est_out": 0
 },
 "image": null,
 "fac": 3
@@ -2062,7 +2378,9 @@ window.FIGURES = [
 "prog_cons": -2,
 "tech_ludd": 28,
 "mod_nihil": 8,
-"dav_dub": -6
+"dav_dub": -6,
+"sec_rel": -8,
+"est_out": -8
 },
 "image": null,
 "fac": 3
@@ -2075,7 +2393,9 @@ window.FIGURES = [
 "prog_cons": -6,
 "tech_ludd": 26,
 "mod_nihil": 8,
-"dav_dub": 2
+"dav_dub": 2,
+"sec_rel": -8,
+"est_out": -6
 },
 "image": null,
 "fac": 3
@@ -2088,7 +2408,9 @@ window.FIGURES = [
 "prog_cons": 10,
 "tech_ludd": 4,
 "mod_nihil": 12,
-"dav_dub": 14
+"dav_dub": 14,
+"sec_rel": 0,
+"est_out": 16
 },
 "image": null,
 "fac": 1
@@ -2101,7 +2423,9 @@ window.FIGURES = [
 "prog_cons": 14,
 "tech_ludd": 4,
 "mod_nihil": 10,
-"dav_dub": 12
+"dav_dub": 12,
+"sec_rel": 6,
+"est_out": 14
 },
 "image": null,
 "fac": 1
@@ -2114,7 +2438,9 @@ window.FIGURES = [
 "prog_cons": -8,
 "tech_ludd": 0,
 "mod_nihil": 0,
-"dav_dub": 2
+"dav_dub": 2,
+"sec_rel": 6,
+"est_out": -6
 },
 "image": null,
 "fac": 5
@@ -2127,7 +2453,9 @@ window.FIGURES = [
 "prog_cons": -6,
 "tech_ludd": -8,
 "mod_nihil": -8,
-"dav_dub": -16
+"dav_dub": -16,
+"sec_rel": 10,
+"est_out": -20
 },
 "image": null,
 "fac": 0
@@ -2140,7 +2468,9 @@ window.FIGURES = [
 "prog_cons": 16,
 "tech_ludd": 4,
 "mod_nihil": 6,
-"dav_dub": 14
+"dav_dub": 14,
+"sec_rel": -10,
+"est_out": 14
 },
 "image": null,
 "fac": 1
@@ -2153,7 +2483,9 @@ window.FIGURES = [
 "prog_cons": 18,
 "tech_ludd": 6,
 "mod_nihil": 8,
-"dav_dub": 18
+"dav_dub": 18,
+"sec_rel": -10,
+"est_out": 16
 },
 "image": null,
 "fac": 1
@@ -2166,7 +2498,9 @@ window.FIGURES = [
 "prog_cons": 2,
 "tech_ludd": 0,
 "mod_nihil": 2,
-"dav_dub": 2
+"dav_dub": 2,
+"sec_rel": -4,
+"est_out": -6
 },
 "image": null,
 "fac": 4
@@ -2179,7 +2513,9 @@ window.FIGURES = [
 "prog_cons": -8,
 "tech_ludd": 6,
 "mod_nihil": 4,
-"dav_dub": -2
+"dav_dub": -2,
+"sec_rel": -4,
+"est_out": -6
 },
 "image": null,
 "fac": 5
@@ -2192,7 +2528,9 @@ window.FIGURES = [
 "prog_cons": -4,
 "tech_ludd": 2,
 "mod_nihil": 2,
-"dav_dub": -2
+"dav_dub": -2,
+"sec_rel": 2,
+"est_out": -8
 },
 "image": null,
 "fac": 5
@@ -2205,7 +2543,9 @@ window.FIGURES = [
 "prog_cons": -6,
 "tech_ludd": 14,
 "mod_nihil": 8,
-"dav_dub": 0
+"dav_dub": 0,
+"sec_rel": 0,
+"est_out": -4
 },
 "image": null,
 "fac": 3
@@ -2218,7 +2558,9 @@ window.FIGURES = [
 "prog_cons": -26,
 "tech_ludd": -2,
 "mod_nihil": 0,
-"dav_dub": -10
+"dav_dub": -10,
+"sec_rel": 10,
+"est_out": -10
 },
 "image": null,
 "fac": 5
@@ -2231,7 +2573,9 @@ window.FIGURES = [
 "prog_cons": -22,
 "tech_ludd": 2,
 "mod_nihil": 4,
-"dav_dub": -8
+"dav_dub": -8,
+"sec_rel": 12,
+"est_out": 2
 },
 "image": null,
 "fac": 5
@@ -2244,7 +2588,9 @@ window.FIGURES = [
 "prog_cons": 12,
 "tech_ludd": 8,
 "mod_nihil": 12,
-"dav_dub": 22
+"dav_dub": 22,
+"sec_rel": -6,
+"est_out": 22
 },
 "image": null,
 "fac": 1
@@ -2257,7 +2603,9 @@ window.FIGURES = [
 "prog_cons": -8,
 "tech_ludd": 4,
 "mod_nihil": 6,
-"dav_dub": 6
+"dav_dub": 6,
+"sec_rel": -2,
+"est_out": 12
 },
 "image": null,
 "fac": 5
@@ -2270,7 +2618,9 @@ window.FIGURES = [
 "prog_cons": 2,
 "tech_ludd": 6,
 "mod_nihil": 10,
-"dav_dub": 22
+"dav_dub": 22,
+"sec_rel": 6,
+"est_out": 18
 },
 "image": null,
 "fac": 1
@@ -2283,7 +2633,9 @@ window.FIGURES = [
 "prog_cons": -24,
 "tech_ludd": 0,
 "mod_nihil": -6,
-"dav_dub": -24
+"dav_dub": -24,
+"sec_rel": 14,
+"est_out": -22
 },
 "image": null,
 "fac": 0
@@ -2296,7 +2648,9 @@ window.FIGURES = [
 "prog_cons": -28,
 "tech_ludd": 4,
 "mod_nihil": -2,
-"dav_dub": -14
+"dav_dub": -14,
+"sec_rel": 4,
+"est_out": 8
 },
 "image": null,
 "fac": 0
@@ -2309,7 +2663,9 @@ window.FIGURES = [
 "prog_cons": -12,
 "tech_ludd": 6,
 "mod_nihil": 4,
-"dav_dub": 2
+"dav_dub": 2,
+"sec_rel": -8,
+"est_out": -8
 },
 "image": null,
 "fac": 5
@@ -2322,7 +2678,9 @@ window.FIGURES = [
 "prog_cons": -16,
 "tech_ludd": 6,
 "mod_nihil": 6,
-"dav_dub": 4
+"dav_dub": 4,
+"sec_rel": 2,
+"est_out": 2
 },
 "image": null,
 "fac": 5
@@ -2335,7 +2693,9 @@ window.FIGURES = [
 "prog_cons": 24,
 "tech_ludd": -8,
 "mod_nihil": -4,
-"dav_dub": -2
+"dav_dub": -2,
+"sec_rel": 16,
+"est_out": -16
 },
 "image": null,
 "fac": 4
@@ -2348,7 +2708,9 @@ window.FIGURES = [
 "prog_cons": 22,
 "tech_ludd": -12,
 "mod_nihil": 2,
-"dav_dub": 0
+"dav_dub": 0,
+"sec_rel": 14,
+"est_out": -12
 },
 "image": null,
 "fac": 4
@@ -2361,7 +2723,9 @@ window.FIGURES = [
 "prog_cons": 22,
 "tech_ludd": -2,
 "mod_nihil": 2,
-"dav_dub": 6
+"dav_dub": 6,
+"sec_rel": 16,
+"est_out": 2
 },
 "image": null,
 "fac": 4

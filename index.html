@@ -167,20 +167,10 @@
   </div>
 
   <div class="panel">
-    <div class="ph">Morph path — who's between two people</div>
-    <div class="row" style="margin-bottom:12px">
-      <span id="mpAHost"></span><span style="font-weight:800;color:var(--muted)">→</span><span id="mpBHost"></span>
-      <button class="go" onclick="walk()">▶ Walk it</button>
-    </div>
-    <div id="mpOut" style="text-align:center;color:var(--muted);font-size:13px">Pick two people and walk the line between them.</div>
-  </div>
-
-  <div class="panel">
     <div class="ph">Compare two people</div>
     <div class="row" style="margin-bottom:12px">
       <span id="cmpAHost"></span><span style="font-weight:800;color:var(--muted)">vs</span><span id="cmpBHost"></span>
-      <button onclick="cmpRandom()">🎲 Random</button>
-      <button class="preset" onclick="cmpInteresting()">💡 Surprise me</button>
+      <button onclick="cmpRandom()">🎲 Random pair</button>
     </div>
     <div id="cmpOut"></div>
   </div>
@@ -256,7 +246,7 @@ function createCombo(host,initial,onPick){
   wrap.appendChild(input);wrap.appendChild(list);host.appendChild(wrap);
   let value=initial||'';
   function draw(q){const ql=q.toLowerCase();
-    const items=ALL().filter(f=>f.name.toLowerCase().includes(ql)).slice(0,40);
+    const items=ALL().filter(f=>f.name.toLowerCase().includes(ql)).sort((a,b)=>a.name.localeCompare(b.name));
     list.innerHTML=items.map(f=>`<div class="combo-item"><span class="dot" style="background:${facColor(f)}"></span>${f.name}</div>`).join('')||'<div class="combo-item">no match</div>';}
   input.addEventListener('focus',()=>{draw('');list.classList.add('open');});
   input.addEventListener('input',()=>{draw(input.value);list.classList.add('open');});
@@ -268,8 +258,6 @@ function createCombo(host,initial,onPick){
 const jumpCombo=createCombo(document.getElementById('jumpHost'),'',n=>{const f=ALL().find(x=>x.name===n);if(f){AX6.forEach(a=>state[a]=f.scores[a]);render();}});
 const cmpA=createCombo(document.getElementById('cmpAHost'),'Bernie Sanders',renderCompare);
 const cmpB=createCombo(document.getElementById('cmpBHost'),'Donald Trump',renderCompare);
-const mpA=createCombo(document.getElementById('mpAHost'),'Bernie Sanders',()=>{});
-const mpB=createCombo(document.getElementById('mpBHost'),'Donald Trump',()=>{});
 
 /* ---------- legend ---------- */
 function renderLegend(){const lg=document.getElementById('legend');lg.innerHTML='';
@@ -391,38 +379,6 @@ function renderCompare(){const A=ALL().find(x=>x.name===cmpA.get()),B=ALL().find
 }
 function cmpRandom(){const a=ALL(),i=Math.floor(Math.random()*a.length);let j=Math.floor(Math.random()*a.length);if(j===i)j=(j+1)%a.length;
   cmpA.set(a[i].name);cmpB.set(a[j].name);renderCompare();}
-let interestingPool=[];
-function buildInteresting(){
-  const curated=[["Bernie Sanders","Donald Trump"],["Alexandria Ocasio-Cortez","Elon Musk"],["Barack Obama","Vladimir Putin"],
-    ["Greta Thunberg","Andrew Tate"],["Hasan Piker","Ben Shapiro"],["Xi Jinping","Mr Beast"],["Nancy Pelosi","Liz Cheney"],
-    ["Eliezer Yudkowsky","Guillaume Verdon (Beff Jezos)"],["Tucker Carlson","Rachel Maddow"],["Peter Thiel","Bernie Sanders"],
-    ["Pope Leo XIV","Aella"],["Taylor Swift","Kanye West"],["Joe Rogan","Pope Leo XIV"],["Mark Cuban","Bari Weiss"]];
-  const names=new Set(FIGURES.map(f=>f.name));
-  interestingPool=curated.filter(p=>names.has(p[0])&&names.has(p[1]));
-  // computed "unlikely twins": geometrically close but opposite woke/chud sign
-  for(let i=0;i<FIGURES.length;i++)for(let j=i+1;j<FIGURES.length;j++){
-    const a=FIGURES[i],b=FIGURES[j];
-    if(Math.sign(a.scores.prog_cons)!==Math.sign(b.scores.prog_cons)&&Math.abs(a.scores.prog_cons)>5&&Math.abs(b.scores.prog_cons)>5){
-      let d=0;for(const x of AX4){const dd=a.scores[x]-b.scores[x];d+=dd*dd;}
-      if(Math.sqrt(d)<16.5)interestingPool.push([a.name,b.name]);}}
-}
-function cmpInteresting(){if(!interestingPool.length)buildInteresting();
-  const p=interestingPool[Math.floor(Math.random()*interestingPool.length)];
-  cmpA.set(p[0]);cmpB.set(p[1]);renderCompare();}
-
-/* ---------- morph ---------- */
-let walkToken=0;
-function nearestPt(pt){let best=null,bd=1e9;for(const f of ALL()){let d=0;for(const a of axes()){const x=pt[a]-f.scores[a];d+=x*x;}if(d<bd){bd=d;best=f;}}return best;}
-function walk(){const A=ALL().find(x=>x.name===mpA.get()),B=ALL().find(x=>x.name===mpB.get());
-  if(!A||!B||A===B){document.getElementById('mpOut').textContent='Pick two different people.';return;}
-  const steps=160;let prev=null;const seq=[];
-  for(let i=0;i<=steps;i++){const t=i/steps;const pt={};AX6.forEach(a=>pt[a]=A.scores[a]*(1-t)+B.scores[a]*t);
-    const nf=nearestPt(pt);if(nf!==prev){seq.push(nf);prev=nf;}}
-  document.getElementById('mpOut').innerHTML='<b>Route:</b> '+seq.map(f=>`<span style="color:${facColor(f)};font-weight:700">${f.name}</span>`).join('  →  ')+
-    `<div style="margin-top:6px;font-size:12px">${seq.length} stops from ${A.name} to ${B.name}</div>`;
-  const my=++walkToken;jumpReset();
-  (function frame(i){if(my!==walkToken)return;const t=i/steps;AX6.forEach(a=>state[a]=Math.round(A.scores[a]*(1-t)+B.scores[a]*t));render();
-    if(i<steps)setTimeout(()=>frame(i+1),18);})(0);}
 
 /* ---------- url + buttons ---------- */
 function updateURL(){history.replaceState(null,'','?'+AX6.map(a=>SHORT[a]+'='+state[a]).join('&')+'&e='+(useExt?1:0));}
@@ -435,7 +391,7 @@ function setAll(v){AX6.forEach(a=>state[a]=v);jumpReset();render();}
 function preset(o){AX6.forEach(a=>state[a]=o[a]||0);jumpReset();render();}
 function randomize(){AX6.forEach(a=>state[a]=Math.round((Math.random()*2-1)*MAX));jumpReset();render();}
 
-loadURL();buildInteresting();renderLegend();renderCrew();buildMap();render();renderCompare();
+loadURL();renderLegend();renderCrew();buildMap();render();renderCompare();
 </script>
 </body>
 </html>

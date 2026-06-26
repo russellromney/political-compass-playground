@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2020s Political Compass — Playground</title>
+<style>
+  :root{
+    --blue:#3f8edd; --red:#e0503f; --ink:#1d2733; --muted:#6a6b6c;
+    --line:#e6e8ec; --card:#ffffff; --bg:#f4f6f9;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.45}
+  .wrap{max-width:960px;margin:0 auto;padding:24px 18px 80px}
+  h1{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:30px;margin:.2em 0 .1em;text-align:center}
+  .sub{text-align:center;color:var(--muted);font-size:14px;margin:0 auto 22px;max-width:620px}
+  .sub a{color:var(--blue)}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin-bottom:18px;
+    box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .axis{margin:18px 0}
+  .axis .heads{display:flex;justify-content:space-between;font-weight:700;font-size:14px;margin-bottom:8px}
+  .axis .heads .l{color:var(--blue)} .axis .heads .r{color:var(--red)}
+  .axis .heads .pct{font-variant-numeric:tabular-nums;font-weight:800}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:14px;border-radius:10px;outline:none;
+    background:linear-gradient(90deg,var(--blue) var(--fill,50%),var(--red) var(--fill,50%));cursor:pointer;margin:0}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;
+    background:#fff;border:3px solid var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.25);cursor:grab}
+  input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid var(--ink);cursor:grab}
+  .controls{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px}
+  button{font:inherit;font-size:13px;font-weight:600;border:1px solid var(--line);background:#fff;color:var(--ink);
+    padding:7px 13px;border-radius:9px;cursor:pointer}
+  button:hover{border-color:#c8ccd2;background:#fafbfc}
+  button.preset{background:#eef3fa;border-color:#d8e4f3;color:#2a5d97}
+  .filters{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:14px}
+  .chip{font-size:12px;font-weight:600;padding:5px 11px;border-radius:20px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--muted)}
+  .chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .match-head{text-align:center;letter-spacing:1px;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
+  .top{display:flex;align-items:center;gap:16px;justify-content:center;flex-wrap:wrap;margin:8px 0 4px}
+  .top img{width:84px;height:84px;border-radius:50%;object-fit:cover;border:3px solid var(--blue);background:#eee}
+  .top .avatar{width:84px;height:84px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:30px;font-weight:800;color:#fff;border:3px solid rgba(0,0,0,.08)}
+  .top .info{text-align:left;min-width:200px}
+  .top .name{font-family:Georgia,serif;font-size:26px;font-weight:700;color:var(--blue);line-height:1.1}
+  .top .desc{color:var(--muted);font-size:14px;font-style:italic;margin-top:2px}
+  .top .sim{font-size:13px;font-weight:700;margin-top:6px}
+  .cluster{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:8px}
+  .fig{display:flex;align-items:center;gap:11px;border:1px solid var(--line);border-radius:12px;padding:9px 11px;background:#fff}
+  .fig .rank{font-weight:800;color:var(--muted);font-size:13px;width:20px;text-align:center;flex:none}
+  .fig .pic{width:42px;height:42px;border-radius:50%;object-fit:cover;flex:none;background:#eee;border:2px solid #e3e3e3}
+  .fig .av{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;flex:none;font-size:15px}
+  .fig .nm{font-weight:700;font-size:14px;line-height:1.15}
+  .fig .meta{font-size:11.5px;color:var(--muted)}
+  .fig .bar{height:6px;border-radius:4px;background:#eef0f3;margin-top:5px;overflow:hidden}
+  .fig .bar > i{display:block;height:100%;background:var(--blue)}
+  .grpTag{display:inline-block;font-size:10px;font-weight:700;padding:1px 6px;border-radius:6px;margin-left:5px;vertical-align:middle}
+  .foot{text-align:center;color:var(--muted);font-size:12px;margin-top:26px;line-height:1.6}
+  .foot code{background:#eceef1;padding:1px 5px;border-radius:4px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>The 2020s Political Compass — Playground</h1>
+  <p class="sub">Drag the four sliders and watch your <b>cluster</b> of nearest public figures update live.
+  Model reverse-engineered from <a href="https://britmonkey.com/2020s-political-compass/" target="_blank" rel="noopener">britmonkey.com</a>
+  (nearest figure by Euclidean distance over 4 axes), with extra US figures added for richer clusters.</p>
+
+  <div class="panel" id="sliders"></div>
+
+  <div class="controls" style="margin-bottom:18px">
+    <button onclick="setAll(0)">Reset to centre</button>
+    <button onclick="randomize()">🎲 Randomise</button>
+    <button class="preset" onclick="preset([-3,19,17,15])">The "Rishi Sunak normie"</button>
+    <button class="preset" onclick="preset([28,-18,-22,-6])">DSA leftist</button>
+    <button class="preset" onclick="preset([-22,28,4,-18])">Tech-right</button>
+    <button class="preset" onclick="preset([14,10,20,28])">Davos liberal</button>
+  </div>
+
+  <div class="panel">
+    <div class="match-head">Your closest match</div>
+    <div class="top" id="top"></div>
+  </div>
+
+  <div class="panel">
+    <div class="match-head" style="margin-bottom:10px">Your cluster — the people nearest you</div>
+    <div class="filters" id="filters"></div>
+    <div class="cluster" id="cluster"></div>
+  </div>
+
+  <div class="foot">
+    Each axis runs −32…+32 (16 questions × ±2). Similarity = how close a figure sits to you in 4-D space.<br>
+    The 30 BritMonkey figures use the site's exact coordinates. The <b>US figures are subjective estimates</b> — argue about them, it's the point.<br>
+    Not affiliated with BritMonkey. <code>figures.js</code> holds all the data if you want to tweak it.
+  </div>
+</div>
+
+<script src="figures.js"></script>
+<script>
+const AXES=[
+  {id:'prog_cons',l:'Woke',r:'Chud'},
+  {id:'tech_ludd',l:'Techbro',r:'Neo-Luddite'},
+  {id:'mod_nihil',l:'Hopepilled',r:'Doomer'},
+  {id:'dav_dub',l:'Davos',r:'Dubai'},
+];
+const MAX=32;
+const state={prog_cons:0,tech_ludd:0,mod_nihil:0,dav_dub:0};
+const GROUP_COLORS={'BritMonkey original':'#7a52c9','US Politics':'#e0503f','US Business':'#1f9d6b','US Media':'#d99214'};
+let activeGroups=new Set(Object.keys(GROUP_COLORS));
+
+// build sliders
+const sl=document.getElementById('sliders');
+AXES.forEach(a=>{
+  const wrap=document.createElement('div');wrap.className='axis';
+  wrap.innerHTML=`
+    <div class="heads">
+      <span class="l">${a.l} <span class="pct" id="pl_${a.id}"></span></span>
+      <span class="r"><span class="pct" id="pr_${a.id}"></span> ${a.r}</span>
+    </div>
+    <input type="range" min="-32" max="32" step="1" value="0" id="s_${a.id}">`;
+  sl.appendChild(wrap);
+  wrap.querySelector('input').addEventListener('input',e=>{state[a.id]=+e.target.value;render();});
+});
+
+// build group filter chips
+const fl=document.getElementById('filters');
+Object.keys(GROUP_COLORS).forEach(g=>{
+  const c=document.createElement('span');c.className='chip on';c.textContent=g;
+  c.style.setProperty('--g',GROUP_COLORS[g]);
+  c.onclick=()=>{ if(activeGroups.has(g)){activeGroups.delete(g);c.classList.remove('on');}
+    else{activeGroups.add(g);c.classList.add('on');} render(); };
+  fl.appendChild(c);
+});
+
+function initials(n){return n.split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase();}
+function imgFail(el){ // swap a broken image for an initials avatar
+  const d=document.createElement('div');
+  d.className=el.dataset.sz;
+  d.style.background=el.dataset.col;
+  d.textContent=el.dataset.ini;
+  el.replaceWith(d);
+}
+function avatarHTML(f,cls,sz){
+  const col=GROUP_COLORS[f.group]||'#888';
+  if(f.image) return `<img class="${cls}" src="${f.image}" alt="" loading="lazy"
+    data-sz="${sz}" data-col="${col}" data-ini="${initials(f.name)}" onerror="imgFail(this)">`;
+  return `<div class="${sz}" style="background:${col}">${initials(f.name)}</div>`;
+}
+function dist(f){let s=0;for(const a of AXES){const d=state[a.id]-f.scores[a.id];s+=d*d;}return Math.sqrt(s);}
+function sim(d){return Math.max(0,Math.round(100*(1-d/90)));}
+
+function render(){
+  // slider visuals
+  AXES.forEach(a=>{
+    const v=state[a.id];
+    const inp=document.getElementById('s_'+a.id);inp.value=v;
+    const lp=Math.round((v+MAX)/(2*MAX)*100);
+    inp.style.setProperty('--fill',lp+'%');
+    document.getElementById('pl_'+a.id).textContent=lp+'%';
+    document.getElementById('pr_'+a.id).textContent=(100-lp)+'%';
+  });
+  const ranked=window.FIGURES
+    .filter(f=>activeGroups.has(f.group))
+    .map(f=>({f,d:dist(f)})).sort((x,y)=>x.d-y.d);
+  if(!ranked.length){document.getElementById('top').innerHTML='<i>No groups selected</i>';document.getElementById('cluster').innerHTML='';return;}
+
+  const top=ranked[0];
+  document.getElementById('top').innerHTML=`
+    ${avatarHTML(top.f,'','avatar')}
+    <div class="info">
+      <div class="name">${top.f.name}</div>
+      <div class="desc">${top.f.description||''}</div>
+      <div class="sim" style="color:${GROUP_COLORS[top.f.group]}">${sim(top.d)}% match
+        <span class="grpTag" style="background:${GROUP_COLORS[top.f.group]}22;color:${GROUP_COLORS[top.f.group]}">${top.f.group}</span></div>
+    </div>`;
+
+  document.getElementById('cluster').innerHTML=ranked.slice(0,12).map((r,i)=>{
+    const col=GROUP_COLORS[r.f.group];
+    return `<div class="fig">
+      <span class="rank">${i+1}</span>
+      ${avatarHTML(r.f,'pic','av')}
+      <div style="min-width:0">
+        <div class="nm">${r.f.name}</div>
+        <div class="meta">${sim(r.d)}% · ${r.f.group}</div>
+        <div class="bar"><i style="width:${sim(r.d)}%;background:${col}"></i></div>
+      </div></div>`;
+  }).join('');
+}
+
+function setAll(v){AXES.forEach(a=>state[a.id]=v);render();}
+function preset(arr){AXES.forEach((a,i)=>state[a.id]=arr[i]);render();}
+function randomize(){AXES.forEach(a=>state[a.id]=Math.round((Math.random()*2-1)*MAX));render();}
+render();
+</script>
+</body>
+</html>

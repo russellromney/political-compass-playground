@@ -5,191 +5,264 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>2020s Political Compass — Playground</title>
 <style>
-  :root{
-    --blue:#3f8edd; --red:#e0503f; --ink:#1d2733; --muted:#6a6b6c;
-    --line:#e6e8ec; --card:#ffffff; --bg:#f4f6f9;
-  }
+  :root{--blue:#3f8edd;--red:#e0503f;--ink:#1d2733;--muted:#6a6b6c;--line:#e6e8ec;--card:#fff;--bg:#f4f6f9}
   *{box-sizing:border-box}
-  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    background:var(--bg);color:var(--ink);line-height:1.45}
-  .wrap{max-width:960px;margin:0 auto;padding:24px 18px 80px}
-  h1{font-family:Georgia,"Times New Roman",serif;font-weight:700;font-size:30px;margin:.2em 0 .1em;text-align:center}
-  .sub{text-align:center;color:var(--muted);font-size:14px;margin:0 auto 22px;max-width:620px}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.45}
+  .wrap{max-width:980px;margin:0 auto;padding:24px 18px 90px}
+  h1{font-family:Georgia,serif;font-weight:700;font-size:30px;margin:.2em 0 .1em;text-align:center}
+  .sub{text-align:center;color:var(--muted);font-size:14px;margin:0 auto 20px;max-width:640px}
   .sub a{color:var(--blue)}
-  .panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 22px;margin-bottom:18px;
-    box-shadow:0 1px 2px rgba(0,0,0,.03)}
-  .axis{margin:18px 0}
-  .axis .heads{display:flex;justify-content:space-between;font-weight:700;font-size:14px;margin-bottom:8px}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px;margin-bottom:16px;box-shadow:0 1px 2px rgba(0,0,0,.03)}
+  .ph{text-align:center;letter-spacing:1px;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:10px}
+  .axis{margin:16px 0}
+  .axis .heads{display:flex;justify-content:space-between;font-weight:700;font-size:14px;margin-bottom:7px}
   .axis .heads .l{color:var(--blue)} .axis .heads .r{color:var(--red)}
   .axis .heads .pct{font-variant-numeric:tabular-nums;font-weight:800}
-  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:14px;border-radius:10px;outline:none;
-    background:linear-gradient(90deg,var(--blue) var(--fill,50%),var(--red) var(--fill,50%));cursor:pointer;margin:0}
-  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;
-    background:#fff;border:3px solid var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.25);cursor:grab}
-  input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid var(--ink);cursor:grab}
-  .controls{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:6px}
-  button{font:inherit;font-size:13px;font-weight:600;border:1px solid var(--line);background:#fff;color:var(--ink);
-    padding:7px 13px;border-radius:9px;cursor:pointer}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:14px;border-radius:10px;outline:none;background:linear-gradient(90deg,var(--blue) var(--fill,50%),var(--red) var(--fill,50%));cursor:pointer;margin:0}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;border-radius:50%;background:#fff;border:3px solid var(--ink);box-shadow:0 1px 4px rgba(0,0,0,.25)}
+  input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:#fff;border:3px solid var(--ink)}
+  .controls{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:4px}
+  button{font:inherit;font-size:13px;font-weight:600;border:1px solid var(--line);background:#fff;color:var(--ink);padding:7px 13px;border-radius:9px;cursor:pointer}
   button:hover{border-color:#c8ccd2;background:#fafbfc}
   button.preset{background:#eef3fa;border-color:#d8e4f3;color:#2a5d97}
-  .filters{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:14px}
-  .chip{font-size:12px;font-weight:600;padding:5px 11px;border-radius:20px;border:1px solid var(--line);background:#fff;cursor:pointer;color:var(--muted)}
-  .chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
-  .match-head{text-align:center;letter-spacing:1px;font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;margin-bottom:4px}
-  .top{display:flex;align-items:center;gap:16px;justify-content:center;flex-wrap:wrap;margin:8px 0 4px}
-  .top img{width:84px;height:84px;border-radius:50%;object-fit:cover;border:3px solid var(--blue);background:#eee}
-  .top .avatar{width:84px;height:84px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-    font-size:30px;font-weight:800;color:#fff;border:3px solid rgba(0,0,0,.08)}
+  select{font:inherit;font-size:13px;padding:7px 10px;border-radius:9px;border:1px solid var(--line);background:#fff;max-width:100%}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:center}
+  .legend{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin:0 0 10px}
+  .chip{font-size:12px;font-weight:700;padding:5px 11px;border-radius:20px;border:1px solid var(--line);background:#fff;cursor:pointer;display:flex;align-items:center;gap:6px}
+  .chip .dot{width:9px;height:9px;border-radius:50%}
+  .chip.off{opacity:.4}
+  .top{display:flex;align-items:center;gap:16px;justify-content:center;flex-wrap:wrap}
+  .top .avatar,.top img{width:84px;height:84px;border-radius:50%;object-fit:cover;border:3px solid var(--blue);background:#eee;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;color:#fff}
   .top .info{text-align:left;min-width:200px}
   .top .name{font-family:Georgia,serif;font-size:26px;font-weight:700;color:var(--blue);line-height:1.1}
   .top .desc{color:var(--muted);font-size:14px;font-style:italic;margin-top:2px}
   .top .sim{font-size:13px;font-weight:700;margin-top:6px}
-  .cluster{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:8px}
-  .fig{display:flex;align-items:center;gap:11px;border:1px solid var(--line);border-radius:12px;padding:9px 11px;background:#fff}
-  .fig .rank{font-weight:800;color:var(--muted);font-size:13px;width:20px;text-align:center;flex:none}
-  .fig .pic{width:42px;height:42px;border-radius:50%;object-fit:cover;flex:none;background:#eee;border:2px solid #e3e3e3}
-  .fig .av{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;flex:none;font-size:15px}
+  .grpTag{display:inline-block;font-size:10px;font-weight:700;padding:1px 6px;border-radius:6px;margin-left:5px}
+  .cluster{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+  .fig{display:flex;align-items:center;gap:11px;border:1px solid var(--line);border-radius:12px;padding:9px 11px}
+  .fig .rank{font-weight:800;color:var(--muted);font-size:13px;width:18px;text-align:center;flex:none}
+  .fig .pic,.fig .av{width:42px;height:42px;border-radius:50%;object-fit:cover;flex:none;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:15px;background:#eee}
   .fig .nm{font-weight:700;font-size:14px;line-height:1.15}
   .fig .meta{font-size:11.5px;color:var(--muted)}
   .fig .bar{height:6px;border-radius:4px;background:#eef0f3;margin-top:5px;overflow:hidden}
-  .fig .bar > i{display:block;height:100%;background:var(--blue)}
-  .grpTag{display:inline-block;font-size:10px;font-weight:700;padding:1px 6px;border-radius:6px;margin-left:5px;vertical-align:middle}
-  .foot{text-align:center;color:var(--muted);font-size:12px;margin-top:26px;line-height:1.6}
+  .fig .bar>i{display:block;height:100%}
+  svg text{font-family:inherit}
+  .mapwrap{position:relative}
+  #map circle.fig{cursor:pointer;transition:r .1s}
+  #map circle.fig:hover{stroke:#1d2733;stroke-width:1.2}
+  .axlbl{font-size:8px;fill:#9aa0a8;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+  .cmp{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .cmpcol{text-align:center}
+  .cmpcol .nm{font-weight:800;font-size:15px}
+  .cmpcol .desc{font-size:11.5px;color:var(--muted)}
+  .diffrow{display:flex;align-items:center;gap:8px;font-size:12.5px;margin:5px 0}
+  .diffrow .lab{width:96px;text-align:right;color:var(--muted);flex:none}
+  .diffrow .track{flex:1;height:8px;background:#eef0f3;border-radius:5px;position:relative}
+  .diffrow .track>i{position:absolute;height:100%;border-radius:5px;background:var(--ink);opacity:.55}
+  .diffrow .val{width:30px;font-weight:700;font-variant-numeric:tabular-nums}
+  .foot{text-align:center;color:var(--muted);font-size:12px;margin-top:24px;line-height:1.6}
   .foot code{background:#eceef1;padding:1px 5px;border-radius:4px}
+  @media(max-width:560px){.cmp{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>The 2020s Political Compass — Playground</h1>
-  <p class="sub">Drag the four sliders and watch your <b>cluster</b> of nearest public figures update live.
-  Model reverse-engineered from <a href="https://britmonkey.com/2020s-political-compass/" target="_blank" rel="noopener">britmonkey.com</a>
-  (nearest figure by Euclidean distance over 4 axes), with extra US figures added for richer clusters.</p>
+  <p class="sub">Drag the sliders, snap to a real person, and see your <b>cluster</b> and your spot on the map.
+  Model reverse-engineered from <a href="https://britmonkey.com/2020s-political-compass/" target="_blank" rel="noopener">britmonkey.com</a>, plus 110 added US figures.</p>
 
-  <div class="panel" id="sliders"></div>
-
-  <div class="controls" style="margin-bottom:18px">
-    <button onclick="setAll(0)">Reset to centre</button>
-    <button onclick="randomize()">🎲 Randomise</button>
-    <button class="preset" onclick="preset([-3,19,17,15])">The "Rishi Sunak normie"</button>
-    <button class="preset" onclick="preset([28,-18,-22,-6])">DSA leftist</button>
-    <button class="preset" onclick="preset([-22,28,4,-18])">Tech-right</button>
-    <button class="preset" onclick="preset([14,10,20,28])">Davos liberal</button>
+  <div class="panel">
+    <div id="sliders"></div>
+    <div class="row" style="margin:12px 0 4px">
+      <label style="font-size:13px;color:var(--muted);font-weight:600">Snap to a person:</label>
+      <select id="jump"><option value="">— choose —</option></select>
+      <button onclick="setAll(0)">Centre</button>
+      <button onclick="randomize()">🎲 Random</button>
+      <button id="copybtn" onclick="copyLink()">🔗 Copy my link</button>
+    </div>
+    <div class="row">
+      <button class="preset" onclick="preset([-3,19,17,15])">Sunak normie</button>
+      <button class="preset" onclick="preset([28,-18,-22,-6])">DSA left</button>
+      <button class="preset" onclick="preset([-22,28,4,-18])">Tech-right</button>
+      <button class="preset" onclick="preset([14,10,20,28])">Davos liberal</button>
+    </div>
   </div>
 
   <div class="panel">
-    <div class="match-head">Your closest match</div>
+    <div class="ph">Your closest match</div>
     <div class="top" id="top"></div>
   </div>
 
   <div class="panel">
-    <div class="match-head" style="margin-bottom:10px">Your cluster — the people nearest you</div>
-    <div class="filters" id="filters"></div>
+    <div class="ph">The political landscape — where you sit</div>
+    <div class="legend" id="legend"></div>
+    <div class="mapwrap"><svg id="map" width="100%" viewBox="0 0 130 104" role="img"></svg></div>
+    <div style="text-align:center;font-size:11px;color:var(--muted);margin-top:6px">
+      Tip: click any dot to become that person. ⭐ is you. Axes are the 2 strongest combined dimensions (86% of the model).
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="ph">Your cluster — nearest figures</div>
     <div class="cluster" id="cluster"></div>
   </div>
 
+  <div class="panel">
+    <div class="ph">Compare two people</div>
+    <div class="row" style="margin-bottom:12px">
+      <select id="cmpA"></select><span style="font-weight:800;color:var(--muted)">vs</span><select id="cmpB"></select>
+    </div>
+    <div id="cmpOut"></div>
+  </div>
+
   <div class="foot">
-    Each axis runs −32…+32 (16 questions × ±2). Similarity = how close a figure sits to you in 4-D space.<br>
-    The 30 BritMonkey figures use the site's exact coordinates. The <b>US figures are subjective estimates</b> — argue about them, it's the point.<br>
-    Not affiliated with BritMonkey. <code>figures.js</code> holds all the data if you want to tweak it.
+    Each axis runs −32…+32. Similarity = closeness in 4-D space; the map flattens that to 2-D via PCA.<br>
+    30 BritMonkey figures use exact coordinates; the <b>US figures are subjective estimates</b> — argue, fork, PR them in <code>figures.js</code>.<br>
+    Factions are auto-detected by k-means. Not affiliated with BritMonkey.
   </div>
 </div>
 
 <script src="figures.js"></script>
+<script src="model.js"></script>
 <script>
-const AXES=[
-  {id:'prog_cons',l:'Woke',r:'Chud'},
-  {id:'tech_ludd',l:'Techbro',r:'Neo-Luddite'},
-  {id:'mod_nihil',l:'Hopepilled',r:'Doomer'},
-  {id:'dav_dub',l:'Davos',r:'Dubai'},
-];
-const MAX=32;
+const AXES=[{id:'prog_cons',l:'Woke',r:'Chud'},{id:'tech_ludd',l:'Techbro',r:'Neo-Luddite'},
+  {id:'mod_nihil',l:'Hopepilled',r:'Doomer'},{id:'dav_dub',l:'Davos',r:'Dubai'}];
+const SHORT={prog_cons:'w',tech_ludd:'t',mod_nihil:'h',dav_dub:'d'};
+const MAX=32, FAC=MODEL.factions;
 const state={prog_cons:0,tech_ludd:0,mod_nihil:0,dav_dub:0};
-const GROUP_COLORS={'BritMonkey original':'#7a52c9','US Politics':'#e0503f','US Business':'#1f9d6b','US Media':'#d99214'};
-let activeGroups=new Set(Object.keys(GROUP_COLORS));
+let activeFac=new Set(FAC.map((_,i)=>i));
+const F=window.FIGURES;
 
-// build sliders
+/* ---------- sliders ---------- */
 const sl=document.getElementById('sliders');
 AXES.forEach(a=>{
-  const wrap=document.createElement('div');wrap.className='axis';
-  wrap.innerHTML=`
-    <div class="heads">
-      <span class="l">${a.l} <span class="pct" id="pl_${a.id}"></span></span>
-      <span class="r"><span class="pct" id="pr_${a.id}"></span> ${a.r}</span>
-    </div>
+  const w=document.createElement('div');w.className='axis';
+  w.innerHTML=`<div class="heads"><span class="l">${a.l} <span class="pct" id="pl_${a.id}"></span></span>
+    <span class="r"><span class="pct" id="pr_${a.id}"></span> ${a.r}</span></div>
     <input type="range" min="-32" max="32" step="1" value="0" id="s_${a.id}">`;
-  sl.appendChild(wrap);
-  wrap.querySelector('input').addEventListener('input',e=>{state[a.id]=+e.target.value;render();});
+  sl.appendChild(w);
+  w.querySelector('input').addEventListener('input',e=>{state[a.id]=+e.target.value;render();});
 });
 
-// build group filter chips
-const fl=document.getElementById('filters');
-Object.keys(GROUP_COLORS).forEach(g=>{
-  const c=document.createElement('span');c.className='chip on';c.textContent=g;
-  c.style.setProperty('--g',GROUP_COLORS[g]);
-  c.onclick=()=>{ if(activeGroups.has(g)){activeGroups.delete(g);c.classList.remove('on');}
-    else{activeGroups.add(g);c.classList.add('on');} render(); };
-  fl.appendChild(c);
-});
-
+/* ---------- helpers ---------- */
 function initials(n){return n.split(/\s+/).filter(Boolean).slice(0,2).map(w=>w[0]).join('').toUpperCase();}
-function imgFail(el){ // swap a broken image for an initials avatar
-  const d=document.createElement('div');
-  d.className=el.dataset.sz;
-  d.style.background=el.dataset.col;
-  d.textContent=el.dataset.ini;
-  el.replaceWith(d);
-}
-function avatarHTML(f,cls,sz){
-  const col=GROUP_COLORS[f.group]||'#888';
-  if(f.image) return `<img class="${cls}" src="${f.image}" alt="" loading="lazy"
-    data-sz="${sz}" data-col="${col}" data-ini="${initials(f.name)}" onerror="imgFail(this)">`;
-  return `<div class="${sz}" style="background:${col}">${initials(f.name)}</div>`;
-}
+function imgFail(el){const d=document.createElement('div');d.className=el.dataset.sz;d.style.background=el.dataset.col;d.textContent=el.dataset.ini;el.replaceWith(d);}
+function facColor(f){return FAC[f.fac].color;}
+function avatarHTML(f,cls,sz){const col=facColor(f);
+  if(f.image)return `<img class="${cls}" src="${f.image}" alt="" loading="lazy" data-sz="${sz}" data-col="${col}" data-ini="${initials(f.name)}" onerror="imgFail(this)">`;
+  return `<div class="${sz}" style="background:${col}">${initials(f.name)}</div>`;}
 function dist(f){let s=0;for(const a of AXES){const d=state[a.id]-f.scores[a.id];s+=d*d;}return Math.sqrt(s);}
+function dist2(p,q){let s=0;for(const a of AXES){const d=p[a.id]-q[a.id];s+=d*d;}return Math.sqrt(s);}
 function sim(d){return Math.max(0,Math.round(100*(1-d/90)));}
+function proj(sc){let x=0,y=0;MODEL.AX.forEach((a,i)=>{const c=sc[a]-MODEL.mean[i];x+=c*MODEL.pc1[i];y+=c*MODEL.pc2[i];});return[x,y];}
 
+/* ---------- legend ---------- */
+const lg=document.getElementById('legend');
+FAC.forEach((f,i)=>{const c=document.createElement('span');c.className='chip';
+  c.innerHTML=`<span class="dot" style="background:${f.color}"></span>${f.name}`;
+  c.title=f.blurb;
+  c.onclick=()=>{if(activeFac.has(i)){activeFac.delete(i);c.classList.add('off');}else{activeFac.add(i);c.classList.remove('off');}render();};
+  lg.appendChild(c);});
+
+/* ---------- map (built once) ---------- */
+const svg=document.getElementById('map');
+const SVGNS='http://www.w3.org/2000/svg';
+let mapTf;
+(function buildMap(){
+  const pts=F.map(f=>proj(f.scores));
+  let xs=pts.map(p=>p[0]),ys=pts.map(p=>p[1]);
+  let x0=Math.min(...xs),x1=Math.max(...xs),y0=Math.min(...ys),y1=Math.max(...ys);
+  const px=(x1-x0)*.10,py=(y1-y0)*.12; x0-=px;x1+=px;y0-=py;y1+=py;
+  const W=130,H=104,L=8,R=122,T=8,B=96;
+  mapTf=sc=>{const[x,y]=proj(sc);
+    let sx=L+(x-x0)/(x1-x0)*(R-L), sy=B-(y-y0)/(y1-y0)*(B-T);
+    return[Math.max(2,Math.min(128,sx)),Math.max(2,Math.min(102,sy))];};
+  // crosshair through the population mean (≈ centre)
+  const[cx,cy]=mapTf({prog_cons:MODEL.mean[0],tech_ludd:MODEL.mean[1],mod_nihil:MODEL.mean[2],dav_dub:MODEL.mean[3]});
+  const line=(x1,y1,x2,y2)=>{const e=document.createElementNS(SVGNS,'line');e.setAttribute('x1',x1);e.setAttribute('y1',y1);e.setAttribute('x2',x2);e.setAttribute('y2',y2);e.setAttribute('stroke','#eceef1');e.setAttribute('stroke-width','.5');svg.appendChild(e);};
+  line(L,cy,R,cy);line(cx,T,cx,B);
+  const lbl=(x,y,t,anc)=>{const e=document.createElementNS(SVGNS,'text');e.setAttribute('x',x);e.setAttribute('y',y);e.setAttribute('class','axlbl');e.setAttribute('text-anchor',anc);e.textContent=t;svg.appendChild(e);};
+  lbl(R,cy-1.5,'Woke · Globalist ▸','end');lbl(L,cy-1.5,'◂ Chud · Strongman','start');
+  lbl(cx+1,T+3,'▲ Techbro','start');lbl(cx+1,B-1,'▼ Luddite · Doomer','start');
+  F.forEach((f,i)=>{const[sx,sy]=mapTf(f.scores);
+    const c=document.createElementNS(SVGNS,'circle');
+    c.setAttribute('cx',sx);c.setAttribute('cy',sy);c.setAttribute('r',1.8);
+    c.setAttribute('fill',facColor(f));c.setAttribute('class','fig');c.setAttribute('opacity','.85');
+    c.dataset.i=i;
+    const tt=document.createElementNS(SVGNS,'title');tt.textContent=f.name+' — '+FAC[f.fac].name;c.appendChild(tt);
+    c.addEventListener('click',()=>{AXES.forEach(a=>state[a.id]=f.scores[a.id]);document.getElementById('jump').value=f.name;render();});
+    svg.appendChild(c);});
+  const you=document.createElementNS(SVGNS,'text');you.setAttribute('id','youmark');you.setAttribute('text-anchor','middle');
+  you.setAttribute('font-size','7');you.textContent='⭐';svg.appendChild(you);
+})();
+
+/* ---------- selectors ---------- */
+const byName=[...F].sort((a,b)=>a.name.localeCompare(b.name));
+function fillSelect(el,placeholder){el.innerHTML = placeholder?`<option value="">${placeholder}</option>`:'';
+  byName.forEach(f=>{const o=document.createElement('option');o.value=f.name;o.textContent=f.name;el.appendChild(o);});}
+const jump=document.getElementById('jump');fillSelect(jump,'— choose —');
+jump.onchange=e=>{const f=F.find(x=>x.name===e.target.value);if(f){AXES.forEach(a=>state[a.id]=f.scores[a.id]);render();}};
+const cmpA=document.getElementById('cmpA'),cmpB=document.getElementById('cmpB');
+fillSelect(cmpA);fillSelect(cmpB);
+cmpA.value='Bernie Sanders';cmpB.value='Alexandria Ocasio-Cortez';
+cmpA.onchange=cmpB.onchange=renderCompare;
+
+/* ---------- render ---------- */
 function render(){
-  // slider visuals
-  AXES.forEach(a=>{
-    const v=state[a.id];
-    const inp=document.getElementById('s_'+a.id);inp.value=v;
-    const lp=Math.round((v+MAX)/(2*MAX)*100);
-    inp.style.setProperty('--fill',lp+'%');
-    document.getElementById('pl_'+a.id).textContent=lp+'%';
-    document.getElementById('pr_'+a.id).textContent=(100-lp)+'%';
-  });
-  const ranked=window.FIGURES
-    .filter(f=>activeGroups.has(f.group))
-    .map(f=>({f,d:dist(f)})).sort((x,y)=>x.d-y.d);
-  if(!ranked.length){document.getElementById('top').innerHTML='<i>No groups selected</i>';document.getElementById('cluster').innerHTML='';return;}
+  AXES.forEach(a=>{const v=state[a.id];const inp=document.getElementById('s_'+a.id);inp.value=v;
+    const lp=Math.round((v+MAX)/(2*MAX)*100);inp.style.setProperty('--fill',lp+'%');
+    document.getElementById('pl_'+a.id).textContent=lp+'%';document.getElementById('pr_'+a.id).textContent=(100-lp)+'%';});
 
-  const top=ranked[0];
-  document.getElementById('top').innerHTML=`
-    ${avatarHTML(top.f,'','avatar')}
-    <div class="info">
-      <div class="name">${top.f.name}</div>
-      <div class="desc">${top.f.description||''}</div>
-      <div class="sim" style="color:${GROUP_COLORS[top.f.group]}">${sim(top.d)}% match
-        <span class="grpTag" style="background:${GROUP_COLORS[top.f.group]}22;color:${GROUP_COLORS[top.f.group]}">${top.f.group}</span></div>
-    </div>`;
+  const ranked=F.filter(f=>activeFac.has(f.fac)).map(f=>({f,d:dist(f)})).sort((x,y)=>x.d-y.d);
+  // dim filtered-out dots
+  svg.querySelectorAll('circle.fig').forEach(c=>{const f=F[+c.dataset.i];c.setAttribute('opacity',activeFac.has(f.fac)?'.85':'.08');});
+  // you marker
+  const[yx,yy]=mapTf(state);const ym=document.getElementById('youmark');ym.setAttribute('x',yx);ym.setAttribute('y',yy+2.5);
 
-  document.getElementById('cluster').innerHTML=ranked.slice(0,12).map((r,i)=>{
-    const col=GROUP_COLORS[r.f.group];
-    return `<div class="fig">
-      <span class="rank">${i+1}</span>
-      ${avatarHTML(r.f,'pic','av')}
-      <div style="min-width:0">
-        <div class="nm">${r.f.name}</div>
-        <div class="meta">${sim(r.d)}% · ${r.f.group}</div>
-        <div class="bar"><i style="width:${sim(r.d)}%;background:${col}"></i></div>
-      </div></div>`;
-  }).join('');
+  if(!ranked.length){document.getElementById('top').innerHTML='<i>No factions selected</i>';document.getElementById('cluster').innerHTML='';updateURL();return;}
+  const t=ranked[0],col=facColor(t.f);
+  document.getElementById('top').innerHTML=`${avatarHTML(t.f,'','avatar')}
+    <div class="info"><div class="name" style="color:${col}">${t.f.name}</div>
+    <div class="desc">${t.f.description||''}</div>
+    <div class="sim" style="color:${col}">${sim(t.d)}% match
+    <span class="grpTag" style="background:${col}22;color:${col}">${FAC[t.f.fac].name}</span></div></div>`;
+  document.getElementById('cluster').innerHTML=ranked.slice(0,12).map((r,i)=>{const c=facColor(r.f);
+    return `<div class="fig"><span class="rank">${i+1}</span>
+      ${avatarHTML(r.f,'pic','av')}<div style="min-width:0"><div class="nm">${r.f.name}</div>
+      <div class="meta">${sim(r.d)}% · ${FAC[r.f.fac].name}</div>
+      <div class="bar"><i style="width:${sim(r.d)}%;background:${c}"></i></div></div></div>`;}).join('');
+  updateURL();
+}
+function renderCompare(){
+  const A=F.find(x=>x.name===cmpA.value),B=F.find(x=>x.name===cmpB.value);
+  if(!A||!B){document.getElementById('cmpOut').innerHTML='';return;}
+  const tot=dist2(A.scores,B.scores);
+  const rows=AXES.map(a=>{const da=A.scores[a.id],db=B.scores[a.id],diff=Math.abs(da-db);
+    const w=Math.round(diff/64*100),off=Math.round((Math.min(da,db)+32)/64*100);
+    return `<div class="diffrow"><span class="lab">${a.l}/${a.r}</span>
+      <span class="track"><i style="left:${off}%;width:${Math.max(2,w)}%"></i></span>
+      <span class="val">${diff}</span></div>`;}).join('');
+  const close=tot<12?'practically twins':tot<22?'fairly close':tot<34?'meaningfully apart':'opposite worlds';
+  document.getElementById('cmpOut').innerHTML=`<div class="cmp" style="margin-bottom:10px">
+    <div class="cmpcol"><div class="nm" style="color:${facColor(A)}">${A.name}</div><div class="desc">${A.description||''}</div></div>
+    <div class="cmpcol"><div class="nm" style="color:${facColor(B)}">${B.name}</div><div class="desc">${B.description||''}</div></div></div>
+    ${rows}
+    <div style="text-align:center;margin-top:10px;font-weight:700">Total distance: ${tot.toFixed(1)} — <span style="color:var(--muted)">${close}</span></div>`;
 }
 
-function setAll(v){AXES.forEach(a=>state[a.id]=v);render();}
-function preset(arr){AXES.forEach((a,i)=>state[a.id]=arr[i]);render();}
-function randomize(){AXES.forEach(a=>state[a.id]=Math.round((Math.random()*2-1)*MAX));render();}
-render();
+/* ---------- url state ---------- */
+function updateURL(){const q=AXES.map(a=>SHORT[a.id]+'='+state[a.id]).join('&');
+  history.replaceState(null,'','?'+q);}
+function copyLink(){const u=location.href;navigator.clipboard?.writeText(u);
+  const b=document.getElementById('copybtn');const o=b.textContent;b.textContent='✓ Copied!';setTimeout(()=>b.textContent=o,1400);}
+function loadURL(){const p=new URLSearchParams(location.search);let any=false;
+  AXES.forEach(a=>{const v=p.get(SHORT[a.id]);if(v!==null&&!isNaN(+v)){state[a.id]=Math.max(-32,Math.min(32,+v));any=true;}});return any;}
+
+function setAll(v){AXES.forEach(a=>state[a.id]=v);jump.value='';render();}
+function preset(arr){AXES.forEach((a,i)=>state[a.id]=arr[i]);jump.value='';render();}
+function randomize(){AXES.forEach(a=>state[a.id]=Math.round((Math.random()*2-1)*MAX));jump.value='';render();}
+
+loadURL();render();renderCompare();
 </script>
 </body>
 </html>

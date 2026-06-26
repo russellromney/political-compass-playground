@@ -1,4 +1,4 @@
-// 30 BritMonkey figures (exact, from britmonkey.com) + US figures (subjective estimates)
+// 30 BritMonkey figures (exact) + 110 US figures (estimates). fac = faction id.
 window.FIGURES = [
 {
 "name": "Kier Starmer",
@@ -10,7 +10,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Prime_Minister_Keir_Starmer_Portrait_%28cropped%29.jpg/960px-Prime_Minister_Keir_Starmer_Portrait_%28cropped%29.jpg",
 "description": "Prime Minister of the United Kingdom (2024-present)",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 1
 },
 {
 "name": "Xi Jinping",
@@ -22,7 +23,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Xi_Jinping_meets_Keir_Starmer_Jan_2026_%28cropped_2%29.jpg/960px-Xi_Jinping_meets_Keir_Starmer_Jan_2026_%28cropped_2%29.jpg",
 "description": "Premier of the People's Republic of China (2012-present)",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 1
 },
 {
 "name": "Elon Musk",
@@ -34,7 +36,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Elon_Musk_-_54820081119_%28cropped%29.jpg/960px-Elon_Musk_-_54820081119_%28cropped%29.jpg",
 "description": "CEO of X (Formerly Twitter)",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 3
 },
 {
 "name": "Mark Carney",
@@ -46,7 +49,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/2025-11-14_InaugurationREM_Deux-Montagnes_Mark_Carney.jpg/960px-2025-11-14_InaugurationREM_Deux-Montagnes_Mark_Carney.jpg",
 "description": "Prime Minister of Canada (2025-present)",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 1
 },
 {
 "name": "Donald Trump",
@@ -58,7 +62,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Official_Presidential_Portrait_of_President_Donald_J._Trump_%282025%29_%28cropped%29%282%29.jpg/960px-Official_Presidential_Portrait_of_President_Donald_J._Trump_%282025%29_%28cropped%29%282%29.jpg",
 "description": "President of the United States (2017-2021, 2025-present)",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 0
 },
 {
 "name": "Zohran Mamdani",
@@ -70,7 +75,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Zohran_Mamdani_05.25.25_%28b%29_%28cropped%29.jpg/960px-Zohran_Mamdani_05.25.25_%28b%29_%28cropped%29.jpg",
 "description": "Mayor of New York City (2026-present)",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 4
 },
 {
 "name": "Pope Leo XIV",
@@ -82,7 +88,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Pope_Leo_XIV_3_%283x4_cropped%29.png/960px-Pope_Leo_XIV_3_%283x4_cropped%29.png",
 "description": "Head of the Catholic Church (2025-present)",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 1
 },
 {
 "name": "Zack Polanski",
@@ -94,7 +101,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Green_Party_Group_Shot_6_%28cropped2%29.jpg/960px-Green_Party_Group_Shot_6_%28cropped2%29.jpg",
 "description": "Leader of the Green Party of England and Wales (2025-present)",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 4
 },
 {
 "name": "Hasan Piker",
@@ -106,7 +114,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/HasanStLouis-20260501-234558761_%28cropped%29.jpg/960px-HasanStLouis-20260501-234558761_%28cropped%29.jpg",
 "description": "American Streamer & political pundit",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 2
 },
 {
 "name": "Vladimir Putin",
@@ -118,7 +127,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9F%D1%83%D1%82%D0%B8%D0%BD_%2808-03-2024%29_%28cropped%29_%28higher_res%29_2.jpg/960px-%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9F%D1%83%D1%82%D0%B8%D0%BD_%2808-03-2024%29_%28cropped%29_%28higher_res%29_2.jpg",
 "description": "President of Russia, 2012-present",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 0
 },
 {
 "name": "Peter Thiel",
@@ -130,7 +140,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Peter_Thiel_by_Gage_Skidmore.jpg/960px-Peter_Thiel_by_Gage_Skidmore.jpg",
 "description": "Entrepreneur",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 0
 },
 {
 "name": "Ed Zitron",
@@ -142,7 +153,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/Ed_Zitron_speaking_at_the_Web_Summit.jpg/960px-Ed_Zitron_speaking_at_the_Web_Summit.jpg",
 "description": "Podcaster and pundit",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 2
 },
 {
 "name": "Joe Rogan",
@@ -154,7 +166,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/7/74/2026_Joe_Rogan_at_the_White_House_%28cropped%29.jpg",
 "description": "Podcaster",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 5
 },
 {
 "name": "Ezra Klein",
@@ -166,7 +179,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Ezra_Klein_2026-01-28.jpg/960px-Ezra_Klein_2026-01-28.jpg",
 "description": "Podcaster & Pundit",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 1
 },
 {
 "name": "Gianni Infantino",
@@ -178,7 +192,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Gianni_Infantino_-_55062516828.jpg",
 "description": "Head of FIFA (2016- present)",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 3
 },
 {
 "name": "Rishi Sunak",
@@ -190,7 +205,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/a/ab/Portrait_of_Prime_Minister_Rishi_Sunak_%28cropped%29.jpg",
 "description": "Prime Minister of the United Kingdom (2022-2024)",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 3
 },
 {
 "name": "Mohammed Bin Salman",
@@ -202,7 +218,8 @@ window.FIGURES = [
 },
 "image": "https://news24online.com/wp-content/uploads/2022/11/ATTO3-37.jpg",
 "description": "Ruler of Saudi Arabia (2017-present)",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 0
 },
 {
 "name": "Nayib Bukele",
@@ -214,7 +231,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Presidente_Nayib_Bukele_%28cropped%29.jpg/960px-Presidente_Nayib_Bukele_%28cropped%29.jpg",
 "description": "President of El Salvador (2019-present)",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 0
 },
 {
 "name": "Luiz Inácio Lula da Silva",
@@ -226,7 +244,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Foto_oficial_de_Luiz_In%C3%A1cio_Lula_da_Silva_%28ombros%29_denoise_%28cropped%29.jpg/960px-Foto_oficial_de_Luiz_In%C3%A1cio_Lula_da_Silva_%28ombros%29_denoise_%28cropped%29.jpg",
 "description": "President of Brazil (2023-present)",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 4
 },
 {
 "name": "Andrew Tate",
@@ -238,7 +257,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Andrew_Tate_-_James_Tamim_Upload_%28Cropped_Wide_Portrait%29.png",
 "description": "Podcaster",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 0
 },
 {
 "name": "Sam Altman",
@@ -250,7 +270,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Sam_Altman_TechCrunch_SF_2019_Day_2_Oct_3_%28cropped_3%29.jpg/960px-Sam_Altman_TechCrunch_SF_2019_Day_2_Oct_3_%28cropped_3%29.jpg",
 "description": "AI Entrepreneur",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 3
 },
 {
 "name": "Claudia Sheinbaum",
@@ -262,7 +283,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Claudia_Sheinbaum_in_2025_%283x4_cropped%29.jpg/960px-Claudia_Sheinbaum_in_2025_%283x4_cropped%29.jpg",
 "description": "President of Mexico (2024-present)",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 4
 },
 {
 "name": "Mr Beast",
@@ -274,7 +296,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/MrBeast_2023_%28cropped%29.jpg/960px-MrBeast_2023_%28cropped%29.jpg",
 "description": "American Youtuber and philanthropist",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 1
 },
 {
 "name": "Charlie Kirk",
@@ -286,7 +309,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Charlie_Kirk_%2853952923573%29_%28headshot_cropped%29.jpg/960px-Charlie_Kirk_%2853952923573%29_%28headshot_cropped%29.jpg",
 "description": "Political activist",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 5
 },
 {
 "name": "Joe Biden",
@@ -298,7 +322,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Joe_Biden_presidential_portrait.jpg/960px-Joe_Biden_presidential_portrait.jpg",
 "description": "President of the United States (2021-2025)",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 1
 },
 {
 "name": "Greta Thunberg",
@@ -310,7 +335,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Greta_Thunberg_in_November_in_Stockholm_%28cropped%29%282%29.jpg/960px-Greta_Thunberg_in_November_in_Stockholm_%28cropped%29%282%29.jpg",
 "description": "Swedish environmental activist",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 2
 },
 {
 "name": "Emmanuel Macron",
@@ -322,7 +348,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Emmanuel_Macron_2025_%28cropped%29.jpg/960px-Emmanuel_Macron_2025_%28cropped%29.jpg",
 "description": "President of France (2017-present)",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 1
 },
 {
 "name": "Georgia Meloni",
@@ -334,7 +361,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/9/96/Giorgia_Meloni_Official_2024_%28cropped%29.jpg",
 "description": "Prime Minister of Italy (2022-present)",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 5
 },
 {
 "name": "Sanna Marin",
@@ -346,7 +374,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Sanna_Marin_at_the_European_Commission_-_2025_-_P065828-802783_%28cropped%29.jpg",
 "description": "Prime minister of Finland (2019-2023)",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 1
 },
 {
 "name": "Aella",
@@ -358,7 +387,8 @@ window.FIGURES = [
 },
 "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Aella.jpg/250px-Aella.jpg",
 "description": "American blogger and sex worker",
-"group": "BritMonkey original"
+"group": "BritMonkey original",
+"fac": 3
 },
 {
 "name": "Bernie Sanders",
@@ -370,7 +400,8 @@ window.FIGURES = [
 "mod_nihil": 4,
 "dav_dub": 8
 },
-"image": null
+"image": null,
+"fac": 4
 },
 {
 "name": "Alexandria Ocasio-Cortez",
@@ -382,7 +413,8 @@ window.FIGURES = [
 "mod_nihil": 6,
 "dav_dub": 10
 },
-"image": null
+"image": null,
+"fac": 4
 },
 {
 "name": "Barack Obama",
@@ -394,7 +426,8 @@ window.FIGURES = [
 "mod_nihil": 20,
 "dav_dub": 28
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "Kamala Harris",
@@ -406,7 +439,8 @@ window.FIGURES = [
 "mod_nihil": 14,
 "dav_dub": 24
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "Pete Buttigieg",
@@ -418,7 +452,8 @@ window.FIGURES = [
 "mod_nihil": 20,
 "dav_dub": 26
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "Hillary Clinton",
@@ -430,7 +465,8 @@ window.FIGURES = [
 "mod_nihil": 12,
 "dav_dub": 30
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "Nancy Pelosi",
@@ -442,7 +478,8 @@ window.FIGURES = [
 "mod_nihil": 12,
 "dav_dub": 26
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "Gavin Newsom",
@@ -454,7 +491,8 @@ window.FIGURES = [
 "mod_nihil": 16,
 "dav_dub": 22
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "JD Vance",
@@ -466,7 +504,8 @@ window.FIGURES = [
 "mod_nihil": -2,
 "dav_dub": -22
 },
-"image": null
+"image": null,
+"fac": 0
 },
 {
 "name": "Ron DeSantis",
@@ -478,7 +517,8 @@ window.FIGURES = [
 "mod_nihil": 4,
 "dav_dub": -12
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Marjorie Taylor Greene",
@@ -490,7 +530,8 @@ window.FIGURES = [
 "mod_nihil": -10,
 "dav_dub": -22
 },
-"image": null
+"image": null,
+"fac": 0
 },
 {
 "name": "Mitch McConnell",
@@ -502,7 +543,8 @@ window.FIGURES = [
 "mod_nihil": 6,
 "dav_dub": 14
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Josh Hawley",
@@ -514,7 +556,8 @@ window.FIGURES = [
 "mod_nihil": 0,
 "dav_dub": -16
 },
-"image": null
+"image": null,
+"fac": 0
 },
 {
 "name": "Robert F. Kennedy Jr.",
@@ -526,7 +569,8 @@ window.FIGURES = [
 "mod_nihil": -8,
 "dav_dub": -18
 },
-"image": null
+"image": null,
+"fac": 0
 },
 {
 "name": "Vivek Ramaswamy",
@@ -538,7 +582,8 @@ window.FIGURES = [
 "mod_nihil": 8,
 "dav_dub": -8
 },
-"image": null
+"image": null,
+"fac": 3
 },
 {
 "name": "Mitt Romney",
@@ -550,7 +595,8 @@ window.FIGURES = [
 "mod_nihil": 14,
 "dav_dub": 24
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "Liz Cheney",
@@ -562,7 +608,8 @@ window.FIGURES = [
 "mod_nihil": 10,
 "dav_dub": 28
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "Jeff Bezos",
@@ -574,7 +621,8 @@ window.FIGURES = [
 "mod_nihil": 12,
 "dav_dub": 6
 },
-"image": null
+"image": null,
+"fac": 3
 },
 {
 "name": "Mark Zuckerberg",
@@ -586,7 +634,8 @@ window.FIGURES = [
 "mod_nihil": 10,
 "dav_dub": 8
 },
-"image": null
+"image": null,
+"fac": 3
 },
 {
 "name": "Bill Gates",
@@ -598,7 +647,8 @@ window.FIGURES = [
 "mod_nihil": 22,
 "dav_dub": 30
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "Tim Cook",
@@ -610,7 +660,8 @@ window.FIGURES = [
 "mod_nihil": 16,
 "dav_dub": 24
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "Marc Andreessen",
@@ -622,7 +673,8 @@ window.FIGURES = [
 "mod_nihil": 6,
 "dav_dub": -10
 },
-"image": null
+"image": null,
+"fac": 3
 },
 {
 "name": "Vitalik Buterin",
@@ -634,7 +686,8 @@ window.FIGURES = [
 "mod_nihil": 10,
 "dav_dub": 4
 },
-"image": null
+"image": null,
+"fac": 3
 },
 {
 "name": "Jensen Huang",
@@ -646,7 +699,8 @@ window.FIGURES = [
 "mod_nihil": 18,
 "dav_dub": 18
 },
-"image": null
+"image": null,
+"fac": 3
 },
 {
 "name": "Warren Buffett",
@@ -658,7 +712,8 @@ window.FIGURES = [
 "mod_nihil": 16,
 "dav_dub": 20
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "Mark Cuban",
@@ -670,7 +725,8 @@ window.FIGURES = [
 "mod_nihil": 16,
 "dav_dub": 14
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "Balaji Srinivasan",
@@ -682,7 +738,8 @@ window.FIGURES = [
 "mod_nihil": 8,
 "dav_dub": -16
 },
-"image": null
+"image": null,
+"fac": 3
 },
 {
 "name": "Curtis Yarvin",
@@ -694,7 +751,8 @@ window.FIGURES = [
 "mod_nihil": -6,
 "dav_dub": -28
 },
-"image": null
+"image": null,
+"fac": 0
 },
 {
 "name": "Ben Shapiro",
@@ -706,7 +764,8 @@ window.FIGURES = [
 "mod_nihil": 4,
 "dav_dub": -4
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Tucker Carlson",
@@ -718,7 +777,8 @@ window.FIGURES = [
 "mod_nihil": -10,
 "dav_dub": -22
 },
-"image": null
+"image": null,
+"fac": 0
 },
 {
 "name": "Matt Walsh",
@@ -730,7 +790,8 @@ window.FIGURES = [
 "mod_nihil": -4,
 "dav_dub": -16
 },
-"image": null
+"image": null,
+"fac": 0
 },
 {
 "name": "Candace Owens",
@@ -742,7 +803,8 @@ window.FIGURES = [
 "mod_nihil": -8,
 "dav_dub": -18
 },
-"image": null
+"image": null,
+"fac": 0
 },
 {
 "name": "Nick Fuentes",
@@ -754,7 +816,8 @@ window.FIGURES = [
 "mod_nihil": -16,
 "dav_dub": -28
 },
-"image": null
+"image": null,
+"fac": 0
 },
 {
 "name": "Jordan Peterson",
@@ -766,7 +829,8 @@ window.FIGURES = [
 "mod_nihil": -2,
 "dav_dub": -6
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Lex Fridman",
@@ -778,7 +842,8 @@ window.FIGURES = [
 "mod_nihil": 14,
 "dav_dub": 4
 },
-"image": null
+"image": null,
+"fac": 3
 },
 {
 "name": "Tim Pool",
@@ -790,7 +855,8 @@ window.FIGURES = [
 "mod_nihil": -8,
 "dav_dub": -10
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Destiny",
@@ -802,7 +868,8 @@ window.FIGURES = [
 "mod_nihil": 4,
 "dav_dub": 6
 },
-"image": null
+"image": null,
+"fac": 3
 },
 {
 "name": "Vaush",
@@ -814,7 +881,8 @@ window.FIGURES = [
 "mod_nihil": -6,
 "dav_dub": -4
 },
-"image": null
+"image": null,
+"fac": 4
 },
 {
 "name": "ContraPoints",
@@ -826,7 +894,8 @@ window.FIGURES = [
 "mod_nihil": 2,
 "dav_dub": 6
 },
-"image": null
+"image": null,
+"fac": 4
 },
 {
 "name": "Cenk Uygur",
@@ -838,7 +907,8 @@ window.FIGURES = [
 "mod_nihil": -2,
 "dav_dub": 2
 },
-"image": null
+"image": null,
+"fac": 4
 },
 {
 "name": "Kyle Kulinski",
@@ -850,7 +920,8 @@ window.FIGURES = [
 "mod_nihil": 2,
 "dav_dub": 4
 },
-"image": null
+"image": null,
+"fac": 4
 },
 {
 "name": "Nate Silver",
@@ -862,7 +933,8 @@ window.FIGURES = [
 "mod_nihil": 12,
 "dav_dub": 18
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "Matt Yglesias",
@@ -874,7 +946,8 @@ window.FIGURES = [
 "mod_nihil": 16,
 "dav_dub": 22
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "Bari Weiss",
@@ -886,7 +959,8 @@ window.FIGURES = [
 "mod_nihil": 12,
 "dav_dub": 14
 },
-"image": null
+"image": null,
+"fac": 3
 },
 {
 "name": "Taylor Lorenz",
@@ -898,7 +972,8 @@ window.FIGURES = [
 "mod_nihil": -8,
 "dav_dub": 8
 },
-"image": null
+"image": null,
+"fac": 2
 },
 {
 "name": "Andrew Huberman",
@@ -910,7 +985,8 @@ window.FIGURES = [
 "mod_nihil": 18,
 "dav_dub": 6
 },
-"image": null
+"image": null,
+"fac": 3
 },
 {
 "name": "Rachel Maddow",
@@ -922,7 +998,8 @@ window.FIGURES = [
 "mod_nihil": 8,
 "dav_dub": 24
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "Sean Hannity",
@@ -934,7 +1011,8 @@ window.FIGURES = [
 "mod_nihil": 2,
 "dav_dub": -12
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Elizabeth Warren",
@@ -946,7 +1024,8 @@ window.FIGURES = [
 "mod_nihil": 8,
 "dav_dub": 16
 },
-"image": null
+"image": null,
+"fac": 4
 },
 {
 "name": "Chuck Schumer",
@@ -958,7 +1037,8 @@ window.FIGURES = [
 "mod_nihil": 12,
 "dav_dub": 24
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "Ted Cruz",
@@ -970,7 +1050,8 @@ window.FIGURES = [
 "mod_nihil": 4,
 "dav_dub": -8
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Marco Rubio",
@@ -982,7 +1063,8 @@ window.FIGURES = [
 "mod_nihil": 8,
 "dav_dub": 4
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Lindsey Graham",
@@ -994,7 +1076,8 @@ window.FIGURES = [
 "mod_nihil": 8,
 "dav_dub": 6
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Rand Paul",
@@ -1006,7 +1089,8 @@ window.FIGURES = [
 "mod_nihil": 2,
 "dav_dub": -2
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Tulsi Gabbard",
@@ -1018,7 +1102,8 @@ window.FIGURES = [
 "mod_nihil": -2,
 "dav_dub": -12
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Andrew Yang",
@@ -1030,7 +1115,8 @@ window.FIGURES = [
 "mod_nihil": 16,
 "dav_dub": 12
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "Mike Pence",
@@ -1042,7 +1128,8 @@ window.FIGURES = [
 "mod_nihil": 8,
 "dav_dub": 2
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Nikki Haley",
@@ -1054,7 +1141,8 @@ window.FIGURES = [
 "mod_nihil": 12,
 "dav_dub": 16
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "Cory Booker",
@@ -1066,7 +1154,8 @@ window.FIGURES = [
 "mod_nihil": 16,
 "dav_dub": 20
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "John Fetterman",
@@ -1078,7 +1167,8 @@ window.FIGURES = [
 "mod_nihil": 2,
 "dav_dub": 4
 },
-"image": null
+"image": null,
+"fac": 4
 },
 {
 "name": "Ilhan Omar",
@@ -1090,7 +1180,8 @@ window.FIGURES = [
 "mod_nihil": 2,
 "dav_dub": 8
 },
-"image": null
+"image": null,
+"fac": 4
 },
 {
 "name": "Rashida Tlaib",
@@ -1102,7 +1193,8 @@ window.FIGURES = [
 "mod_nihil": -2,
 "dav_dub": 2
 },
-"image": null
+"image": null,
+"fac": 4
 },
 {
 "name": "Dan Crenshaw",
@@ -1114,7 +1206,8 @@ window.FIGURES = [
 "mod_nihil": 8,
 "dav_dub": -2
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Thomas Massie",
@@ -1126,7 +1219,8 @@ window.FIGURES = [
 "mod_nihil": -2,
 "dav_dub": -12
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Tim Walz",
@@ -1138,7 +1232,8 @@ window.FIGURES = [
 "mod_nihil": 14,
 "dav_dub": 14
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "Gretchen Whitmer",
@@ -1150,7 +1245,8 @@ window.FIGURES = [
 "mod_nihil": 16,
 "dav_dub": 18
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "Greg Abbott",
@@ -1162,7 +1258,8 @@ window.FIGURES = [
 "mod_nihil": 6,
 "dav_dub": -8
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Glenn Greenwald",
@@ -1174,7 +1271,8 @@ window.FIGURES = [
 "mod_nihil": -6,
 "dav_dub": -10
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Sam Harris",
@@ -1186,7 +1284,8 @@ window.FIGURES = [
 "mod_nihil": 8,
 "dav_dub": 16
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "Bret Weinstein",
@@ -1198,7 +1297,8 @@ window.FIGURES = [
 "mod_nihil": -6,
 "dav_dub": -8
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Eric Weinstein",
@@ -1210,7 +1310,8 @@ window.FIGURES = [
 "mod_nihil": 2,
 "dav_dub": 2
 },
-"image": null
+"image": null,
+"fac": 3
 },
 {
 "name": "Scott Adams",
@@ -1222,7 +1323,8 @@ window.FIGURES = [
 "mod_nihil": -4,
 "dav_dub": -10
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Dave Rubin",
@@ -1234,7 +1336,8 @@ window.FIGURES = [
 "mod_nihil": 4,
 "dav_dub": -6
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Megyn Kelly",
@@ -1246,7 +1349,8 @@ window.FIGURES = [
 "mod_nihil": 4,
 "dav_dub": -2
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Bill Maher",
@@ -1258,7 +1362,8 @@ window.FIGURES = [
 "mod_nihil": 2,
 "dav_dub": 10
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "Krystal Ball",
@@ -1270,7 +1375,8 @@ window.FIGURES = [
 "mod_nihil": -2,
 "dav_dub": -2
 },
-"image": null
+"image": null,
+"fac": 4
 },
 {
 "name": "Saagar Enjeti",
@@ -1282,7 +1388,8 @@ window.FIGURES = [
 "mod_nihil": -2,
 "dav_dub": -8
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Ana Kasparian",
@@ -1294,7 +1401,8 @@ window.FIGURES = [
 "mod_nihil": -4,
 "dav_dub": 2
 },
-"image": null
+"image": null,
+"fac": 4
 },
 {
 "name": "Briahna Joy Gray",
@@ -1306,7 +1414,8 @@ window.FIGURES = [
 "mod_nihil": -8,
 "dav_dub": -6
 },
-"image": null
+"image": null,
+"fac": 4
 },
 {
 "name": "David Pakman",
@@ -1318,7 +1427,8 @@ window.FIGURES = [
 "mod_nihil": 4,
 "dav_dub": 12
 },
-"image": null
+"image": null,
+"fac": 4
 },
 {
 "name": "Robert Reich",
@@ -1330,7 +1440,8 @@ window.FIGURES = [
 "mod_nihil": 6,
 "dav_dub": 14
 },
-"image": null
+"image": null,
+"fac": 4
 },
 {
 "name": "Paul Krugman",
@@ -1342,7 +1453,8 @@ window.FIGURES = [
 "mod_nihil": 10,
 "dav_dub": 24
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "Noam Chomsky",
@@ -1354,7 +1466,8 @@ window.FIGURES = [
 "mod_nihil": -4,
 "dav_dub": -2
 },
-"image": null
+"image": null,
+"fac": 4
 },
 {
 "name": "Richard Hanania",
@@ -1366,7 +1479,8 @@ window.FIGURES = [
 "mod_nihil": 2,
 "dav_dub": -6
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Tim Miller",
@@ -1378,7 +1492,8 @@ window.FIGURES = [
 "mod_nihil": 8,
 "dav_dub": 22
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "Sam Seder",
@@ -1390,7 +1505,8 @@ window.FIGURES = [
 "mod_nihil": 2,
 "dav_dub": 4
 },
-"image": null
+"image": null,
+"fac": 4
 },
 {
 "name": "Brian Tyler Cohen",
@@ -1402,7 +1518,8 @@ window.FIGURES = [
 "mod_nihil": 8,
 "dav_dub": 18
 },
-"image": null
+"image": null,
+"fac": 1
 },
 {
 "name": "Aaron Rupar",
@@ -1414,7 +1531,8 @@ window.FIGURES = [
 "mod_nihil": 2,
 "dav_dub": 14
 },
-"image": null
+"image": null,
+"fac": 4
 },
 {
 "name": "Dinesh D'Souza",
@@ -1426,7 +1544,8 @@ window.FIGURES = [
 "mod_nihil": 2,
 "dav_dub": -10
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Jack Posobiec",
@@ -1438,7 +1557,8 @@ window.FIGURES = [
 "mod_nihil": -8,
 "dav_dub": -22
 },
-"image": null
+"image": null,
+"fac": 0
 },
 {
 "name": "Mike Cernovich",
@@ -1450,7 +1570,8 @@ window.FIGURES = [
 "mod_nihil": -6,
 "dav_dub": -16
 },
-"image": null
+"image": null,
+"fac": 0
 },
 {
 "name": "Ian Miles Cheong",
@@ -1462,7 +1583,8 @@ window.FIGURES = [
 "mod_nihil": -8,
 "dav_dub": -18
 },
-"image": null
+"image": null,
+"fac": 0
 },
 {
 "name": "Chaya Raichik",
@@ -1474,7 +1596,8 @@ window.FIGURES = [
 "mod_nihil": -6,
 "dav_dub": -16
 },
-"image": null
+"image": null,
+"fac": 0
 },
 {
 "name": "Tomi Lahren",
@@ -1486,7 +1609,8 @@ window.FIGURES = [
 "mod_nihil": 4,
 "dav_dub": -8
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Glenn Beck",
@@ -1498,7 +1622,8 @@ window.FIGURES = [
 "mod_nihil": 0,
 "dav_dub": -8
 },
-"image": null
+"image": null,
+"fac": 5
 },
 {
 "name": "Naval Ravikant",
@@ -1510,7 +1635,8 @@ window.FIGURES = [
 "mod_nihil": 16,
 "dav_dub": 2
 },
-"image": null
+"image": null,
+"fac": 3
 },
 {
 "name": "Paul Graham",
@@ -1522,7 +1648,8 @@ window.FIGURES = [
 "mod_nihil": 18,
 "dav_dub": 10
 },
-"image": null
+"image": null,
+"fac": 3
 },
 {
 "name": "David Sacks",
@@ -1534,7 +1661,8 @@ window.FIGURES = [
 "mod_nihil": 8,
 "dav_dub": -8
 },
-"image": null
+"image": null,
+"fac": 3
 },
 {
 "name": "Chamath Palihapitiya",
@@ -1546,7 +1674,8 @@ window.FIGURES = [
 "mod_nihil": 10,
 "dav_dub": 2
 },
-"image": null
+"image": null,
+"fac": 3
 },
 {
 "name": "Jason Calacanis",
@@ -1558,7 +1687,8 @@ window.FIGURES = [
 "mod_nihil": 14,
 "dav_dub": 8
 },
-"image": null
+"image": null,
+"fac": 3
 },
 {
 "name": "Garry Tan",
@@ -1570,7 +1700,8 @@ window.FIGURES = [
 "mod_nihil": 14,
 "dav_dub": 4
 },
-"image": null
+"image": null,
+"fac": 3
 },
 {
 "name": "Brian Armstrong",
@@ -1582,7 +1713,8 @@ window.FIGURES = [
 "mod_nihil": 12,
 "dav_dub": 0
 },
-"image": null
+"image": null,
+"fac": 3
 },
 {
 "name": "Palmer Luckey",
@@ -1594,7 +1726,8 @@ window.FIGURES = [
 "mod_nihil": 6,
 "dav_dub": -14
 },
-"image": null
+"image": null,
+"fac": 3
 },
 {
 "name": "Alex Karp",
@@ -1606,7 +1739,8 @@ window.FIGURES = [
 "mod_nihil": 6,
 "dav_dub": -2
 },
-"image": null
+"image": null,
+"fac": 3
 },
 {
 "name": "Yann LeCun",
@@ -1618,7 +1752,8 @@ window.FIGURES = [
 "mod_nihil": 16,
 "dav_dub": 12
 },
-"image": null
+"image": null,
+"fac": 3
 },
 {
 "name": "Gary Marcus",
@@ -1630,7 +1765,8 @@ window.FIGURES = [
 "mod_nihil": 8,
 "dav_dub": 14
 },
-"image": null
+"image": null,
+"fac": 4
 },
 {
 "name": "Eliezer Yudkowsky",
@@ -1642,7 +1778,8 @@ window.FIGURES = [
 "mod_nihil": -24,
 "dav_dub": 4
 },
-"image": null
+"image": null,
+"fac": 2
 },
 {
 "name": "Guillaume Verdon (Beff Jezos)",
@@ -1654,7 +1791,8 @@ window.FIGURES = [
 "mod_nihil": 12,
 "dav_dub": -4
 },
-"image": null
+"image": null,
+"fac": 3
 },
 {
 "name": "Kanye West",
@@ -1666,7 +1804,8 @@ window.FIGURES = [
 "mod_nihil": -12,
 "dav_dub": -14
 },
-"image": null
+"image": null,
+"fac": 0
 },
 {
 "name": "LeBron James",
@@ -1678,6 +1817,7 @@ window.FIGURES = [
 "mod_nihil": 12,
 "dav_dub": 14
 },
-"image": null
+"image": null,
+"fac": 1
 }
 ];

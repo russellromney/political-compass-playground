@@ -83,6 +83,8 @@
   .crewrow .cd{width:10px;height:10px;border-radius:50%;flex:none;background:var(--crew)}
   .crewrow .ld{cursor:pointer;color:var(--blue);font-weight:600;font-size:12px}
   .crewrow .x{cursor:pointer;color:var(--red);font-weight:800;margin-left:auto;font-size:15px}
+  .crewedit{font:inherit;font-size:13px;font-weight:700;padding:4px 7px;border:1px solid transparent;border-radius:7px;background:transparent;min-width:120px}
+  .crewedit:hover,.crewedit:focus{border-color:var(--line);background:#fafbfc;outline:none}
   .miniform{display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:center;margin-top:10px}
   .miniform input[type=number]{width:66px;font:inherit;font-size:13px;padding:6px;border-radius:8px;border:1px solid var(--line);text-align:center}
   .miniform input[type=text]{font:inherit;font-size:13px;padding:7px 10px;border-radius:9px;border:1px solid var(--line)}
@@ -129,6 +131,20 @@
       <label class="muted">Davos <input type="number" id="pd" min="0" max="100" value="50"></label>
       <button class="go" onclick="addFromPct()">Add</button>
     </div>
+    <div style="text-align:center;margin-top:12px">
+      <button id="crewToggle" onclick="toggleCrew()">▸ My crew (0)</button>
+    </div>
+    <div id="crewBox" style="display:none;margin-top:10px">
+      <div id="crewList"></div>
+      <div class="row" style="margin-top:10px">
+        <button onclick="exportCrew()" id="expbtn">⬇ Export (backup)</button>
+        <button onclick="toggleImport()">⬆ Import</button>
+      </div>
+      <div id="importBox" style="display:none;margin-top:8px">
+        <textarea id="importText" rows="3" placeholder="paste exported crew JSON here"></textarea>
+        <div class="row" style="margin-top:6px"><button class="go" onclick="importCrew()">Load it</button></div>
+      </div>
+    </div>
   </div>
 
   <div class="panel">
@@ -161,19 +177,6 @@
       <button onclick="cmpRandom()">🎲 Random pair</button>
     </div>
     <div id="cmpOut"></div>
-  </div>
-
-  <div class="panel">
-    <div class="ph">Your crew — saved in this browser</div>
-    <div id="crewList"></div>
-    <div class="row" style="margin-top:10px">
-      <button onclick="exportCrew()" id="expbtn">⬇ Export crew (backup)</button>
-      <button onclick="toggleImport()">⬆ Import</button>
-    </div>
-    <div id="importBox" style="display:none;margin-top:8px">
-      <textarea id="importText" rows="3" placeholder="paste exported crew JSON here"></textarea>
-      <div class="row" style="margin-top:6px"><button class="go" onclick="importCrew()">Load it</button></div>
-    </div>
   </div>
 
   <div class="foot">
@@ -332,9 +335,15 @@ function addFromPct(){const n=(document.getElementById('crewName').value||'').tr
   document.getElementById('crewName').value='';refreshAll();}
 function loadCrewMember(i){const f=CREW[i];AX6.forEach(a=>state[a]=f.scores[a]);jumpCombo.set(f.name);render();}
 function delCrew(i){CREW.splice(i,1);refreshAll();}
-function renderCrew(){const el=document.getElementById('crewList');
-  if(!CREW.length){el.innerHTML='<div class="muted">No one yet. Add yourself with “Save my current spot”.</div>';return;}
-  el.innerHTML=CREW.map((c,i)=>`<div class="crewrow"><span class="cd" style="background:${facColor(c)}"></span><b>${c.name}</b> <span class="muted">${FAC[c.fac].name}</span>
+function renameCrew(i,val){const n=(val||'').trim();if(!n){renderCrew();return;}CREW[i].name=n;saveCrew();buildMap();render();renderCrew();}
+let crewOpen=false;
+function toggleCrew(){crewOpen=!crewOpen;document.getElementById('crewBox').style.display=crewOpen?'block':'none';updateCrewToggle();}
+function updateCrewToggle(){document.getElementById('crewToggle').textContent=(crewOpen?'▾':'▸')+' My crew ('+CREW.length+')';}
+function renderCrew(){updateCrewToggle();const el=document.getElementById('crewList');
+  if(!CREW.length){el.innerHTML='<div class="muted">No one yet — set the sliders and hit Save above.</div>';return;}
+  el.innerHTML=CREW.map((c,i)=>`<div class="crewrow"><span class="cd" style="background:${facColor(c)}"></span>
+    <input class="crewedit" value="${c.name.replace(/"/g,'&quot;')}" onchange="renameCrew(${i},this.value)" title="rename">
+    <span class="muted" style="font-size:11px">${FAC[c.fac].name}</span>
     <span class="ld" onclick="loadCrewMember(${i})">load ↺</span><span class="x" onclick="delCrew(${i})">×</span></div>`).join('');}
 function exportCrew(){const j=JSON.stringify(CREW.map(c=>({name:c.name,scores:c.scores})));
   navigator.clipboard?.writeText(j);const b=document.getElementById('expbtn');const o=b.textContent;b.textContent='✓ Copied JSON';setTimeout(()=>b.textContent=o,1500);}
@@ -371,12 +380,12 @@ function renderCompare(){const A=ALL().find(x=>x.name===cmpA.get()),B=ALL().find
   if(!A||!B){document.getElementById('cmpOut').innerHTML='';return;}
   const tot=distFF(A,B);
   const rows=axes().map(a=>{const m=META[a],va=A.scores[a],vb=B.scores[a];
-    const cl=v=>Math.max(6,Math.min(94,(32-v)/64*100));        // l-pole(+) on the left
-    return `<div class="crow"><div class="cpole l">${m.l}</div>
+    const cl=v=>Math.max(6,Math.min(94,(v+32)/64*100));        // match slider thumbs: positive pole on the right
+    return `<div class="crow"><div class="cpole l">${m.r}</div>
       <div class="ctrack"><div class="cbase"></div>
         <span class="cmk a" style="left:${cl(va)}%;background:${CA}">${shortName(A)} ${fmt(va)}</span>
         <span class="cmk b" style="left:${cl(vb)}%;background:${CB}">${shortName(B)} ${fmt(vb)}</span>
-      </div><div class="cpole r">${m.r}</div></div>`;}).join('');
+      </div><div class="cpole r">${m.l}</div></div>`;}).join('');
   const close=tot<12?'practically twins':tot<22?'fairly close':tot<34?'meaningfully apart':'opposite worlds';
   document.getElementById('cmpOut').innerHTML=`<div class="cmp" style="margin-bottom:8px">
     <div class="cmpcol"><div class="nm" style="color:${CA}">${A.name}</div><div class="desc">${A.description||''}</div></div>

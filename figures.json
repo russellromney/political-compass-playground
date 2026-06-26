@@ -582,7 +582,7 @@
    "dav_dub": -8
   },
   "image": null,
-  "fac": 3
+  "fac": 5
  },
  {
   "name": "Mitt Romney",
@@ -1818,5 +1818,551 @@
   },
   "image": null,
   "fac": 1
+ },
+ {
+  "name": "Javier Milei",
+  "group": "World Leaders",
+  "description": "President of Argentina (2023-present)",
+  "scores": {
+   "prog_cons": -16,
+   "tech_ludd": 18,
+   "mod_nihil": 6,
+   "dav_dub": -14
+  },
+  "image": null,
+  "fac": 5
+ },
+ {
+  "name": "Narendra Modi",
+  "group": "World Leaders",
+  "description": "Prime Minister of India (2014-present)",
+  "scores": {
+   "prog_cons": -20,
+   "tech_ludd": 10,
+   "mod_nihil": 10,
+   "dav_dub": -14
+  },
+  "image": null,
+  "fac": 5
+ },
+ {
+  "name": "Viktor Orbán",
+  "group": "World Leaders",
+  "description": "Prime Minister of Hungary",
+  "scores": {
+   "prog_cons": -24,
+   "tech_ludd": 0,
+   "mod_nihil": 4,
+   "dav_dub": -20
+  },
+  "image": null,
+  "fac": 0
+ },
+ {
+  "name": "Volodymyr Zelensky",
+  "group": "World Leaders",
+  "description": "President of Ukraine (2019-present)",
+  "scores": {
+   "prog_cons": 6,
+   "tech_ludd": 8,
+   "mod_nihil": 8,
+   "dav_dub": 16
+  },
+  "image": null,
+  "fac": 1
+ },
+ {
+  "name": "Benjamin Netanyahu",
+  "group": "World Leaders",
+  "description": "Prime Minister of Israel",
+  "scores": {
+   "prog_cons": -16,
+   "tech_ludd": 8,
+   "mod_nihil": 6,
+   "dav_dub": -10
+  },
+  "image": null,
+  "fac": 5
+ },
+ {
+  "name": "Recep Tayyip Erdoğan",
+  "group": "World Leaders",
+  "description": "President of Turkey",
+  "scores": {
+   "prog_cons": -22,
+   "tech_ludd": 0,
+   "mod_nihil": 2,
+   "dav_dub": -26
+  },
+  "image": null,
+  "fac": 0
+ },
+ {
+  "name": "Marine Le Pen",
+  "group": "World Leaders",
+  "description": "French politician (National Rally)",
+  "scores": {
+   "prog_cons": -22,
+   "tech_ludd": -2,
+   "mod_nihil": 2,
+   "dav_dub": -14
+  },
+  "image": null,
+  "fac": 0
+ },
+ {
+  "name": "Justin Trudeau",
+  "group": "World Leaders",
+  "description": "Prime Minister of Canada (2015-2025)",
+  "scores": {
+   "prog_cons": 18,
+   "tech_ludd": 8,
+   "mod_nihil": 12,
+   "dav_dub": 24
+  },
+  "image": null,
+  "fac": 1
+ },
+ {
+  "name": "Jacinda Ardern",
+  "group": "World Leaders",
+  "description": "Prime Minister of New Zealand (2017-2023)",
+  "scores": {
+   "prog_cons": 20,
+   "tech_ludd": 6,
+   "mod_nihil": 14,
+   "dav_dub": 22
+  },
+  "image": null,
+  "fac": 1
+ },
+ {
+  "name": "Ursula von der Leyen",
+  "group": "World Leaders",
+  "description": "President of the European Commission",
+  "scores": {
+   "prog_cons": 8,
+   "tech_ludd": 8,
+   "mod_nihil": 14,
+   "dav_dub": 30
+  },
+  "image": null,
+  "fac": 1
+ },
+ {
+  "name": "Pedro Sánchez",
+  "group": "World Leaders",
+  "description": "Prime Minister of Spain",
+  "scores": {
+   "prog_cons": 16,
+   "tech_ludd": 4,
+   "mod_nihil": 12,
+   "dav_dub": 20
+  },
+  "image": null,
+  "fac": 1
+ },
+ {
+  "name": "Nicolás Maduro",
+  "group": "World Leaders",
+  "description": "President of Venezuela",
+  "scores": {
+   "prog_cons": 6,
+   "tech_ludd": -10,
+   "mod_nihil": -6,
+   "dav_dub": -28
+  },
+  "image": null,
+  "fac": 0
+ },
+ {
+  "name": "Kim Jong Un",
+  "group": "World Leaders",
+  "description": "Supreme Leader of North Korea",
+  "scores": {
+   "prog_cons": -10,
+   "tech_ludd": -4,
+   "mod_nihil": -6,
+   "dav_dub": -32
+  },
+  "image": null,
+  "fac": 0
+ },
+ {
+  "name": "Larry Fink",
+  "group": "US Business",
+  "description": "CEO of BlackRock",
+  "scores": {
+   "prog_cons": 2,
+   "tech_ludd": 6,
+   "mod_nihil": 14,
+   "dav_dub": 30
+  },
+  "image": null,
+  "fac": 1
+ },
+ {
+  "name": "Jamie Dimon",
+  "group": "US Business",
+  "description": "CEO of JPMorgan Chase",
+  "scores": {
+   "prog_cons": -2,
+   "tech_ludd": 6,
+   "mod_nihil": 14,
+   "dav_dub": 26
+  },
+  "image": null,
+  "fac": 1
+ },
+ {
+  "name": "Sundar Pichai",
+  "group": "US Business",
+  "description": "CEO of Google",
+  "scores": {
+   "prog_cons": 6,
+   "tech_ludd": 24,
+   "mod_nihil": 16,
+   "dav_dub": 22
+  },
+  "image": null,
+  "fac": 1
+ },
+ {
+  "name": "Satya Nadella",
+  "group": "US Business",
+  "description": "CEO of Microsoft",
+  "scores": {
+   "prog_cons": 6,
+   "tech_ludd": 24,
+   "mod_nihil": 18,
+   "dav_dub": 24
+  },
+  "image": null,
+  "fac": 1
+ },
+ {
+  "name": "Sam Bankman-Fried",
+  "group": "US Business",
+  "description": "Founder of FTX (convicted)",
+  "scores": {
+   "prog_cons": 8,
+   "tech_ludd": 24,
+   "mod_nihil": 6,
+   "dav_dub": 10
+  },
+  "image": null,
+  "fac": 3
+ },
+ {
+  "name": "Changpeng Zhao",
+  "group": "US Business",
+  "description": "Founder of Binance",
+  "scores": {
+   "prog_cons": -2,
+   "tech_ludd": 28,
+   "mod_nihil": 8,
+   "dav_dub": -6
+  },
+  "image": null,
+  "fac": 3
+ },
+ {
+  "name": "Travis Kalanick",
+  "group": "US Business",
+  "description": "Co-founder of Uber",
+  "scores": {
+   "prog_cons": -6,
+   "tech_ludd": 26,
+   "mod_nihil": 8,
+   "dav_dub": 2
+  },
+  "image": null,
+  "fac": 3
+ },
+ {
+  "name": "Taylor Swift",
+  "group": "Culture",
+  "description": "Musician",
+  "scores": {
+   "prog_cons": 10,
+   "tech_ludd": 4,
+   "mod_nihil": 12,
+   "dav_dub": 14
+  },
+  "image": null,
+  "fac": 1
+ },
+ {
+  "name": "Beyoncé",
+  "group": "Culture",
+  "description": "Musician",
+  "scores": {
+   "prog_cons": 14,
+   "tech_ludd": 4,
+   "mod_nihil": 10,
+   "dav_dub": 12
+  },
+  "image": null,
+  "fac": 1
+ },
+ {
+  "name": "Dave Chappelle",
+  "group": "Culture",
+  "description": "Comedian",
+  "scores": {
+   "prog_cons": -8,
+   "tech_ludd": 0,
+   "mod_nihil": 0,
+   "dav_dub": 2
+  },
+  "image": null,
+  "fac": 5
+ },
+ {
+  "name": "Russell Brand",
+  "group": "Culture",
+  "description": "Comedian & commentator",
+  "scores": {
+   "prog_cons": -6,
+   "tech_ludd": -8,
+   "mod_nihil": -8,
+   "dav_dub": -16
+  },
+  "image": null,
+  "fac": 0
+ },
+ {
+  "name": "Jon Stewart",
+  "group": "US Media",
+  "description": "Comedian & host",
+  "scores": {
+   "prog_cons": 16,
+   "tech_ludd": 4,
+   "mod_nihil": 6,
+   "dav_dub": 14
+  },
+  "image": null,
+  "fac": 1
+ },
+ {
+  "name": "John Oliver",
+  "group": "US Media",
+  "description": "Host of Last Week Tonight",
+  "scores": {
+   "prog_cons": 18,
+   "tech_ludd": 6,
+   "mod_nihil": 8,
+   "dav_dub": 18
+  },
+  "image": null,
+  "fac": 1
+ },
+ {
+  "name": "Bill Burr",
+  "group": "Culture",
+  "description": "Comedian",
+  "scores": {
+   "prog_cons": 2,
+   "tech_ludd": 0,
+   "mod_nihil": 2,
+   "dav_dub": 2
+  },
+  "image": null,
+  "fac": 4
+ },
+ {
+  "name": "Andrew Schulz",
+  "group": "Culture",
+  "description": "Comedian & podcaster",
+  "scores": {
+   "prog_cons": -8,
+   "tech_ludd": 6,
+   "mod_nihil": 4,
+   "dav_dub": -2
+  },
+  "image": null,
+  "fac": 5
+ },
+ {
+  "name": "Theo Von",
+  "group": "Culture",
+  "description": "Comedian & podcaster",
+  "scores": {
+   "prog_cons": -4,
+   "tech_ludd": 2,
+   "mod_nihil": 2,
+   "dav_dub": -2
+  },
+  "image": null,
+  "fac": 5
+ },
+ {
+  "name": "Logan Paul",
+  "group": "Culture",
+  "description": "Influencer & boxer",
+  "scores": {
+   "prog_cons": -6,
+   "tech_ludd": 14,
+   "mod_nihil": 8,
+   "dav_dub": 0
+  },
+  "image": null,
+  "fac": 3
+ },
+ {
+  "name": "Ann Coulter",
+  "group": "US Media",
+  "description": "Conservative commentator",
+  "scores": {
+   "prog_cons": -26,
+   "tech_ludd": -2,
+   "mod_nihil": 0,
+   "dav_dub": -10
+  },
+  "image": null,
+  "fac": 5
+ },
+ {
+  "name": "Laura Ingraham",
+  "group": "US Media",
+  "description": "Fox News host",
+  "scores": {
+   "prog_cons": -22,
+   "tech_ludd": 2,
+   "mod_nihil": 4,
+   "dav_dub": -8
+  },
+  "image": null,
+  "fac": 5
+ },
+ {
+  "name": "Anderson Cooper",
+  "group": "US Media",
+  "description": "CNN anchor",
+  "scores": {
+   "prog_cons": 12,
+   "tech_ludd": 8,
+   "mod_nihil": 12,
+   "dav_dub": 22
+  },
+  "image": null,
+  "fac": 1
+ },
+ {
+  "name": "Piers Morgan",
+  "group": "US Media",
+  "description": "Broadcaster",
+  "scores": {
+   "prog_cons": -8,
+   "tech_ludd": 4,
+   "mod_nihil": 6,
+   "dav_dub": 6
+  },
+  "image": null,
+  "fac": 5
+ },
+ {
+  "name": "Joe Scarborough",
+  "group": "US Media",
+  "description": "MSNBC Morning Joe host",
+  "scores": {
+   "prog_cons": 2,
+   "tech_ludd": 6,
+   "mod_nihil": 10,
+   "dav_dub": 22
+  },
+  "image": null,
+  "fac": 1
+ },
+ {
+  "name": "Steve Bannon",
+  "group": "US Media",
+  "description": "Right-wing strategist",
+  "scores": {
+   "prog_cons": -24,
+   "tech_ludd": 0,
+   "mod_nihil": -6,
+   "dav_dub": -24
+  },
+  "image": null,
+  "fac": 0
+ },
+ {
+  "name": "Stephen Miller",
+  "group": "US Politics",
+  "description": "White House Deputy Chief of Staff",
+  "scores": {
+   "prog_cons": -28,
+   "tech_ludd": 4,
+   "mod_nihil": -2,
+   "dav_dub": -14
+  },
+  "image": null,
+  "fac": 0
+ },
+ {
+  "name": "Konstantin Kisin",
+  "group": "US Media",
+  "description": "Heterodox commentator & comedian",
+  "scores": {
+   "prog_cons": -12,
+   "tech_ludd": 6,
+   "mod_nihil": 4,
+   "dav_dub": 2
+  },
+  "image": null,
+  "fac": 5
+ },
+ {
+  "name": "Douglas Murray",
+  "group": "US Media",
+  "description": "Author & commentator",
+  "scores": {
+   "prog_cons": -16,
+   "tech_ludd": 6,
+   "mod_nihil": 6,
+   "dav_dub": 4
+  },
+  "image": null,
+  "fac": 5
+ },
+ {
+  "name": "Cornel West",
+  "group": "US Politics",
+  "description": "Philosopher & activist",
+  "scores": {
+   "prog_cons": 24,
+   "tech_ludd": -8,
+   "mod_nihil": -4,
+   "dav_dub": -2
+  },
+  "image": null,
+  "fac": 4
+ },
+ {
+  "name": "Marianne Williamson",
+  "group": "US Politics",
+  "description": "Author & former candidate",
+  "scores": {
+   "prog_cons": 22,
+   "tech_ludd": -12,
+   "mod_nihil": 2,
+   "dav_dub": 0
+  },
+  "image": null,
+  "fac": 4
+ },
+ {
+  "name": "Mehdi Hasan",
+  "group": "US Media",
+  "description": "Journalist",
+  "scores": {
+   "prog_cons": 22,
+   "tech_ludd": -2,
+   "mod_nihil": 2,
+   "dav_dub": 6
+  },
+  "image": null,
+  "fac": 4
  }
 ]
